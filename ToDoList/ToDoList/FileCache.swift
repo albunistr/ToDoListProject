@@ -8,31 +8,38 @@
 import Foundation
 
 class FileCache {
-    private var toDoItems: [ToDoItem] = []
-    private let filePath: String
+    private var toDoItems: [String:ToDoItem] = [:]
+    private let fileForSaving: String
     
-    init(filepath: String) {
-        self.filePath = filepath
-        self.toDoItems = []
+    init(fileForSaving: String) {
+        self.fileForSaving = fileForSaving
+        self.toDoItems = [:]
     }
     
     func addNewItem(_ toDoItem: ToDoItem) {
-        guard !toDoItems.contains(where: { $0.id == toDoItem.id }) else { return }
-        toDoItems.append(toDoItem)
+        
+        if let item = toDoItems[toDoItem.id] {
+            
+        } else {
+            toDoItems[toDoItem.id] = toDoItem
+        }
+
     }
     
     func removeItem(withId id: String) {
-        toDoItems.removeAll(where: { $0.id == id })
+        toDoItems[id] = nil
     }
     
     func saveItemsToJSON() {
         
-        let JSONitems = toDoItems.map { $0.json }
-        
         do {
             
+            guard let directory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else { return }
+            
+            let JSONitems = toDoItems.values.map { $0.json }
+            let filePath = directory.appending(path: "\(fileForSaving).json")
             let JSONdata = try JSONSerialization.data(withJSONObject: JSONitems, options: .prettyPrinted)
-            try JSONdata.write(to: URL(fileURLWithPath: filePath))
+            try JSONdata.write(to: filePath)
             
         } catch {
             
@@ -46,9 +53,13 @@ class FileCache {
         
         do {
             
-            let JSONdata = try Data(contentsOf: URL(fileURLWithPath: filePath))
+            guard let directory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else { return }
+
+            let filePath = directory.appending(path: "\(fileForSaving).json")
+            let JSONdata = try Data(contentsOf: filePath)
             let JSONitems = try JSONSerialization.jsonObject(with: JSONdata, options: []) as? [Any] ?? []
-            toDoItems = JSONitems.compactMap { ToDoItem.parse(json: $0) }
+            let parsedItems = JSONitems.compactMap { ToDoItem.parse(json: $0) }
+            toDoItems = Dictionary(uniqueKeysWithValues: zip(parsedItems.map { $0.id }, parsedItems.map { $0 }))
             
         } catch {
             
@@ -59,13 +70,15 @@ class FileCache {
     }
     
     func saveToCSV() {
-        
-        let CSVitems = toDoItems.map { $0.csv }
-        
+                
         do {
             
+            guard let directory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else { return }
+
+            let CSVitems = toDoItems.values.map { $0.csv }
+            let filePath = directory.appending(path: "\(fileForSaving).csv")
             let CSVdata = CSVitems.joined(separator: "\n").data(using: .utf8)!
-            try CSVdata.write(to: URL(fileURLWithPath: filePath))
+            try CSVdata.write(to: filePath, options: .atomic)
             
         } catch {
             
@@ -79,9 +92,13 @@ class FileCache {
         
         do {
             
-            let CSVdata = try String(contentsOf: URL(fileURLWithPath: filePath))
+            guard let directory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else { return }
+
+            let filePath = directory.appending(path: "\(fileForSaving).csv")            
+            let CSVdata = try String(contentsOf: filePath)
             let CSVitems = CSVdata.components(separatedBy: "\n")
-            toDoItems = CSVitems.compactMap { ToDoItem.parse(csv: $0) }
+            let parsedItems = CSVitems.compactMap { ToDoItem.parse(csv: $0) }
+            toDoItems = Dictionary(uniqueKeysWithValues: zip(parsedItems.map { $0.id }, parsedItems.map { $0 }))
             
         } catch {
             

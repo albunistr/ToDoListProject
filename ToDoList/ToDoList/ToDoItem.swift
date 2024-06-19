@@ -7,12 +7,6 @@
 
 import Foundation
 
-enum Importance: String {
-    case Unimportant
-    case Usual
-    case Important
-}
-
 struct ToDoItem {
     
     var id: String
@@ -23,7 +17,16 @@ struct ToDoItem {
     var creationDate: Date
     var modificationDate: Date?
     
-    init(id: String = UUID().uuidString, text: String, importance: Importance, deadline: Date?, isCompleted: Bool, creationDate: Date, modificationDate: Date?) {
+    init(
+        id: String = UUID().uuidString,
+        text: String,
+        importance: Importance,
+        deadline: Date?,
+        isCompleted: Bool,
+        creationDate: Date,
+        modificationDate: Date?
+    ) {
+        
         self.id = id
         self.text = text
         self.importance = importance
@@ -31,50 +34,95 @@ struct ToDoItem {
         self.isCompleted = isCompleted
         self.creationDate = creationDate
         self.modificationDate = modificationDate
+        
     }
     
 }
 
+extension ToDoItem {
+    
+    enum Constants {
+        static let maxCount = 7
+        static let minCount = 4
+        static let defaultValueForImportance = Importance.usual
+    }
+        
+    enum Importance: String {
+        case unimportant
+        case usual
+        case important
+    }
+    
+    enum CodingKeys {
+        static let idKey: String = "id"
+        static let textKey: String = "text"
+        static let importanceKey: String = "importance"
+        static let deadlineKey: String = "deadline"
+        static let isCompletedKey: String = "isCompleted"
+        static let creationDateKey: String = "creationDate"
+        static let modificationDateKey: String = "modificationDate"
+    }
+    
+}
 
 extension ToDoItem {
     
     static func parse(json: Any) -> ToDoItem? {
         
         guard let dict = json as? [String: Any],
-              let text = dict["text"] as? String,
-              let isCompleted = dict["isCompleted"] as? Bool,
-              let creationDate = dict["creationDate"] as? Date else {
+              let text = dict[CodingKeys.textKey] as? String,
+              let isCompleted = dict[CodingKeys.isCompletedKey] as? Bool,
+              let creationDate = dict[CodingKeys.creationDateKey] as? Date else {
             return nil
         }
         
-        let id = dict["id"] as? String ?? UUID().uuidString
-        let importance = dict["importance"] as? Importance ?? .Usual
-        let modificationDate = dict["modificationDate"] as? Date
-        let deadline = dict["deadline"] as? Date
+        var importance: Importance
         
-        return ToDoItem(id: id, text: text, importance: importance, deadline: deadline, isCompleted: isCompleted, creationDate: creationDate, modificationDate: modificationDate)
+        if let stringForImportance = dict[CodingKeys.importanceKey] as? String {
+            if let unwrappedImportance = Importance(rawValue: stringForImportance) {
+                importance = unwrappedImportance
+            } else {
+                return nil
+            }
+        } else {
+            importance = .usual
+        }
+        
+        let id = dict[CodingKeys.idKey] as? String ?? UUID().uuidString
+        let modificationDate = dict[CodingKeys.modificationDateKey] as? Date
+        let deadline = dict[CodingKeys.deadlineKey] as? Date
+        
+        return ToDoItem(
+            id: id,
+            text: text,
+            importance: importance,
+            deadline: deadline,
+            isCompleted: isCompleted,
+            creationDate: creationDate,
+            modificationDate: modificationDate
+        )
         
     }
     
     var json: Any {
         
         var dict: [String: Any] = [
-            "id": id,
-            "text": text,
-            "isDone": isCompleted,
-            "creationDate": creationDate
+            CodingKeys.idKey: id,
+            CodingKeys.textKey: text,
+            CodingKeys.isCompletedKey: isCompleted,
+            CodingKeys.creationDateKey: creationDate
         ]
         
-        if importance != .Usual {
-            dict["importance"] = importance
+        if importance != .usual {
+            dict[CodingKeys.importanceKey] = importance
         }
         
         if let deadline = deadline {
-            dict["deadline"] = deadline
+            dict[CodingKeys.deadlineKey] = deadline
         }
         
         if let modificationDate = modificationDate {
-            dict["modificationDate"] = modificationDate
+            dict[CodingKeys.modificationDateKey] = modificationDate
         }
         
         return dict
@@ -88,18 +136,29 @@ extension ToDoItem {
     static func parse(csv: String) -> ToDoItem? {
         let components = csv.components(separatedBy: ",")
         
-        guard components.filter({$0 != ""}).count >= 4, components.count <= 7 else { return nil }
+        guard components.filter({$0 != ""}).count >= Constants.minCount,
+              components.count <= Constants.maxCount,
+              let creationDate = DateFormatter().date(from: components[3]) else { return nil }
         
         let id = components[0] == "" ? UUID().uuidString : components[0]
         let text = components[1]
         let isCompleted = Bool(components[2]) ?? false
-        let creationDate: Date = DateFormatter().date(from: components[3])!
-        let importanceString = components[4] == "" ? "Usual" : components[4]
+        let importanceString = components[4] == "" ? Constants.defaultValueForImportance.rawValue : components[4]
         let importance = Importance(rawValue: importanceString)!
         let deadline: Date? = components[5] == "" ? nil : DateFormatter().date(from: components[5])
         let modficationDate: Date? = components[6] == "" ? nil : DateFormatter().date(from: components[6])
         
-        return ToDoItem(id: id, text: text, importance: importance, deadline: deadline, isCompleted: isCompleted, creationDate: creationDate, modificationDate: modficationDate)
+    
+        
+        return ToDoItem(
+            id: id,
+            text: text,
+            importance: importance,
+            deadline: deadline,
+            isCompleted: isCompleted,
+            creationDate: creationDate,
+            modificationDate: modficationDate
+        )
         
     }
     
@@ -107,8 +166,8 @@ extension ToDoItem {
         var string = ""
         
         string += "\(id),\(text),\(isCompleted),\(Int(creationDate.timeIntervalSince1970)),"
-        
-        if importance != .Usual {
+         
+        if importance != .usual {
             string += "\(importance.rawValue),"
         } else {
             string += ","
