@@ -1,21 +1,13 @@
-//
-//  ToDoItem.swift
-//  ToDoList
-//
-//  Created by Powers Mikaela on 6/18/24.
-//
-
 import Foundation
 
 struct ToDoItem {
-    
-    var id: String
-    var text: String
-    var importance: Importance
-    var deadline: Date?
-    var isCompleted: Bool
-    var creationDate: Date
-    var modificationDate: Date?
+    let id: String
+    let text: String
+    let importance: Importance
+    let deadline: Date?
+    let isCompleted: Bool
+    let creationDate: Date
+    let modificationDate: Date?
     
     init(
         id: String = UUID().uuidString,
@@ -26,7 +18,6 @@ struct ToDoItem {
         creationDate: Date,
         modificationDate: Date?
     ) {
-        
         self.id = id
         self.text = text
         self.importance = importance
@@ -34,19 +25,16 @@ struct ToDoItem {
         self.isCompleted = isCompleted
         self.creationDate = creationDate
         self.modificationDate = modificationDate
-        
     }
-    
 }
 
 extension ToDoItem {
-    
     enum Constants {
         static let maxCount = 7
         static let minCount = 4
         static let defaultValueForImportance = Importance.usual
     }
-        
+    
     enum Importance: String {
         case unimportant
         case usual
@@ -62,17 +50,15 @@ extension ToDoItem {
         static let creationDateKey: String = "creationDate"
         static let modificationDateKey: String = "modificationDate"
     }
-    
 }
 
 extension ToDoItem {
-    
     static func parse(json: Any) -> ToDoItem? {
-        
         guard let dict = json as? [String: Any],
               let text = dict[CodingKeys.textKey] as? String,
               let isCompleted = dict[CodingKeys.isCompletedKey] as? Bool,
-              let creationDate = dict[CodingKeys.creationDateKey] as? Date else {
+              let creationDate = dict[CodingKeys.creationDateKey] as? Date
+        else {
             return nil
         }
         
@@ -101,11 +87,9 @@ extension ToDoItem {
             creationDate: creationDate,
             modificationDate: modificationDate
         )
-        
     }
     
     var json: Any {
-        
         var dict: [String: Any] = [
             CodingKeys.idKey: id,
             CodingKeys.textKey: text,
@@ -126,29 +110,53 @@ extension ToDoItem {
         }
         
         return dict
-        
     }
-    
 }
 
 extension ToDoItem {
-    
     static func parse(csv: String) -> ToDoItem? {
-        let components = csv.components(separatedBy: ",")
+        var components = [String]()
+        var currentComponent = ""
+        var insideQuotos = false
         
-        guard components.filter({$0 != ""}).count >= Constants.minCount,
+        for char in csv {
+            if char == "\"" {
+                insideQuotos.toggle()
+            } else if char == ",", !insideQuotos {
+                components.append(currentComponent)
+                currentComponent = ""
+            } else {
+                currentComponent.append(char)
+            }
+        }
+        
+        components.append(currentComponent)
+        
+        guard components.count >= Constants.minCount,
               components.count <= Constants.maxCount,
-              let creationDate = DateFormatter().date(from: components[3]) else { return nil }
+              components[1] != "",
+              let isCompleted = Bool(components[2]),
+              let creationDateDouble = Double(components[3])
+        else { return nil }
+        
+        var importance: Importance
+        let importanceString = components[4]
+        switch importanceString {
+        case "":
+            importance = Constants.defaultValueForImportance
+        case Importance.unimportant.rawValue, Importance.important.rawValue:
+            importance = Importance(rawValue: importanceString)!
+        default:
+            return nil
+        }
         
         let id = components[0] == "" ? UUID().uuidString : components[0]
         let text = components[1]
-        let isCompleted = Bool(components[2]) ?? false
-        let importanceString = components[4] == "" ? Constants.defaultValueForImportance.rawValue : components[4]
-        let importance = Importance(rawValue: importanceString)!
-        let deadline: Date? = components[5] == "" ? nil : DateFormatter().date(from: components[5])
-        let modficationDate: Date? = components[6] == "" ? nil : DateFormatter().date(from: components[6])
-        
-    
+        let creationDate = Date(timeIntervalSince1970: TimeInterval(creationDateDouble))
+        let deadlineDouble = Double(components[5]) ?? nil
+        let deadline = deadlineDouble != nil ? Date(timeIntervalSince1970: TimeInterval(deadlineDouble!)) : nil
+        let modoficationDateDouble = Double(components[6]) ?? nil
+        let modficationDate = modoficationDateDouble != nil ? Date(timeIntervalSince1970: TimeInterval(modoficationDateDouble!)) : nil
         
         return ToDoItem(
             id: id,
@@ -159,33 +167,32 @@ extension ToDoItem {
             creationDate: creationDate,
             modificationDate: modficationDate
         )
-        
     }
     
     var csv: String {
-        var string = ""
-        
-        string += "\(id),\(text),\(isCompleted),\(Int(creationDate.timeIntervalSince1970)),"
-         
-        if importance != .usual {
-            string += "\(importance.rawValue),"
-        } else {
-            string += ","
+        var importanceString: String
+        switch importance {
+        case .usual:
+            importanceString = ""
+        case .important, .unimportant:
+            importanceString = "\(importance.rawValue)"
         }
         
-        if let deadline = deadline {
-            string += "\(Int(deadline.timeIntervalSince1970)),"
-        } else {
-            string += ","
-        }
+        let deadlineString = deadline.flatMap { String($0.timeIntervalSince1970) } ?? ""
+        let modificationString = modificationDate.flatMap { String($0.timeIntervalSince1970) } ?? ""
         
-        if let modificationDate = modificationDate {
-            string += "\(Int(modificationDate.timeIntervalSince1970)),"
-        } else {
-            string += ","
-        }
+        let textWithQuotos = "\"\(text)\""
         
-        return string
+        let elements = [
+            id,
+            textWithQuotos,
+            String(isCompleted),
+            String(creationDate.timeIntervalSince1970),
+            importanceString,
+            deadlineString,
+            modificationString
+        ]
+        
+        return elements.joined(separator: ",")
     }
 }
-
