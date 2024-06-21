@@ -2,9 +2,8 @@
 import XCTest
 
 final class ToDoListTests: XCTestCase {
-    //testing initializator
+    // testing initializator
     func testInit() {
-        
         let givenId = UUID().uuidString
         let givenText = "Купить продукты"
         let givenImportance = ToDoItem.Importance.usual
@@ -30,12 +29,10 @@ final class ToDoListTests: XCTestCase {
         XCTAssertEqual(toDoItem.isCompleted, givenIsCompleted, "Invalid isCompleted flag")
         XCTAssertEqual(toDoItem.creationDate, givenCreationDate, "Invalid creation date")
         XCTAssertEqual(toDoItem.modificationDate, givenModificationDate, "Invalid modification date")
-        
     }
     
-    //testing JSONparser
+    // testing JSONparser
     func testParseJSONfromDictionary() {
-        
         let givenId = "12345"
         let givenText = "Купить продукты"
         let givenImportance = ToDoItem.Importance.usual
@@ -63,11 +60,9 @@ final class ToDoListTests: XCTestCase {
         XCTAssertEqual(givenIsCompleted, checkingItem.isCompleted, "Invalid isCompleted flag")
         XCTAssertEqual(Int(givenCreationDate.timeIntervalSince1970), Int(checkingItem.creationDate.timeIntervalSince1970), "Invalid creation date")
         XCTAssertEqual(Int(givenModificationDate!.timeIntervalSince1970), Int(checkingItem.modificationDate!.timeIntervalSince1970), "Invalid modification date")
-        
     }
     
     func testParseJSONfromComputedProperty() {
-        
         let givenId = UUID().uuidString
         let giventext = "Купить продукты"
         let givenImportance = ToDoItem.Importance.usual
@@ -96,11 +91,9 @@ final class ToDoListTests: XCTestCase {
         XCTAssertEqual(checkingItem!.isCompleted, givenIsCompleted, "Invalid isCompleted flag")
         XCTAssertEqual(Int(checkingItem!.creationDate.timeIntervalSince1970), Int(givenCreationDate.timeIntervalSince1970), "Invalid creation date")
         XCTAssertEqual(Int(checkingItem!.modificationDate!.timeIntervalSince1970), Int(givenModificationDate!.timeIntervalSince1970), "Invalid modification date")
-        
     }
      
     func testParseJSONwithoutId() {
-
         let givenText = "Купить продукты"
         let givenImportance = ToDoItem.Importance.usual
         let givenIsCompleted = true
@@ -111,7 +104,6 @@ final class ToDoListTests: XCTestCase {
             "importance": "usual",
             "isCompleted": true,
             "creationDate": Date()
-            
         ]
         
         let checkingItem = ToDoItem.parse(json: givenJson)!
@@ -120,11 +112,9 @@ final class ToDoListTests: XCTestCase {
         XCTAssertEqual(givenImportance, checkingItem.importance, "Invalid importanse of item")
         XCTAssertEqual(givenIsCompleted, checkingItem.isCompleted, "Invalid isCompleted flag")
         XCTAssertEqual(Int(givenCreationDate.timeIntervalSince1970), Int(checkingItem.creationDate.timeIntervalSince1970), "Invalid creation date")
-        
     }
 
     func testParseJSONwithoutOptionalValues() {
-        
         let givenId = UUID().uuidString
         let giventext = "Купить продукты"
         let givenImportance = ToDoItem.Importance.usual
@@ -153,11 +143,9 @@ final class ToDoListTests: XCTestCase {
         XCTAssertEqual(checkingItem!.isCompleted, givenIsCompleted, "Invalid isCompleted flag")
         XCTAssertEqual(Int(checkingItem!.creationDate.timeIntervalSince1970), Int(givenCreationDate.timeIntervalSince1970), "Invalid creation date")
         XCTAssertNil(checkingItem?.deadline)
-        
     }
 
     func testParseJSONwithoutNonOptionalValues() {
-        
         let givenJson: [String: Any] = [
             "id": "12345",
             "text": "Купить продукты",
@@ -167,7 +155,6 @@ final class ToDoListTests: XCTestCase {
         let checkingItem = ToDoItem.parse(json: givenJson)
         
         XCTAssertNil(checkingItem)
-        
     }
 
     func testParseJSONwithInvalidValues() {
@@ -184,11 +171,9 @@ final class ToDoListTests: XCTestCase {
         let checkingItem = ToDoItem.parse(json: givenJson)
         
         XCTAssertNil(checkingItem)
-        
     }
 
     func testParseJSONwithoutOneOptionalValue() {
-        
         let givenId = "12345"
         let givenText = "Купить продукты"
         let givenImportance = ToDoItem.Importance.usual
@@ -202,7 +187,7 @@ final class ToDoListTests: XCTestCase {
             "importance": "usual",
             "deadline": Date().addingTimeInterval(5000),
             "isCompleted": true,
-            "creationDate": Date(),
+            "creationDate": Date()
         ]
         
         let checkingItem = ToDoItem.parse(json: givenJson)!
@@ -214,11 +199,9 @@ final class ToDoListTests: XCTestCase {
         XCTAssertEqual(givenIsCompleted, checkingItem.isCompleted, "Invalid isCompleted flag")
         XCTAssertEqual(Int(givenCreationDate.timeIntervalSince1970), Int(checkingItem.creationDate.timeIntervalSince1970), "Invalid creation date")
         XCTAssertNil(checkingItem.modificationDate)
-        
     }
 
     func testParseJSONwithUsual() {
-        
         let givenId = UUID().uuidString
         let giventext = "Купить продукты"
         let givenImportance = ToDoItem.Importance.usual
@@ -247,11 +230,9 @@ final class ToDoListTests: XCTestCase {
         XCTAssertEqual(checkingItem!.isCompleted, givenIsCompleted, "Invalid isCompleted flag")
         XCTAssertEqual(Int(checkingItem!.creationDate.timeIntervalSince1970), Int(givenCreationDate.timeIntervalSince1970), "Invalid creation date")
         XCTAssertEqual(Int(checkingItem!.modificationDate!.timeIntervalSince1970), Int(givenModificationDate!.timeIntervalSince1970), "Invalid modification date")
-        
     }
     
     func testParseJSONwithInvalidImportance() {
-
         let givenJson: [String: Any] = [
             "id": "12345",
             "text": "Купить продукты",
@@ -264,13 +245,11 @@ final class ToDoListTests: XCTestCase {
         
         let checkingItem = ToDoItem.parse(json: givenJson)
         
-       XCTAssertNil(checkingItem)
-        
+        XCTAssertNil(checkingItem)
     }
     
-    //testingCSVparser
+    // testingCSVparser
     func testParseCSVfromString() {
-        
         let givenId = "12345"
         let givenText = "Купить продукты"
         let givenImportance = ToDoItem.Importance.unimportant
@@ -289,8 +268,6 @@ final class ToDoListTests: XCTestCase {
         XCTAssertEqual(givenIsCompleted, checkingItem.isCompleted, "Invalid isCompleted flag")
         XCTAssertEqual(Int(givenCreationDate.timeIntervalSince1970), Int(checkingItem.creationDate.timeIntervalSince1970), "Invalid creation date")
         XCTAssertEqual(Int(givenModificationDate!.timeIntervalSince1970), Int(checkingItem.modificationDate!.timeIntervalSince1970), "Invalid modification date")
-        
-        
     }
     
     func testParseCSVfromComputedProperty() {
@@ -323,8 +300,8 @@ final class ToDoListTests: XCTestCase {
         XCTAssertEqual(Int(toDoItem.creationDate.timeIntervalSince1970), Int(checkingItem.creationDate.timeIntervalSince1970), "Invalid creation date")
         XCTAssertEqual(Int(toDoItem.modificationDate!.timeIntervalSince1970), Int(checkingItem.modificationDate!.timeIntervalSince1970), "Invalid modification date")
     }
+
     func testParseCSVwithoutId() {
-        
         let givenText = "Купить продукты"
         let givenImportance = ToDoItem.Importance.unimportant
         let givenDeadline: Date? = Date(timeIntervalSince1970: TimeInterval(1718877367))
@@ -342,11 +319,9 @@ final class ToDoListTests: XCTestCase {
         XCTAssertEqual(givenIsCompleted, checkingItem.isCompleted, "Invalid isCompleted flag")
         XCTAssertEqual(Int(givenCreationDate.timeIntervalSince1970), Int(checkingItem.creationDate.timeIntervalSince1970), "Invalid creation date")
         XCTAssertEqual(Int(givenModificationDate!.timeIntervalSince1970), Int(checkingItem.modificationDate!.timeIntervalSince1970), "Invalid modification date")
-        
     }
 
     func testParseCSVwithoutOptionalValues() {
-        
         let givenId = "12345"
         let givenText = "Купить продукты"
         let givenImportance = ToDoItem.Importance.unimportant
@@ -364,18 +339,14 @@ final class ToDoListTests: XCTestCase {
         XCTAssertEqual(givenIsCompleted, checkingItem.isCompleted, "Invalid isCompleted flag")
         XCTAssertEqual(Int(givenCreationDate.timeIntervalSince1970), Int(checkingItem.creationDate.timeIntervalSince1970), "Invalid creation date")
         XCTAssertNil(checkingItem.modificationDate)
-        
-        
     }
 
     func testParseCSVwithoutNonOptionalValues() {
-        
         let givenString = ",,false,,unimportant,1718877367,1718875367"
         
         let checkingItem = ToDoItem.parse(csv: givenString)
         
         XCTAssertNil(checkingItem)
-        
     }
 
     func testParseCSVwithInvalidValues() {
@@ -387,7 +358,6 @@ final class ToDoListTests: XCTestCase {
     }
 
     func testParseCSVwithUsual() {
-        
         let givenText = "Купить продукты, книгу"
         let givenImportance = ToDoItem.Importance.usual
         let givenDeadline: Date? = Date(timeIntervalSince1970: TimeInterval(1718877367))
@@ -404,7 +374,6 @@ final class ToDoListTests: XCTestCase {
             modificationDate: givenModificationDate
         )
         
-        
         let givenString = toDoItem.csv
         let checkingItem = ToDoItem.parse(csv: givenString)!
         
@@ -414,7 +383,6 @@ final class ToDoListTests: XCTestCase {
         XCTAssertEqual(givenIsCompleted, checkingItem.isCompleted, "Invalid isCompleted flag")
         XCTAssertEqual(Int(givenCreationDate.timeIntervalSince1970), Int(checkingItem.creationDate.timeIntervalSince1970), "Invalid creation date")
         XCTAssertEqual(Int(givenModificationDate!.timeIntervalSince1970), Int(checkingItem.modificationDate!.timeIntervalSince1970), "Invalid modification date")
-        
     }
     
     func testParseCSVwithInvalidImportance() {

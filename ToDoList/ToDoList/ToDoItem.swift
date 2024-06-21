@@ -1,7 +1,6 @@
 import Foundation
 
 struct ToDoItem {
-    
     let id: String
     let text: String
     let importance: Importance
@@ -19,7 +18,6 @@ struct ToDoItem {
         creationDate: Date,
         modificationDate: Date?
     ) {
-        
         self.id = id
         self.text = text
         self.importance = importance
@@ -27,13 +25,10 @@ struct ToDoItem {
         self.isCompleted = isCompleted
         self.creationDate = creationDate
         self.modificationDate = modificationDate
-        
     }
-    
 }
 
 extension ToDoItem {
-    
     enum Constants {
         static let maxCount = 7
         static let minCount = 4
@@ -55,17 +50,15 @@ extension ToDoItem {
         static let creationDateKey: String = "creationDate"
         static let modificationDateKey: String = "modificationDate"
     }
-    
 }
 
 extension ToDoItem {
-    
     static func parse(json: Any) -> ToDoItem? {
-        
         guard let dict = json as? [String: Any],
               let text = dict[CodingKeys.textKey] as? String,
               let isCompleted = dict[CodingKeys.isCompletedKey] as? Bool,
-              let creationDate = dict[CodingKeys.creationDateKey] as? Date else {
+              let creationDate = dict[CodingKeys.creationDateKey] as? Date
+        else {
             return nil
         }
         
@@ -94,11 +87,9 @@ extension ToDoItem {
             creationDate: creationDate,
             modificationDate: modificationDate
         )
-        
     }
     
     var json: Any {
-        
         var dict: [String: Any] = [
             CodingKeys.idKey: id,
             CodingKeys.textKey: text,
@@ -119,15 +110,11 @@ extension ToDoItem {
         }
         
         return dict
-        
     }
-    
 }
 
 extension ToDoItem {
-    
     static func parse(csv: String) -> ToDoItem? {
-        
         var components = [String]()
         var currentComponent = ""
         var insideQuotos = false
@@ -135,7 +122,7 @@ extension ToDoItem {
         for char in csv {
             if char == "\"" {
                 insideQuotos.toggle()
-            } else if char == "," && !insideQuotos {
+            } else if char == ",", !insideQuotos {
                 components.append(currentComponent)
                 currentComponent = ""
             } else {
@@ -180,11 +167,9 @@ extension ToDoItem {
             creationDate: creationDate,
             modificationDate: modficationDate
         )
-        
     }
     
     var csv: String {
-        
         var importanceString: String
         switch importance {
         case .usual:
@@ -211,4 +196,3 @@ extension ToDoItem {
         return elements.joined(separator: ",")
     }
 }
-
