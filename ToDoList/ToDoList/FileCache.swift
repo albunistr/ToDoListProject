@@ -1,10 +1,3 @@
-//
-//  FileCache.swift
-//  ToDoList
-//
-//  Created by Powers Mikaela on 6/18/24.
-//
-
 import Foundation
 
 class FileCache {
