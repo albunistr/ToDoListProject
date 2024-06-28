@@ -8,14 +8,11 @@
 import SwiftUI
 
 struct ContentView: View {
+    private let fileCache = FileCache()
+    //for testing I put testingFileCache^ for opening clear app put fileCache
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
-        }
-        .padding()
+        TodoListView(todoListViewModel: TodoListViewModel(fileCache: testingFileCache))
     }
 }
 
