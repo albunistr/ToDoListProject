@@ -1,33 +1,46 @@
+//
+//  TodoItem.swift
+//  ToDoList
+//
+//  Created by Albina Akhmadieva on 27.06.2024.
+//
+
 import Foundation
 
-struct TodoItem {
-    let id: String
-    let text: String
-    let importance: Importance
-    let deadline: Date?
-    let isCompleted: Bool
-    let createdAt: Date
-    let changedAt: Date?
-    
-    init(
-        id: String = UUID().uuidString,
-        text: String,
-        importance: Importance,
+// MARK: - Common methods
+
+extension TodoItem {
+
+    static func defaultItem(id: String = UUID().uuidString) -> TodoItem {
+        TodoItem(id: id, text: "Что надо сделать?", importance: .usual)
+    }
+
+    func copy(
+        id: String? = nil,
+        text: String? = nil,
+        importance: Importance? = nil,
         deadline: Date? = nil,
-        isCompleted: Bool,
-        createdAt: Date = Date(),
-        changedAt: Date? = nil
-    ) {
-        self.id = id
-        self.text = text
-        self.importance = importance
-        self.deadline = deadline
-        self.isCompleted = isCompleted
-        self.createdAt = createdAt
-        self.changedAt = changedAt
+        isCompleted: Bool? = nil,
+        createdAt: Date? = nil,
+        changedAt: Date? = nil,
+        color: String? = nil
+    ) -> Self {
+
+        .init(
+            id: id ?? self.id,
+            text: text ?? self.text,
+            importance: importance ?? self.importance,
+            deadline: deadline ?? self.deadline,
+            isCompleted: isCompleted ?? self.isCompleted,
+            createdAt: createdAt ?? self.createdAt,
+            changedAt: changedAt ?? self.changedAt,
+            color: color ?? self.color
+        )
     }
 }
-// MARK: Constants for TodoItem
+
+// MARK: - Constants for TodoItem
+
 extension TodoItem {
     enum Constants {
         static let maxCount = 7
@@ -39,6 +52,31 @@ extension TodoItem {
         case unimportant
         case usual
         case important
+        
+        init(rawValue: Int) {
+            switch rawValue {
+            case 0:
+                self = .unimportant
+            case 1:
+                self = .usual
+            case 2:
+                self = .important
+            default:
+                self = .usual
+            }
+        }
+        
+        func getOption(importance: Importance) -> Int {
+            switch importance {
+            case .unimportant:
+                return 0
+            case .usual:
+                return 1
+            case .important:
+                return 2
+            }
+        }
+        
     }
     
     enum CodingKeys {
@@ -51,18 +89,23 @@ extension TodoItem {
         static let changedAtKey: String = "changedAt"
     }
 }
-// MARK: JSON researching
+
+// MARK: - JSON researching
+
 extension TodoItem {
     static func parse(json: Any) -> TodoItem? {
         guard let dict = json as? [String: Any],
               let text = dict[CodingKeys.textKey] as? String,
               let isCompleted = dict[CodingKeys.isCompletedKey] as? Bool,
-              let createdAt = dict[CodingKeys.createdAtKey] as? Date
+              let createdAt = dict[CodingKeys.createdAtKey] as? Date,
+              let id = dict[CodingKeys.idKey] as? String
         else {
             return nil
         }
         
-        var importance: Importance
+        let importance: Importance
+        let deadline: Date?
+        let changedAt: Date?
         
         if let stringForImportance = dict[CodingKeys.importanceKey] as? String {
             if let unwrappedImportance = Importance(rawValue: stringForImportance) {
@@ -74,9 +117,13 @@ extension TodoItem {
             importance = .usual
         }
         
-        let id = dict[CodingKeys.idKey] as? String ?? UUID().uuidString
-        let changedAt = dict[CodingKeys.changedAtKey] as? Date
-        let deadline = dict[CodingKeys.deadlineKey] as? Date
+        deadline = (dict[CodingKeys.deadlineKey] as? Double).flatMap {
+            Date(timeIntervalSince1970: TimeInterval($0))
+        }
+
+        changedAt = (dict[CodingKeys.changedAtKey] as? Double).flatMap {
+            Date(timeIntervalSince1970: TimeInterval($0))
+        }
         
         return TodoItem(
             id: id,
@@ -94,25 +141,27 @@ extension TodoItem {
             CodingKeys.idKey: id,
             CodingKeys.textKey: text,
             CodingKeys.isCompletedKey: isCompleted,
-            CodingKeys.createdAtKey: createdAt
+            CodingKeys.createdAtKey: createdAt.timeIntervalSince1970
         ]
         
         if importance != .usual {
-            dict[CodingKeys.importanceKey] = importance
+            dict[CodingKeys.importanceKey] = importance.rawValue
         }
         
         if let deadline = deadline {
-            dict[CodingKeys.deadlineKey] = deadline
+            dict[CodingKeys.deadlineKey] = deadline.timeIntervalSince1970
         }
         
         if let changedAt = changedAt {
-            dict[CodingKeys.changedAtKey] = changedAt
+            dict[CodingKeys.changedAtKey] = changedAt.timeIntervalSince1970
         }
         
         return dict
     }
 }
-// MARK: CSV researching
+
+// MARK: - CSV researching
+
 extension TodoItem {
     static func parse(csv: String, separator: Character) -> TodoItem? {
         var components = [String]()
