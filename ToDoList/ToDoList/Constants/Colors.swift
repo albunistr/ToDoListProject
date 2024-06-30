@@ -27,3 +27,23 @@ struct Colors {
     static let backSecondary = Color("BackSecondary")
     static let backElevated = Color("BackElevated")
 }
+
+struct ColorsUIKit {
+    static let separator = UIColor(named: "Separator")
+    static let overlay = UIColor(named: "Overlay")
+    static let navBarBlur = UIColor(named: "NavBarBlur")
+    static let labelPrimary = UIColor(named: "LabelPrimary")
+    static let labelSecondary = UIColor(named: "LabelSecondary")
+    static let labelTertiary = UIColor(named: "LabelTertiary")
+    static let labelDisable = UIColor(named: "LabelDisable")
+    static let red = UIColor(named: "Red")
+    static let green = UIColor(named: "Green")
+    static let blue = UIColor(named: "Blue")
+    static let gray = UIColor(named: "Gray")
+    static let grayLight = UIColor(named: "GrayLight")
+    static let white = UIColor(named: "White")
+    static let backIOSPrimary = UIColor(named: "BackIOSPrimary")
+    static let backPrimary = UIColor(named: "BackPrimary")
+    static let backSecondary = UIColor(named: "BackSecondary")
+    static let backElevated = UIColor(named: "BackElevated")
+}

@@ -8,10 +8,32 @@
 import Foundation
 import SwiftUI
 
+
+struct TodoListViewModelData {
+    let value: TodoListViewModel
+}
+
+struct UIKitControllerWrapper: UIViewControllerRepresentable {
+    var todoListViewModel: TodoListViewModel
+    typealias UIViewControllerType = TodoCalendarViewController
+    
+    func makeUIViewController(context: Context) -> TodoCalendarViewController {
+        let storyboard = UIStoryboard(name: "TodoCalendar", bundle: nil)
+        let todoCalendarViewController = storyboard.instantiateViewController(withIdentifier: "TodoCalendarViewController") as! TodoCalendarViewController
+        
+        return todoCalendarViewController
+    }
+    
+    func updateUIViewController(_ uiViewController: TodoCalendarViewController, context: Context) {
+        //
+    }
+
+}
 struct TodoListView: View {
     @StateObject var todoListViewModel: TodoListViewModel
     @State private var selectedItem: TodoItemViewModel?
     @State private var isTapped: Bool = false
+    @State private var showCalendar = false
     
     // MARK: - Body
     var body: some View {
@@ -35,6 +57,9 @@ struct TodoListView: View {
                     ToDoItemView(todoItemViewModel: $todoListViewModel.items[index])
                 }
             }
+            .fullScreenCover(isPresented: $showCalendar) {
+                UIKitControllerWrapper(todoListViewModel: todoListViewModel)
+            }
             
         }
     }
@@ -42,11 +67,22 @@ struct TodoListView: View {
     // MARK: - Title
     
     var title: some View {
-        Text(TodoListConstants.myTodos)
-            .padding(.top, 60)
-            .padding()
-            .frame(maxWidth: .infinity, alignment: .leading)
-            .font(.largeTitle).bold()
+        HStack{ Text(TodoListConstants.myTodos)
+                .padding(.top, 60)
+                .padding()
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .font(.largeTitle).bold()
+            Spacer()
+            Text("Календарь")
+                .padding(.top, 60)
+                .padding()
+                .frame(maxWidth: .infinity, alignment: .trailing)
+                .font(.title).bold()
+                .foregroundColor(Colors.labelTertiary)
+                .onTapGesture {
+                    showCalendar = true
+                }
+        }
     }
     
     // MARK: - Top bar
@@ -75,7 +111,7 @@ struct TodoListView: View {
             todoListViewModel.addNew()
             selectedItem = todoListViewModel.items.last
         }) {
-            Images.plus
+            Image(Images.plus)
                 .frame(width: 44, height: 44, alignment: .center)
         }
         .padding(.bottom, 32)
@@ -101,7 +137,7 @@ struct TodoListView: View {
                             
                             TodoCellView(todoItemViewModel: $viewModel, isCompleted: viewModel.todoItem.isCompleted)
                             
-                            Images.modeLight
+                            Image(Images.modeLight)
                                 .onTapGesture {
                                     selectedItem = viewModel
                                 }
@@ -114,7 +150,7 @@ struct TodoListView: View {
                                         todoListViewModel.didSwitchToggle(index: index)
                                     }
                                 } label: {
-                                    Images.completed
+                                    Image(Images.completed)
                                 }
                                 .tint(Color.green)
                                 
@@ -124,13 +160,13 @@ struct TodoListView: View {
                                 Button(role: .destructive) {
                                     todoListViewModel.didTapDeleteButton(todoItem: viewModel.todoItem)
                                 } label: {
-                                    Images.trash
+                                    Image(systemName: "trash")
                                 }
                                 
                                 Button {
                                     selectedItem = viewModel
                                 } label: {
-                                    Images.cell
+                                    Image(Images.cell)
                                 }
                                 .tint(Color.gray)
                                 
