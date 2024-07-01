@@ -19,6 +19,7 @@
 		E24CE2632C2D74F700C28985 /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = E24CE2622C2D74F700C28985 /* Images.swift */; };
 		E2A4E4952C32BFDB005620F8 /* TodoCalendarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A4E4942C32BFDB005620F8 /* TodoCalendarCell.swift */; };
 		E2A4E4972C32C0EF005620F8 /* TodoCalendarLastCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A4E4962C32C0EF005620F8 /* TodoCalendarLastCell.swift */; };
+		E2A4E4992C32DAE0005620F8 /* TodoCalendarController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A4E4982C32DAE0005620F8 /* TodoCalendarController+Extensions.swift */; };
 		E2DCAE1D2C218FD300264A33 /* ToDoListApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2DCAE1C2C218FD300264A33 /* ToDoListApp.swift */; };
 		E2DCAE1F2C218FD300264A33 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2DCAE1E2C218FD300264A33 /* ContentView.swift */; };
 		E2DCAE212C218FD500264A33 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E2DCAE202C218FD500264A33 /* Assets.xcassets */; };
@@ -63,6 +64,7 @@
 		E24CE2622C2D74F700C28985 /* Images.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Images.swift; sourceTree = "<group>"; };
 		E2A4E4942C32BFDB005620F8 /* TodoCalendarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoCalendarCell.swift; sourceTree = "<group>"; };
 		E2A4E4962C32C0EF005620F8 /* TodoCalendarLastCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoCalendarLastCell.swift; sourceTree = "<group>"; };
+		E2A4E4982C32DAE0005620F8 /* TodoCalendarController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TodoCalendarController+Extensions.swift"; sourceTree = "<group>"; };
 		E2DCAE192C218FD300264A33 /* ToDoList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ToDoList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2DCAE1C2C218FD300264A33 /* ToDoListApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoListApp.swift; sourceTree = "<group>"; };
 		E2DCAE1E2C218FD300264A33 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -232,6 +234,7 @@
 				E2F720C22C3149AF007980B8 /* TodoCalendarViewController.swift */,
 				E2A4E4942C32BFDB005620F8 /* TodoCalendarCell.swift */,
 				E2A4E4962C32C0EF005620F8 /* TodoCalendarLastCell.swift */,
+				E2A4E4982C32DAE0005620F8 /* TodoCalendarController+Extensions.swift */,
 			);
 			path = TodoListUIKit;
 			sourceTree = "<group>";
@@ -379,6 +382,7 @@
 				E2A4E4972C32C0EF005620F8 /* TodoCalendarLastCell.swift in Sources */,
 				E2DCAE4A2C21950E00264A33 /* TodoItem.swift in Sources */,
 				E2FF9B0F2C2E9C2F0035CD69 /* TodoItemViewConstants.swift in Sources */,
+				E2A4E4992C32DAE0005620F8 /* TodoCalendarController+Extensions.swift in Sources */,
 				E2FF9B0D2C2E99390035CD69 /* Color+Extensions.swift in Sources */,
 				E2F720C32C3149AF007980B8 /* TodoCalendarViewController.swift in Sources */,
 				E2DCAE1D2C218FD300264A33 /* ToDoListApp.swift in Sources */,
