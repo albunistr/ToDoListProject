@@ -10,8 +10,8 @@ import Foundation
 
 enum TodoListConstants {
     static let myTodos = "Мои дела"
-    static let new = "Выполнено"
-    static let done = "Скрыть"
-    static let hide = "Показать"
-    static let show = "Новое"
+    static let new = "Новое"
+    static let done = "Выполнено"
+    static let hide = "Скрыть"
+    static let show = "Показать"
 }

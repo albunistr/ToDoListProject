@@ -1,10 +1,12 @@
 {
   "images" : [
     {
+      "filename" : "albunistr logo.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "albunistr logo 1.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
