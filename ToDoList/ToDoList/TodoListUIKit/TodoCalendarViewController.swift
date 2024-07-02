@@ -12,8 +12,7 @@ class TodoCalendarViewController: UIViewController {
 // MARK: - Views
     private let mainLabel = UILabel()
     let collectionViewWithDates = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
-    private let scrollViewWithTodos = UIScrollView()
-    private let contentViewWithTodos = UIView()
+    let collectionViewWithTodos = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
     
 // MARK: - Class properties
     var items: [TodoItemViewModel]
@@ -23,7 +22,7 @@ class TodoCalendarViewController: UIViewController {
         
         for item in items {
             let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "dd\n\nMMMM"
+            dateFormatter.dateFormat = "YYYY-MM-dd"
             
             let dateKey = item.todoItem.deadline != nil ? dateFormatter.string(from: item.todoItem.deadline!) : "Другое"
             grouped[dateKey, default: []].append(item)
@@ -54,23 +53,43 @@ private extension TodoCalendarViewController {
     private func setUpLayout() {
         configureMainLabel()
         configureCollectionViewWithDates()
-        configureScrollViewWithTodos()
-        configureContentViewWithTodos()
+        configureCollectionViewWithTodos()
         prepareCollectionViewWithDates()
-        prepareScrollViewWithTodos()
+        prepareCollectonViewWithTodos()
+    }
+    func configureMainLabel() {
+        mainLabel.translatesAutoresizingMaskIntoConstraints = false
+        mainLabel.textAlignment = .center
+        mainLabel.textColor = .black
+        mainLabel.font = UIFont.systemFont(ofSize: 20, weight: .bold)
+        mainLabel.text = "Мои дела"
+        view.addSubview(mainLabel)
+        
+        mainLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 20).isActive = true
+        mainLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
     }
     func configureCollectionViewWithDates() {
         collectionViewWithDates.dataSource = self
         collectionViewWithDates.delegate = self
         collectionViewWithDates.backgroundColor = ColorsUIKit.backPrimary
-        collectionViewWithDates.register(TodoCalendarCell.self, forCellWithReuseIdentifier: "TodoCalendarCell")
-        collectionViewWithDates.register(TodoCalendarLastCell.self, forCellWithReuseIdentifier: "TodoCalendarLastCell")
         collectionViewWithDates.layer.borderWidth = 1.0
         collectionViewWithDates.layer.borderColor = ColorsUIKit.labelDisable!.cgColor
-        
         collectionViewWithDates.translatesAutoresizingMaskIntoConstraints = false
     }
+    
+    func configureCollectionViewWithTodos() {
+        collectionViewWithTodos.delegate = self
+        collectionViewWithTodos.dataSource = self
+        collectionViewWithTodos.backgroundColor = ColorsUIKit.backPrimary
+        collectionViewWithTodos.layer.borderWidth = 1.0
+        collectionViewWithTodos.layer.borderColor = ColorsUIKit.labelDisable!.cgColor
+        collectionViewWithTodos.translatesAutoresizingMaskIntoConstraints = false
+    }
+    
     func prepareCollectionViewWithDates() {
+        collectionViewWithDates.register(TodoCalendarCell.self, forCellWithReuseIdentifier: "TodoCalendarCell")
+        collectionViewWithDates.register(TodoCalendarLastCell.self, forCellWithReuseIdentifier: "TodoCalendarLastCell")
+        
         view.addSubview(collectionViewWithDates)
         
         NSLayoutConstraint.activate([
@@ -84,48 +103,23 @@ private extension TodoCalendarViewController {
             layout.scrollDirection = .horizontal
         }
     }
-    func configureMainLabel() {
-        mainLabel.translatesAutoresizingMaskIntoConstraints = false
-        mainLabel.textAlignment = .center
-        mainLabel.textColor = .black
-        mainLabel.font = UIFont.systemFont(ofSize: 20, weight: .bold)
-        mainLabel.text = "Мои дела"
-        view.addSubview(mainLabel)
+    
+    func prepareCollectonViewWithTodos() {
+        collectionViewWithTodos.register(TodoCell.self, forCellWithReuseIdentifier: "TodoCell")
+        collectionViewWithTodos.register(DateCell.self, forCellWithReuseIdentifier: "DateCell")
         
-        mainLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 20).isActive = true
-        mainLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-    }
-    
-    func configureScrollViewWithTodos() {
-        scrollViewWithTodos.translatesAutoresizingMaskIntoConstraints = false
-        scrollViewWithTodos.backgroundColor = ColorsUIKit.backPrimary
-        scrollViewWithTodos.showsVerticalScrollIndicator = true
-        scrollViewWithTodos.alwaysBounceVertical = true
-    }
-    
-    func configureContentViewWithTodos() {
-        contentViewWithTodos.translatesAutoresizingMaskIntoConstraints = false
-        contentViewWithTodos.backgroundColor = .gray
-    }
-    
-    func prepareScrollViewWithTodos() {
-        view.addSubview(scrollViewWithTodos)
-        scrollViewWithTodos.addSubview(contentViewWithTodos)
-        
+        view.addSubview(collectionViewWithTodos)
         
         NSLayoutConstraint.activate([
-            scrollViewWithTodos.topAnchor.constraint(equalTo: collectionViewWithDates.bottomAnchor),
-            scrollViewWithTodos.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            scrollViewWithTodos.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            scrollViewWithTodos.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            
-            contentViewWithTodos.topAnchor.constraint(equalTo: scrollViewWithTodos.topAnchor),
-            contentViewWithTodos.bottomAnchor.constraint(equalTo: scrollViewWithTodos.bottomAnchor),
-            contentViewWithTodos.leadingAnchor.constraint(equalTo: scrollViewWithTodos.leadingAnchor),
-            contentViewWithTodos.trailingAnchor.constraint(equalTo: scrollViewWithTodos.trailingAnchor),
-            contentViewWithTodos.heightAnchor.constraint(equalTo: scrollViewWithTodos.heightAnchor),
-            contentViewWithTodos.widthAnchor.constraint(equalTo: scrollViewWithTodos.widthAnchor)
+            collectionViewWithTodos.topAnchor.constraint(equalTo: collectionViewWithDates.bottomAnchor),
+            collectionViewWithTodos.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            collectionViewWithTodos.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            collectionViewWithTodos.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
+
+        if let layout = collectionViewWithTodos.collectionViewLayout as? UICollectionViewFlowLayout {
+            layout.scrollDirection = .vertical
+        }
     }
 }
 
