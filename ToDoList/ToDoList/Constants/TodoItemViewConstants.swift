@@ -10,6 +10,8 @@ import Foundation
 enum TodoItemViewConstants {
     static let defaultTextEditor = "Что надо сделать?"
     static let importanceOptions = ["↓", "нет", "‼️"]
+    static let categoryOptions = ["работа", "учеба", "хобби", "другое"]
+    static let category = "Категория"
     static let importance = "Важность"
     static let doBefore = "Сделать до"
     static let delete = "Удалить"

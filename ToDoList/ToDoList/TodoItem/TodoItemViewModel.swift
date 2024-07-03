@@ -39,7 +39,7 @@ class TodoItemViewModel: ObservableObject {
     
     // MARK: - Internal methods
 
-    func didTapSaveButton(text: String, importance: TodoItem.Importance, deadline: Date?, color: String) {
+    func didTapSaveButton(text: String, importance: TodoItem.Importance, deadline: Date?, color: String, category: TodoItem.Category) {
         let item = TodoItem(
             id: todoItem.id,
             text: text,
@@ -48,7 +48,8 @@ class TodoItemViewModel: ObservableObject {
             isCompleted: todoItem.isCompleted,
             createdAt: todoItem.createdAt,
             changedAt: Date(),
-            color: color
+            color: color,
+            category: category
         )
         todoItem = item
         fileCache.addNewOrUpdateItem(todoItem)

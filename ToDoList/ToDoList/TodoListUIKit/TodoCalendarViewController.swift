@@ -12,7 +12,7 @@ class TodoCalendarViewController: UIViewController {
 // MARK: - Views
     private let mainLabel = UILabel()
     let collectionViewWithDates = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
-    let collectionViewWithTodos = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
+    var collectionViewWithTodos: UICollectionView! = nil
     
 // MARK: - Class properties
     var items: [TodoItemViewModel]
@@ -28,6 +28,12 @@ class TodoCalendarViewController: UIViewController {
             grouped[dateKey, default: []].append(item)
         }
         return grouped
+    }()
+    
+    lazy var sections: [Section] = {
+        return dict
+            .sorted { $0.key > $1.key }
+            .map { Section(date: $0.key, todos: $0.value) }
     }()
     
 // MARK: - Lifecycle
@@ -53,10 +59,11 @@ private extension TodoCalendarViewController {
     private func setUpLayout() {
         configureMainLabel()
         configureCollectionViewWithDates()
-        configureCollectionViewWithTodos()
+        configureHierarchy()
+        configureDataSource()
         prepareCollectionViewWithDates()
-        prepareCollectonViewWithTodos()
     }
+    
     func configureMainLabel() {
         mainLabel.translatesAutoresizingMaskIntoConstraints = false
         mainLabel.textAlignment = .center
@@ -68,6 +75,7 @@ private extension TodoCalendarViewController {
         mainLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 20).isActive = true
         mainLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
     }
+    
     func configureCollectionViewWithDates() {
         collectionViewWithDates.dataSource = self
         collectionViewWithDates.delegate = self
@@ -77,14 +85,69 @@ private extension TodoCalendarViewController {
         collectionViewWithDates.translatesAutoresizingMaskIntoConstraints = false
     }
     
-    func configureCollectionViewWithTodos() {
-        collectionViewWithTodos.delegate = self
-        collectionViewWithTodos.dataSource = self
+    func configureHierarchy() {
+        collectionViewWithTodos = UICollectionView(frame: view.bounds, collectionViewLayout: createLayout())
         collectionViewWithTodos.backgroundColor = ColorsUIKit.backPrimary
-        collectionViewWithTodos.layer.borderWidth = 1.0
-        collectionViewWithTodos.layer.borderColor = ColorsUIKit.labelDisable!.cgColor
         collectionViewWithTodos.translatesAutoresizingMaskIntoConstraints = false
+        collectionViewWithTodos.delegate = self
+        view.addSubview(collectionViewWithTodos)
+        
+        NSLayoutConstraint.activate([
+            collectionViewWithTodos.topAnchor.constraint(equalTo: view.topAnchor, constant: 155),
+            collectionViewWithTodos.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            collectionViewWithTodos.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            collectionViewWithTodos.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+        ])
     }
+    
+    func createLayout() -> UICollectionViewLayout {
+        let layout = UICollectionViewCompositionalLayout { (sectionIndex, layoutEnvironment) -> NSCollectionLayoutSection? in
+            
+            let headerSize = NSCollectionLayoutSize(
+                widthDimension: .fractionalWidth(1.0),
+                heightDimension: .estimated(44)
+            )
+            let headerItem = NSCollectionLayoutBoundarySupplementaryItem(
+                layoutSize: headerSize,
+                elementKind: UICollectionView.elementKindSectionHeader,
+                alignment: .top
+            )
+            
+            let itemSize = NSCollectionLayoutSize(
+                widthDimension: .fractionalWidth(1.0),
+                heightDimension: .estimated(80)
+            )
+            let item = NSCollectionLayoutItem(layoutSize: itemSize)
+            item.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 20)
+           
+            
+            let groupSize = NSCollectionLayoutSize(
+                widthDimension: .fractionalWidth(1.0),
+                heightDimension: .estimated(100)
+            )
+            let group = NSCollectionLayoutGroup.vertical(
+                layoutSize: groupSize,
+                subitems: [item]
+            )
+            
+            
+            let section = NSCollectionLayoutSection(group: group)
+            section.boundarySupplementaryItems = [headerItem]
+            section.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 10, bottom: 10, trailing: 10)
+                    section.interGroupSpacing = 10
+                    section.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 10, bottom: 10, trailing: 10)
+            return section
+        }
+        return layout
+    }
+    
+    func configureDataSource() {
+        collectionViewWithTodos.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cell")
+        collectionViewWithTodos.register(UICollectionReusableView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "header")
+                
+        collectionViewWithTodos.dataSource = self
+    }
+
     
     func prepareCollectionViewWithDates() {
         collectionViewWithDates.register(TodoCalendarCell.self, forCellWithReuseIdentifier: "TodoCalendarCell")
@@ -103,25 +166,11 @@ private extension TodoCalendarViewController {
             layout.scrollDirection = .horizontal
         }
     }
-    
-    func prepareCollectonViewWithTodos() {
-        collectionViewWithTodos.register(TodoCell.self, forCellWithReuseIdentifier: "TodoCell")
-        collectionViewWithTodos.register(DateCell.self, forCellWithReuseIdentifier: "DateCell")
-        
-        view.addSubview(collectionViewWithTodos)
-        
-        NSLayoutConstraint.activate([
-            collectionViewWithTodos.topAnchor.constraint(equalTo: collectionViewWithDates.bottomAnchor),
-            collectionViewWithTodos.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            collectionViewWithTodos.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            collectionViewWithTodos.bottomAnchor.constraint(equalTo: view.bottomAnchor)
-        ])
-
-        if let layout = collectionViewWithTodos.collectionViewLayout as? UICollectionViewFlowLayout {
-            layout.scrollDirection = .vertical
-        }
-    }
 }
 
 
 
+struct Section {
+    let date: String
+    let todos: [TodoItemViewModel]
+}
