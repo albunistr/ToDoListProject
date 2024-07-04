@@ -12,11 +12,15 @@ class TodoCalendarViewController: UIViewController {
 // MARK: - Views
     private let mainLabel = UILabel()
     let collectionViewWithDates = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
-    var collectionViewWithTodos: UICollectionView! = nil
+    var tableView: UITableView! = nil
     
 // MARK: - Class properties
     var items: [TodoItemViewModel]
-    var dates: [Date]
+    lazy var dates: [String] = {
+        var sortedDates = dict.keys.filter { $0 != "Другое" }.sorted()
+        sortedDates.append("Другое")
+        return sortedDates
+    }()
     lazy var dict: [String: [TodoItemViewModel]] = {
         var grouped: [String: [TodoItemViewModel]] = [:]
         
@@ -30,16 +34,11 @@ class TodoCalendarViewController: UIViewController {
         return grouped
     }()
     
-    lazy var sections: [Section] = {
-        return dict
-            .sorted { $0.key > $1.key }
-            .map { Section(date: $0.key, todos: $0.value) }
-    }()
+    var sections: [Section] = []
     
 // MARK: - Lifecycle
     init(items: [TodoItemViewModel]) {
         self.items = items
-        self.dates = items.compactMap { $0.todoItem.deadline }
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -49,7 +48,18 @@ class TodoCalendarViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let sortedDates = dict.keys.sorted()
+        
+        sections = sortedDates.map { dateString in
+            let tasksForDate = dict[dateString] ?? []
+            return Section(date: dateString, todos: tasksForDate)
+        }
         setUpLayout()
+        tableView.dataSource = self
+        tableView.delegate = self
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        tableView.reloadData()
+        
     }
 }
 
@@ -60,7 +70,6 @@ private extension TodoCalendarViewController {
         configureMainLabel()
         configureCollectionViewWithDates()
         configureHierarchy()
-        configureDataSource()
         prepareCollectionViewWithDates()
     }
     
@@ -86,72 +95,22 @@ private extension TodoCalendarViewController {
     }
     
     func configureHierarchy() {
-        collectionViewWithTodos = UICollectionView(frame: view.bounds, collectionViewLayout: createLayout())
-        collectionViewWithTodos.backgroundColor = ColorsUIKit.backPrimary
-        collectionViewWithTodos.translatesAutoresizingMaskIntoConstraints = false
-        collectionViewWithTodos.delegate = self
-        view.addSubview(collectionViewWithTodos)
+        tableView = UITableView()
+        tableView.backgroundColor = ColorsUIKit.backPrimary
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.delegate = self
+        view.addSubview(tableView)
         
         NSLayoutConstraint.activate([
-            collectionViewWithTodos.topAnchor.constraint(equalTo: view.topAnchor, constant: 155),
-            collectionViewWithTodos.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            collectionViewWithTodos.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            collectionViewWithTodos.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+            tableView.topAnchor.constraint(equalTo: view.topAnchor, constant: 155),
+            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
     }
     
-    func createLayout() -> UICollectionViewLayout {
-        let layout = UICollectionViewCompositionalLayout { (sectionIndex, layoutEnvironment) -> NSCollectionLayoutSection? in
-            
-            let headerSize = NSCollectionLayoutSize(
-                widthDimension: .fractionalWidth(1.0),
-                heightDimension: .estimated(44)
-            )
-            let headerItem = NSCollectionLayoutBoundarySupplementaryItem(
-                layoutSize: headerSize,
-                elementKind: UICollectionView.elementKindSectionHeader,
-                alignment: .top
-            )
-            
-            let itemSize = NSCollectionLayoutSize(
-                widthDimension: .fractionalWidth(1.0),
-                heightDimension: .estimated(80)
-            )
-            let item = NSCollectionLayoutItem(layoutSize: itemSize)
-            item.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 20)
-           
-            
-            let groupSize = NSCollectionLayoutSize(
-                widthDimension: .fractionalWidth(1.0),
-                heightDimension: .estimated(100)
-            )
-            let group = NSCollectionLayoutGroup.vertical(
-                layoutSize: groupSize,
-                subitems: [item]
-            )
-            
-            
-            let section = NSCollectionLayoutSection(group: group)
-            section.boundarySupplementaryItems = [headerItem]
-            section.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 10, bottom: 10, trailing: 10)
-                    section.interGroupSpacing = 10
-                    section.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 10, bottom: 10, trailing: 10)
-            return section
-        }
-        return layout
-    }
-    
-    func configureDataSource() {
-        collectionViewWithTodos.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cell")
-        collectionViewWithTodos.register(UICollectionReusableView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "header")
-                
-        collectionViewWithTodos.dataSource = self
-    }
-
-    
     func prepareCollectionViewWithDates() {
         collectionViewWithDates.register(TodoCalendarCell.self, forCellWithReuseIdentifier: "TodoCalendarCell")
-        collectionViewWithDates.register(TodoCalendarLastCell.self, forCellWithReuseIdentifier: "TodoCalendarLastCell")
         
         view.addSubview(collectionViewWithDates)
         
@@ -166,11 +125,4 @@ private extension TodoCalendarViewController {
             layout.scrollDirection = .horizontal
         }
     }
-}
-
-
-
-struct Section {
-    let date: String
-    let todos: [TodoItemViewModel]
 }

@@ -7,6 +7,11 @@
 
 import UIKit
 
+struct Section {
+    let date: String
+    let todos: [TodoItemViewModel]
+}
+
 extension TodoCalendarViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: 80, height: 80)
@@ -16,80 +21,23 @@ extension TodoCalendarViewController: UICollectionViewDelegateFlowLayout {
 
 extension TodoCalendarViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if collectionView == collectionViewWithDates {
-            let lastItemIndex = collectionView.numberOfItems(inSection: indexPath.section) - 1
-            if indexPath.item == lastItemIndex {
-                let lactCell = collectionView.dequeueReusableCell(withReuseIdentifier: "TodoCalendarLastCell", for: indexPath) as! TodoCalendarLastCell
-                lactCell.label.text = "Другое"
-                return lactCell
-            } else {
-                let dates = dict.keys.sorted()
-                let date = dateParser(dates[indexPath.row])
-                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TodoCalendarCell", for: indexPath) as! TodoCalendarCell
-                cell.label.text = "\(date.day)\n\n\(date.month)"
-                return cell
-            }
-        } else {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
-            let task = sections[indexPath.section].todos[indexPath.item]
-            cell.contentView.backgroundColor = ColorsUIKit.white
-            cell.contentView.layer.cornerRadius = 8
-            let label = UILabel(frame: cell.contentView.bounds)
-            label.text = task.todoItem.text
-            label.textAlignment = .left
-            label.numberOfLines = 3
-            
-            let circleView = UIView(frame: CGRect(x: 0, y: 0, width: 5, height: 5))
-            circleView.backgroundColor = UIColor.red
-            circleView.layer.cornerRadius = 40
-            
-            let stackView = UIStackView(arrangedSubviews: [label, circleView])
-            stackView.frame = cell.contentView.bounds
-            stackView.axis = .horizontal
-            stackView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-            cell.contentView.addSubview(stackView)
-            
-            return cell
-        }
+        let cell = collectionViewWithDates.dequeueReusableCell(withReuseIdentifier: "TodoCalendarCell", for: indexPath) as! TodoCalendarCell
+        let lastItemIndex = collectionViewWithDates.numberOfItems(inSection: indexPath.section) - 1
         
+        if indexPath.item == lastItemIndex {
+            cell.label.text = "Другое"
+        } else {
+            let date = dateParser(dates[indexPath.row])
+            cell.label.text = "\(date.day)\n\n\(date.month)"
+        }
+        return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if collectionView == collectionViewWithDates {
-            return dict.keys.count
-        } else {
-            return sections[section].todos.count
-        }
-        
+        dict.keys.count
     }
     
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-            return sections.count
-    }
-
-
-    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        
-        let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "header", for: indexPath)
-        header.backgroundColor = ColorsUIKit.backPrimary
-        let label = UILabel(frame: header.bounds)
-        
-        if sections[indexPath.section].date == "Другое" {
-            label.text = "Другое"
-        } else {
-            let date = dateParser(sections[indexPath.section].date)
-            label.text = "\(date.day) \(date.month)"
-        }
-        
-        label.textAlignment = .left
-        label.textColor = ColorsUIKit.labelTertiary
-        label.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        header.addSubview(label)
-        return header
-        
-    }
-    
-    private func dateParser(_ dateString: String) -> (day: Int, month: String) {
+    func dateParser(_ dateString: String) -> (day: Int, month: String) {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"
         let date = dateFormatter.date(from: dateString)!
@@ -104,7 +52,80 @@ extension TodoCalendarViewController: UICollectionViewDataSource {
     }
 }
 
+extension TodoCalendarViewController: UITableViewDataSource {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return sections.count
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return sections[section].todos.count
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if sections[section].date == "Другое" {
+            return sections[section].date
+        } else {
+            let date = dateParser(sections[section].date)
+            return "\(date.day) \(date.month)"
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        let task = sections[indexPath.section].todos[indexPath.item]
+        cell.contentView.backgroundColor = ColorsUIKit.white
+
+        let label = UILabel()
+        if task.todoItem.isCompleted {
+            label.attributedText = NSAttributedString(string: task.todoItem.text, attributes: [NSAttributedString.Key.strikethroughStyle: NSUnderlineStyle.single.rawValue])
+            label.textColor = ColorsUIKit.labelTertiary
+        } else {
+            label.text = task.todoItem.text
+            label.textColor = ColorsUIKit.labelPrimary
+        }
+
+        label.textAlignment = .left
+        label.numberOfLines = 3
+
+        var imageString = ""
+        switch task.todoItem.category {
+        case .work:
+            imageString = "workColor"
+        case .studying:
+            imageString = "studyingColor"
+        case .hobby:
+            imageString = "hobbyColor"
+        case .other:
+            imageString = "otherColor"
+        }
+        let circle = UIImage(named: imageString)
+
+        let circleImage = UIImageView(image: circle)
+        circleImage.contentMode = .scaleAspectFit
+        circleImage.widthAnchor.constraint(equalToConstant: 20).isActive = true
+        circleImage.heightAnchor.constraint(equalToConstant: 20).isActive = true
+
+        let stackView = UIStackView(arrangedSubviews: [label, circleImage])
+        stackView.spacing = 16
+        stackView.frame = cell.contentView.bounds
+        stackView.axis = .horizontal
+        stackView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+
+        label.setContentHuggingPriority(.defaultLow, for: .horizontal)
+
+        cell.contentView.addSubview(stackView)
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.leadingAnchor.constraint(equalTo: cell.contentView.leadingAnchor, constant: 16).isActive = true
+        stackView.trailingAnchor.constraint(equalTo: cell.contentView.trailingAnchor, constant: -16).isActive = true
+        stackView.centerYAnchor.constraint(equalTo: cell.contentView.centerYAnchor).isActive = true
+        return cell
+    }
+}
+
 extension TodoCalendarViewController: UICollectionViewDelegate {
 }
 
+extension TodoCalendarViewController: UITableViewDelegate {
+}
 
+    
