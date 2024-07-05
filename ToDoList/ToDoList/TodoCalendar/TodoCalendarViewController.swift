@@ -93,9 +93,7 @@ class TodoCalendarViewController: UIViewController {
 // MARK: - Extensions
 private extension TodoCalendarViewController {
     
-    private func setUpLayout() {
-        view.backgroundColor = ColorsUIKit.backPrimary
-        
+    private func setUpLayout() {        
         configureMainLabel()
         configureCollectionView()
         configureTableView()
