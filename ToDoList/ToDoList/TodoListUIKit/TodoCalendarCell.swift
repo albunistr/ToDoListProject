@@ -8,7 +8,8 @@
 import UIKit
 
 class TodoCalendarCell: UICollectionViewCell {
-
+    
+    // MARK: - Views
     let label: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 15, weight: .bold)
@@ -17,7 +18,8 @@ class TodoCalendarCell: UICollectionViewCell {
         label.textColor = ColorsUIKit.labelTertiary
         return label
     }()
-
+    
+    // MARK: - LifeCycle
     override var isSelected: Bool {
         didSet {
             updateAppearance()
@@ -30,7 +32,6 @@ class TodoCalendarCell: UICollectionViewCell {
         }
     }
     
-
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupViews()
@@ -39,9 +40,11 @@ class TodoCalendarCell: UICollectionViewCell {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    
-    private func updateAppearance() {
+}
+
+// MARK: - Extension
+private extension TodoCalendarCell {
+    func updateAppearance() {
         if isSelected || isHighlighted {
             backgroundColor = ColorsUIKit.labelDisable
             layer.borderWidth = 2.0
@@ -53,7 +56,7 @@ class TodoCalendarCell: UICollectionViewCell {
         }
     }
 
-    private func setupViews() {
+    func setupViews() {
         let stackView = UIStackView(arrangedSubviews: [label])
         stackView.axis = .vertical
         stackView.alignment = .center

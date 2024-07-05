@@ -28,6 +28,10 @@ final class FileCache: FileCacheProtocol {
         toDoItems.removeAll(where: { $0.id == id })
     }
     
+    func getItems() -> [TodoItem] {
+        return toDoItems
+    }
+    
     func saveItemsToJSON(fileForSaving: String) {
         do {
             guard let filePath = generatingFilePath(file: fileForSaving, fileType: "json") else { return }

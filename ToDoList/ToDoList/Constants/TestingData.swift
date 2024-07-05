@@ -24,7 +24,12 @@ var items = [
     TodoItem(text: "Купить голубой сыр с плесенью черного цвета весом 452 грамма в магазине торгового центра на втором этаже около лифта слева", importance: .important),
     TodoItem(text: "Сделать пиццу с колбасой, купленным сыром и помидорами", importance: .usual, deadline: Date() + 896355, isCompleted: true),
     TodoItem(text: "Убрать посуду после готовки, обязательно без использования моющих средств", importance: .unimportant, deadline: Date() + 128456),
-    TodoItem(text: "Съесть пиццу", importance: .important, deadline: Date() + 179368, isCompleted: true)
+    TodoItem(text: "Съесть пиццу", importance: .important, deadline: Date() + 179368, isCompleted: true),
+    TodoItem(text: "Съесть пиццу", importance: .important, deadline: Date() + 487963, isCompleted: true),
+    TodoItem(text: "Съесть пиццу", importance: .important, deadline: Date() + 139742, isCompleted: true),
+    TodoItem(text: "Съесть пиццу", importance: .important, deadline: Date() + 963258, isCompleted: true),
+    TodoItem(text: "Съесть пиццу", importance: .important, deadline: Date() + 741258, isCompleted: true),
+    TodoItem(text: "Съесть пиццу", importance: .important, deadline: Date() + 852369, isCompleted: true)
 ]
 
 var testingFileCache: FileCache = {

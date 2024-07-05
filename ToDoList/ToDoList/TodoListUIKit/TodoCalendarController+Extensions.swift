@@ -6,12 +6,14 @@
 //
 
 import UIKit
+import SwiftUI
 
 struct Section {
     let date: String
     let todos: [TodoItemViewModel]
 }
 
+// MARK: - Collection extensions
 extension TodoCalendarViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: 80, height: 80)
@@ -52,6 +54,21 @@ extension TodoCalendarViewController: UICollectionViewDataSource {
     }
 }
 
+extension TodoCalendarViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let targetIndexPath = IndexPath(row: 0, section: indexPath.row)
+        tableView.scrollToRow(at: targetIndexPath, at: .top, animated: true)
+    }
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if let firstVisibleSection = tableView.indexPathsForVisibleRows?.first?.section {
+            let indexPath = IndexPath(item: firstVisibleSection, section: 0)
+            collectionViewWithDates.scrollToItem(at: indexPath, at: .left, animated: true)
+        }
+    }
+    
+}
+
+// MARK: - Table extensions
 extension TodoCalendarViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         return sections.count
@@ -71,61 +88,82 @@ extension TodoCalendarViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        guard
+            let cell = tableView.dequeueReusableCell(
+                withIdentifier: "TodoCalendarTableViewCell",
+                for: indexPath
+            ) as? UITableViewCell & CellConfigurable
+        else {
+            return UITableViewCell()
+        }
+        let isFirstCell = indexPath.row == 0
+               let isLastCell = indexPath.row == tableView.numberOfRows(inSection: indexPath.section) - 1
+
+               // Скругление углов только для первой и последней ячеек
+               if isFirstCell || isLastCell {
+                   cell.layer.cornerRadius = 10
+                   cell.clipsToBounds = true
+
+                   // Дополнительная настройка для более красивого вида скругленных углов
+                   cell.layer.maskedCorners = isFirstCell ? [.layerMinXMinYCorner, .layerMaxXMinYCorner] : [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
+               } else {
+                   // Убираем скругление углов для остальных ячеек (если оно было применено ранее)
+                   cell.layer.cornerRadius = 0
+                   cell.layer.maskedCorners = []
+               }
+        
         let task = sections[indexPath.section].todos[indexPath.item]
-        cell.contentView.backgroundColor = ColorsUIKit.white
-
-        let label = UILabel()
-        if task.todoItem.isCompleted {
-            label.attributedText = NSAttributedString(string: task.todoItem.text, attributes: [NSAttributedString.Key.strikethroughStyle: NSUnderlineStyle.single.rawValue])
-            label.textColor = ColorsUIKit.labelTertiary
-        } else {
-            label.text = task.todoItem.text
-            label.textColor = ColorsUIKit.labelPrimary
-        }
-
-        label.textAlignment = .left
-        label.numberOfLines = 3
-
-        var imageString = ""
-        switch task.todoItem.category {
-        case .work:
-            imageString = "workColor"
-        case .studying:
-            imageString = "studyingColor"
-        case .hobby:
-            imageString = "hobbyColor"
-        case .other:
-            imageString = "otherColor"
-        }
-        let circle = UIImage(named: imageString)
-
-        let circleImage = UIImageView(image: circle)
-        circleImage.contentMode = .scaleAspectFit
-        circleImage.widthAnchor.constraint(equalToConstant: 20).isActive = true
-        circleImage.heightAnchor.constraint(equalToConstant: 20).isActive = true
-
-        let stackView = UIStackView(arrangedSubviews: [label, circleImage])
-        stackView.spacing = 16
-        stackView.frame = cell.contentView.bounds
-        stackView.axis = .horizontal
-        stackView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-
-        label.setContentHuggingPriority(.defaultLow, for: .horizontal)
-
-        cell.contentView.addSubview(stackView)
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        stackView.leadingAnchor.constraint(equalTo: cell.contentView.leadingAnchor, constant: 16).isActive = true
-        stackView.trailingAnchor.constraint(equalTo: cell.contentView.trailingAnchor, constant: -16).isActive = true
-        stackView.centerYAnchor.constraint(equalTo: cell.contentView.centerYAnchor).isActive = true
+        cell.configure(with: task.todoItem)
         return cell
     }
 }
 
-extension TodoCalendarViewController: UICollectionViewDelegate {
-}
 
 extension TodoCalendarViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let deleteAction = UIContextualAction(style: .normal, title: nil) { (action, view, completionHandler) in
+            self.todoListViewModel.items[indexPath.row].didSwitchToggle()
+            completionHandler(true)
+        }
+        deleteAction.image = UIImage(named: Images.completed)
+        deleteAction.backgroundColor = ColorsUIKit.green
+        let configuration = UISwipeActionsConfiguration(actions: [deleteAction])
+        return configuration
+    }
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let deleteAction = UIContextualAction(style: .normal, title: "Отменить") { (action, view, completionHandler) in
+            self.todoListViewModel.items[indexPath.row].didSwitchToggle()
+            completionHandler(true)
+        }
+        let configuration = UISwipeActionsConfiguration(actions: [deleteAction])
+        return configuration
+    }
+    func strikeThroughLabel(label: UILabel) {
+        guard let text = label.text else { return }
+        
+        let attributedString = NSMutableAttributedString(string: text)
+        attributedString.addAttribute(.strikethroughStyle,
+                                      value: NSUnderlineStyle.single.rawValue,
+                                      range: NSRange(location: 0, length: attributedString.length))
+        label.attributedText = attributedString
+    }
+    func scrollToTableCell(at indexPath: IndexPath, animated: Bool = true) {
+        tableView.scrollToRow(at: indexPath, at: .top, animated: animated)
+    }
 }
 
-    
+extension TodoCalendarViewController {
+    @objc func openSwiftUIView() {
+        todoListViewModel.addNew()
+        guard let lastIndex = todoListViewModel.items.indices.last else {
+                return
+            }
+            let itemBinding = Binding<TodoItemViewModel>(
+                get: { self.todoListViewModel.items[lastIndex] },
+                set: { self.todoListViewModel.items[lastIndex] = $0 }
+            )
+        let swiftUIHostingController = UIHostingController(rootView: ToDoItemView(todoItemViewModel: itemBinding))
+        present(swiftUIHostingController, animated: true)
+                                                                
+    }
+}

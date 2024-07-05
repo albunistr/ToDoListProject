@@ -18,8 +18,7 @@ struct UIKitControllerWrapper: UIViewControllerRepresentable {
     typealias UIViewControllerType = TodoCalendarViewController
     
     func makeUIViewController(context: Context) -> TodoCalendarViewController {
-        return TodoCalendarViewController(items: todoListViewModel.items
-        )
+        return TodoCalendarViewController(todoListviewModel: todoListViewModel)
     }
     
     func updateUIViewController(_ uiViewController: TodoCalendarViewController, context: Context) {

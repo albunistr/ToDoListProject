@@ -7,6 +7,10 @@
 
 import Foundation
 import SwiftUI
+import UIKit
+
+class SwiftUIHostingController: UIHostingController<ToDoItemView> {
+}
 
 struct ToDoItemView: View {
     

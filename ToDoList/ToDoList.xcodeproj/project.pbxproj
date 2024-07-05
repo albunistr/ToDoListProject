@@ -17,6 +17,8 @@
 		E24CE25F2C2D66EE00C28985 /* TodoListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E24CE25E2C2D66EE00C28985 /* TodoListViewModel.swift */; };
 		E24CE2612C2D69E900C28985 /* TestingData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E24CE2602C2D69E900C28985 /* TestingData.swift */; };
 		E24CE2632C2D74F700C28985 /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = E24CE2622C2D74F700C28985 /* Images.swift */; };
+		E2A1632F2C37D26B002C4C69 /* CellConfigurable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A1632E2C37D26B002C4C69 /* CellConfigurable.swift */; };
+		E2A163312C37D37D002C4C69 /* TodoCalendarTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A163302C37D37D002C4C69 /* TodoCalendarTableViewCell.swift */; };
 		E2A4E4952C32BFDB005620F8 /* TodoCalendarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A4E4942C32BFDB005620F8 /* TodoCalendarCell.swift */; };
 		E2A4E4992C32DAE0005620F8 /* TodoCalendarController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A4E4982C32DAE0005620F8 /* TodoCalendarController+Extensions.swift */; };
 		E2DCAE1D2C218FD300264A33 /* ToDoListApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2DCAE1C2C218FD300264A33 /* ToDoListApp.swift */; };
@@ -61,6 +63,8 @@
 		E24CE25E2C2D66EE00C28985 /* TodoListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoListViewModel.swift; sourceTree = "<group>"; };
 		E24CE2602C2D69E900C28985 /* TestingData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestingData.swift; sourceTree = "<group>"; };
 		E24CE2622C2D74F700C28985 /* Images.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Images.swift; sourceTree = "<group>"; };
+		E2A1632E2C37D26B002C4C69 /* CellConfigurable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellConfigurable.swift; sourceTree = "<group>"; };
+		E2A163302C37D37D002C4C69 /* TodoCalendarTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoCalendarTableViewCell.swift; sourceTree = "<group>"; };
 		E2A4E4942C32BFDB005620F8 /* TodoCalendarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoCalendarCell.swift; sourceTree = "<group>"; };
 		E2A4E4982C32DAE0005620F8 /* TodoCalendarController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TodoCalendarController+Extensions.swift"; sourceTree = "<group>"; };
 		E2DCAE192C218FD300264A33 /* ToDoList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ToDoList.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -232,6 +236,8 @@
 				E2F720C22C3149AF007980B8 /* TodoCalendarViewController.swift */,
 				E2A4E4942C32BFDB005620F8 /* TodoCalendarCell.swift */,
 				E2A4E4982C32DAE0005620F8 /* TodoCalendarController+Extensions.swift */,
+				E2A1632E2C37D26B002C4C69 /* CellConfigurable.swift */,
+				E2A163302C37D37D002C4C69 /* TodoCalendarTableViewCell.swift */,
 			);
 			path = TodoListUIKit;
 			sourceTree = "<group>";
@@ -376,11 +382,13 @@
 				E2DCAE1F2C218FD300264A33 /* ContentView.swift in Sources */,
 				E2DCAE482C2194ED00264A33 /* FileCache.swift in Sources */,
 				E24CE2522C2D4A9A00C28985 /* TodoItemView.swift in Sources */,
+				E2A1632F2C37D26B002C4C69 /* CellConfigurable.swift in Sources */,
 				E2DCAE4A2C21950E00264A33 /* TodoItem.swift in Sources */,
 				E2FF9B0F2C2E9C2F0035CD69 /* TodoItemViewConstants.swift in Sources */,
 				E2A4E4992C32DAE0005620F8 /* TodoCalendarController+Extensions.swift in Sources */,
 				E2FF9B0D2C2E99390035CD69 /* Color+Extensions.swift in Sources */,
 				E2F720C32C3149AF007980B8 /* TodoCalendarViewController.swift in Sources */,
+				E2A163312C37D37D002C4C69 /* TodoCalendarTableViewCell.swift in Sources */,
 				E2DCAE1D2C218FD300264A33 /* ToDoListApp.swift in Sources */,
 				B1675AEF2C2DFC9300464AAA /* TodoItem+Extensions.swift in Sources */,
 				B19757442C27FEA9000948AC /* TodoItemViewModel.swift in Sources */,

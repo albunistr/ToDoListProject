@@ -18,7 +18,7 @@ class TodoItemViewModel: ObservableObject {
     
     @Published private(set) var todoItem: TodoItem
     private(set) var isNew: Bool
-
+    
     // MARK: - LifeCycle
     
     init(
@@ -60,12 +60,22 @@ class TodoItemViewModel: ObservableObject {
     }
 
     func didSwitchToggle() {
-        let index = fileCache.toDoItems.firstIndex(where: { self.id == $0.id }) ?? 0
-        let item = fileCache.toDoItems[index].copy(isCompleted: !self.todoItem.isCompleted)
-        fileCache.addNewOrUpdateItem(item)
-        isNew = true
+        let item = TodoItem(
+            id: todoItem.id,
+            text: todoItem.text,
+            importance: todoItem.importance,
+            deadline: todoItem.deadline,
+            isCompleted: !todoItem.isCompleted,
+            createdAt: todoItem.createdAt,
+            changedAt: Date(),
+            color: todoItem.color,
+            category: todoItem.category
+        )
+        todoItem = item
+        fileCache.addNewOrUpdateItem(todoItem)
     }
     
 }
+
 
 extension TodoItemViewModel: Identifiable {}

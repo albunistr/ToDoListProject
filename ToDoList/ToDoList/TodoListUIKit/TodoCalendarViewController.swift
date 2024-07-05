@@ -10,12 +10,41 @@ import UIKit
 class TodoCalendarViewController: UIViewController {
     
 // MARK: - Views
-    private let mainLabel = UILabel()
-    let collectionViewWithDates = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
-    var tableView: UITableView! = nil
+    private let mainLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.textAlignment = .center
+        label.textColor = .black
+        label.font = UIFont.systemFont(ofSize: 20, weight: .bold)
+        label.text = "Мои дела"
+        return label
+    }()
+    
+    let collectionViewWithDates: UICollectionView = {
+       let collectionView =  UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
+        collectionView.backgroundColor = ColorsUIKit.backPrimary
+        collectionView.layer.borderWidth = 1.0
+        collectionView.layer.borderColor = ColorsUIKit.labelDisable!.cgColor
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        return collectionView
+    }()
+    
+    var tableView: UITableView = {
+        var tableView = UITableView()
+        tableView.backgroundColor = ColorsUIKit.backPrimary
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        return tableView
+    }()
+    
+    var button: UIButton = {
+        let button = UIButton(type: .system)
+        button.setImage(UIImage(named: Images.plus), for: .normal)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
     
 // MARK: - Class properties
-    var items: [TodoItemViewModel]
+    var todoListViewModel: TodoListViewModel
     lazy var dates: [String] = {
         var sortedDates = dict.keys.filter { $0 != "Другое" }.sorted()
         sortedDates.append("Другое")
@@ -24,7 +53,7 @@ class TodoCalendarViewController: UIViewController {
     lazy var dict: [String: [TodoItemViewModel]] = {
         var grouped: [String: [TodoItemViewModel]] = [:]
         
-        for item in items {
+        for item in todoListViewModel.items {
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "YYYY-MM-dd"
             
@@ -37,8 +66,11 @@ class TodoCalendarViewController: UIViewController {
     var sections: [Section] = []
     
 // MARK: - Lifecycle
-    init(items: [TodoItemViewModel]) {
-        self.items = items
+    init
+    (
+        todoListviewModel: TodoListViewModel
+    ) {
+        self.todoListViewModel = todoListviewModel
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -49,17 +81,11 @@ class TodoCalendarViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         let sortedDates = dict.keys.sorted()
-        
         sections = sortedDates.map { dateString in
             let tasksForDate = dict[dateString] ?? []
             return Section(date: dateString, todos: tasksForDate)
         }
         setUpLayout()
-        tableView.dataSource = self
-        tableView.delegate = self
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
-        tableView.reloadData()
-        
     }
 }
 
@@ -68,37 +94,23 @@ private extension TodoCalendarViewController {
     
     private func setUpLayout() {
         configureMainLabel()
-        configureCollectionViewWithDates()
-        configureHierarchy()
-        prepareCollectionViewWithDates()
+        configureCollectionView()
+        configureTableView()
+        configureButton()
     }
     
     func configureMainLabel() {
-        mainLabel.translatesAutoresizingMaskIntoConstraints = false
-        mainLabel.textAlignment = .center
-        mainLabel.textColor = .black
-        mainLabel.font = UIFont.systemFont(ofSize: 20, weight: .bold)
-        mainLabel.text = "Мои дела"
         view.addSubview(mainLabel)
         
         mainLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 20).isActive = true
         mainLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
     }
-    
-    func configureCollectionViewWithDates() {
-        collectionViewWithDates.dataSource = self
-        collectionViewWithDates.delegate = self
-        collectionViewWithDates.backgroundColor = ColorsUIKit.backPrimary
-        collectionViewWithDates.layer.borderWidth = 1.0
-        collectionViewWithDates.layer.borderColor = ColorsUIKit.labelDisable!.cgColor
-        collectionViewWithDates.translatesAutoresizingMaskIntoConstraints = false
-    }
-    
-    func configureHierarchy() {
-        tableView = UITableView()
-        tableView.backgroundColor = ColorsUIKit.backPrimary
-        tableView.translatesAutoresizingMaskIntoConstraints = false
+    func configureTableView() {
+        tableView.register(TodoCalendarTableViewCell.self, forCellReuseIdentifier: "TodoCalendarTableViewCell")
         tableView.delegate = self
+        tableView.dataSource = self
+        tableView.delegate = self
+        
         view.addSubview(tableView)
         
         NSLayoutConstraint.activate([
@@ -109,8 +121,10 @@ private extension TodoCalendarViewController {
         ])
     }
     
-    func prepareCollectionViewWithDates() {
+    func configureCollectionView() {
         collectionViewWithDates.register(TodoCalendarCell.self, forCellWithReuseIdentifier: "TodoCalendarCell")
+        collectionViewWithDates.dataSource = self
+        collectionViewWithDates.delegate = self
         
         view.addSubview(collectionViewWithDates)
         
@@ -124,5 +138,13 @@ private extension TodoCalendarViewController {
         if let layout = collectionViewWithDates.collectionViewLayout as? UICollectionViewFlowLayout {
             layout.scrollDirection = .horizontal
         }
+    }
+    func configureButton() {
+        view.addSubview(button)
+        NSLayoutConstraint.activate([
+            button.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -10),
+            button.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+        ])
+        button.addTarget(self, action: #selector(openSwiftUIView), for: .touchUpInside)
     }
 }
