@@ -37,11 +37,11 @@ struct TodoCellView: View {
     var completedButton: some View {
         VStack{
             if isCompleted {
-                Images.completed
+                Image(Images.completed)
             } else if todoItem.importance == .important {
-                Images.highPriority
+                Image(Images.highPriority)
             } else {
-                Images.propOff
+                Image(Images.propOff)
             }
         }
         .onTapGesture {
@@ -55,7 +55,7 @@ struct TodoCellView: View {
     var deadline: some View {
         HStack(spacing: 2){
             if let deadline = todoItem.deadline {
-                Images.calendar
+                Image(Images.calendar)
                 Text(deadline.formatted(.dateTime.day().month().year()))
                     .foregroundColor(Colors.labelTertiary)
                     .font(.subheadline)
@@ -68,11 +68,11 @@ struct TodoCellView: View {
     var textOfItem: some View {
         HStack(spacing: 2) {
             if todoItem.importance == .important {
-                Images.iconPickerHighPriority
+                Image(Images.iconPickerHighPriority)
             }
             
             if todoItem.importance == .unimportant {
-                Images.iconPickerLowPriority
+                Image(Images.iconPickerLowPriority)
             }
             VStack(alignment: .leading, spacing: 4) {
                 Text(todoItem.text)

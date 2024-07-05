@@ -40,7 +40,7 @@ class TodoListViewModel: ObservableObject {
         let item = items[index].todoItem.copy(isCompleted: !items[index].todoItem.isCompleted)
         fileCache.addNewOrUpdateItem(item)
     }
-
+    
     func addNew() {
         let id = UUID().uuidString
         fileCache.addNewOrUpdateItem(.defaultItem(id: id))

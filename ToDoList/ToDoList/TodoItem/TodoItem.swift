@@ -1,6 +1,6 @@
 import Foundation
 
-struct TodoItem {
+struct TodoItem: Hashable {
     
     // MARK: - Properties
     
@@ -12,7 +12,7 @@ struct TodoItem {
     let createdAt: Date
     let changedAt: Date?
     let color: String
-    
+    let category: Category
     // MARK: - Init
     
     init(
@@ -23,7 +23,8 @@ struct TodoItem {
         isCompleted: Bool = false,
         createdAt: Date = Date(),
         changedAt: Date? = nil,
-        color: String = "#FFFFFF"
+        color: String = "#FFFFFF",
+        category: Category = .other
     ) {
         self.id = id
         self.text = text
@@ -33,5 +34,6 @@ struct TodoItem {
         self.createdAt = createdAt
         self.changedAt = changedAt
         self.color = color
+        self.category = category
     }
 }

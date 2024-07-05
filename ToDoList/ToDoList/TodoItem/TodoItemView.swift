@@ -7,10 +7,14 @@
 
 import Foundation
 import SwiftUI
+import UIKit
+
+class SwiftUIHostingController: UIHostingController<ToDoItemView> {
+}
 
 struct ToDoItemView: View {
     
-    @Binding var todoItemViewModel: TodoItemViewModel
+    @ObservedObject var todoItemViewModel: TodoItemViewModel
     
     // MARK: - Environment properties
     
@@ -18,9 +22,11 @@ struct ToDoItemView: View {
     @Environment(\.horizontalSizeClass) var horizontalSizeClass
     
     // MARK: - State properties
-    
+
+    weak var delegate: TodoListViewControllerDelegate?
     @State private var deadlineDate: Date = TodoItemViewConstants.defaultDeadline
     @State private var selectedOption = 1
+    @State private var selectedcategory = 1
     @State private var textEditor = "Что надо сделать?"
     @State private var isOnDeadline = false
     @State private var isShowDatePicker = false
@@ -68,6 +74,24 @@ struct ToDoItemView: View {
             }
             .frame(width: 170, height: 32)
             .pickerStyle(SegmentedPickerStyle())
+            .background(RoundedRectangle(cornerRadius: 12).fill(Colors.overlay))
+            
+        }
+    }
+    // MARK: - Category field
+    
+    var categoryField: some View {
+        HStack {
+            Text(TodoItemViewConstants.category)
+            
+            Spacer()
+            
+            Picker(selection: $selectedcategory, label: Text("")) {
+                ForEach(0..<TodoItemViewConstants.categoryOptions.count, id: \.self) { index in
+                    Text(TodoItemViewConstants.categoryOptions[index])
+                }
+            }
+            .frame(width: 170, height: 32)
             .background(RoundedRectangle(cornerRadius: 12).fill(Colors.overlay))
             
         }
@@ -137,6 +161,8 @@ struct ToDoItemView: View {
                 
                 importanceField
                 Divider()
+                categoryField
+                Divider()
                 colorPicker
                 Divider()
                 deadlineField
@@ -199,6 +225,7 @@ struct ToDoItemView: View {
                                 if todoItemViewModel.isNew {
                                     todoItemViewModel.didTapDeleteButton()
                                 }
+                                delegate?.didUpdateTodoList()
                                 dismiss()
                             }
                         }
@@ -210,8 +237,10 @@ struct ToDoItemView: View {
                                         text: textEditor,
                                         importance: TodoItem.Importance(rawValue: selectedOption),
                                         deadline: isOnDeadline ? deadlineDate : nil,
-                                        color: selectedColor.hexString
+                                        color: selectedColor.hexString,
+                                        category: TodoItem.Category(rawValue: selectedcategory)
                                     )
+                                    delegate?.didUpdateTodoList()
                                     dismiss()
                                 }
                             } label: {
@@ -232,6 +261,7 @@ struct ToDoItemView: View {
                 selectedOption = todoItemViewModel.todoItem.importance.getOption(importance: todoItemViewModel.todoItem.importance)
                 deadlineDate = todoItemViewModel.todoItem.deadline == nil ? Date() + 86400 : todoItemViewModel.todoItem.deadline!
                 selectedColor = selectedColor.colorStringToColor(todoItemViewModel.todoItem.color)
+                selectedcategory = todoItemViewModel.todoItem.category.getOption(category: todoItemViewModel.todoItem.category)
             }
             
         }
@@ -252,6 +282,6 @@ struct TodoItemModelPreview: PreviewProvider {
     )
 
     static var previews: some View {
-        ToDoItemView(todoItemViewModel: $todoItemViewModel)
+        ToDoItemView(todoItemViewModel: todoItemViewModel)
     }
 }

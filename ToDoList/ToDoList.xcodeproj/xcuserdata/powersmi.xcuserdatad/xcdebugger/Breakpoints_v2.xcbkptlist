@@ -3,4 +3,177 @@
    uuid = "F609F7B9-40B5-4E2E-8500-475D66B3BA0C"
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "011BE15A-C559-4090-96B4-D76A917CDC2D"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ToDoList/TodoListUIKit/TodoCalendarViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "66"
+            endingLineNumber = "66"
+            landmarkName = "TodoCalendarViewController"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  uuid = "011BE15A-C559-4090-96B4-D76A917CDC2D - d15a352588fdb110"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ToDoList.TodoCalendarViewController.sections.getter : Swift.Array&lt;ToDoList.Section&gt;"
+                  moduleName = "ToDoList"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/powersmi/ToDoListProject/ToDoList/ToDoList/TodoListUIKit/TodoCalendarViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "33"
+                  endingLineNumber = "33"
+                  offsetFromSymbolStart = "187">
+               </Location>
+               <Location
+                  uuid = "011BE15A-C559-4090-96B4-D76A917CDC2D - a9441fc05e7f205b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; Swift.Array&lt;ToDoList.Section&gt; in ToDoList.TodoCalendarViewController.sections.getter : Swift.Array&lt;ToDoList.Section&gt;"
+                  moduleName = "ToDoList"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/powersmi/ToDoListProject/ToDoList/ToDoList/TodoListUIKit/TodoCalendarViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "34"
+                  endingLineNumber = "34"
+                  offsetFromSymbolStart = "32">
+               </Location>
+               <Location
+                  uuid = "011BE15A-C559-4090-96B4-D76A917CDC2D - 31e714ef5157fd24"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ToDoList.TodoCalendarViewController.sections.setter : Swift.Array&lt;ToDoList.Section&gt;"
+                  moduleName = "ToDoList"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/powersmi/ToDoListProject/ToDoList/ToDoList/TodoListUIKit/TodoCalendarViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "33"
+                  endingLineNumber = "33"
+                  offsetFromSymbolStart = "116">
+               </Location>
+               <Location
+                  uuid = "011BE15A-C559-4090-96B4-D76A917CDC2D - 250e4503ce711215"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ToDoList.TodoCalendarViewController.sections.modify : Swift.Array&lt;ToDoList.Section&gt;"
+                  moduleName = "ToDoList"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/powersmi/ToDoListProject/ToDoList/ToDoList/TodoListUIKit/TodoCalendarViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "33"
+                  endingLineNumber = "33"
+                  offsetFromSymbolStart = "0">
+               </Location>
+               <Location
+                  uuid = "011BE15A-C559-4090-96B4-D76A917CDC2D - b0f46cb3f7add854"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ToDoList.TodoCalendarViewController.sections.modify : Swift.Array&lt;ToDoList.Section&gt; with unmangled suffix &quot;.resume.0&quot;"
+                  moduleName = "ToDoList"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/powersmi/ToDoListProject/ToDoList/ToDoList/TodoListUIKit/TodoCalendarViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "33"
+                  endingLineNumber = "33"
+                  offsetFromSymbolStart = "17">
+               </Location>
+               <Location
+                  uuid = "011BE15A-C559-4090-96B4-D76A917CDC2D - 7ba019c568c52cc9"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ToDoList.TodoCalendarViewController.init(items: Swift.Array&lt;ToDoList.TodoItemViewModel&gt;) -&gt; ToDoList.TodoCalendarViewController"
+                  moduleName = "ToDoList"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/powersmi/ToDoListProject/ToDoList/ToDoList/TodoListUIKit/TodoCalendarViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "33"
+                  endingLineNumber = "33"
+                  offsetFromSymbolStart = "413">
+               </Location>
+               <Location
+                  uuid = "011BE15A-C559-4090-96B4-D76A917CDC2D - 3bbbe37453ce2f38"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ToDoList.TodoCalendarViewController.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;ToDoList.TodoCalendarViewController&gt;"
+                  moduleName = "ToDoList"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/powersmi/ToDoListProject/ToDoList/ToDoList/TodoListUIKit/TodoCalendarViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "33"
+                  endingLineNumber = "33"
+                  offsetFromSymbolStart = "312">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "C771B831-D22F-495D-AEFD-778C7E3646A4"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ToDoList/Extensions/TodoItem+Extensions.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "17"
+            endingLineNumber = "17"
+            landmarkName = "TodoItem"
+            landmarkType = "21">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "280A07FE-7762-446D-A95C-10F14BD2E732"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ToDoList/Extensions/TodoItem+Extensions.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "16"
+            endingLineNumber = "16"
+            landmarkName = "defaultItem(id:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "81F3CBBA-4B0A-447D-A92D-3DF8738381BF"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ToDoList/TodoListUIKit/TodoCalendarViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "90"
+            endingLineNumber = "90"
+            landmarkName = "TodoCalendarViewController"
+            landmarkType = "3">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

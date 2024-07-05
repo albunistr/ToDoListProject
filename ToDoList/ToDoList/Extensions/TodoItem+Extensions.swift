@@ -23,7 +23,8 @@ extension TodoItem {
         isCompleted: Bool? = nil,
         createdAt: Date? = nil,
         changedAt: Date? = nil,
-        color: String? = nil
+        color: String? = nil,
+        category: Category? = nil
     ) -> Self {
 
         .init(
@@ -34,12 +35,48 @@ extension TodoItem {
             isCompleted: isCompleted ?? self.isCompleted,
             createdAt: createdAt ?? self.createdAt,
             changedAt: changedAt ?? self.changedAt,
-            color: color ?? self.color
+            color: color ?? self.color,
+            category: category ?? self.category
         )
     }
 }
 
 // MARK: - Constants for TodoItem
+extension TodoItem {
+    enum Category: String {
+        case work = "red"
+        case studying = "blue"
+        case hobby = "green"
+        case other = "white"
+        
+        init(rawValue: Int) {
+            switch rawValue {
+            case 0:
+                self = .work
+            case 1:
+                self = .studying
+            case 2:
+                self = .hobby
+            default:
+                self = .other
+            }
+        }
+        
+        func getOption(category: Category) -> Int {
+            switch category {
+            case .work:
+                return 0
+            case .studying:
+                return 1
+            case .hobby:
+                return 2
+            case .other:
+                return 3
+            }
+        }
+    }
+}
+
 
 extension TodoItem {
     enum Constants {

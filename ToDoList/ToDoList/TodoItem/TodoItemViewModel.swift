@@ -18,7 +18,8 @@ class TodoItemViewModel: ObservableObject {
     
     @Published private(set) var todoItem: TodoItem
     private(set) var isNew: Bool
-
+    weak var delegate: TodoListViewControllerDelegate?
+    
     // MARK: - LifeCycle
     
     init(
@@ -39,7 +40,7 @@ class TodoItemViewModel: ObservableObject {
     
     // MARK: - Internal methods
 
-    func didTapSaveButton(text: String, importance: TodoItem.Importance, deadline: Date?, color: String) {
+    func didTapSaveButton(text: String, importance: TodoItem.Importance, deadline: Date?, color: String, category: TodoItem.Category) {
         let item = TodoItem(
             id: todoItem.id,
             text: text,
@@ -48,10 +49,12 @@ class TodoItemViewModel: ObservableObject {
             isCompleted: todoItem.isCompleted,
             createdAt: todoItem.createdAt,
             changedAt: Date(),
-            color: color
+            color: color,
+            category: category
         )
         todoItem = item
         fileCache.addNewOrUpdateItem(todoItem)
+        delegate?.didUpdateTodoList()
     }
     
     func didTapDeleteButton() {
@@ -59,12 +62,54 @@ class TodoItemViewModel: ObservableObject {
     }
 
     func didSwitchToggle() {
-        let index = fileCache.toDoItems.firstIndex(where: { self.id == $0.id }) ?? 0
-        let item = fileCache.toDoItems[index].copy(isCompleted: !self.todoItem.isCompleted)
-        fileCache.addNewOrUpdateItem(item)
-        isNew = true
+        let item = TodoItem(
+            id: todoItem.id,
+            text: todoItem.text,
+            importance: todoItem.importance,
+            deadline: todoItem.deadline,
+            isCompleted: !todoItem.isCompleted,
+            createdAt: todoItem.createdAt,
+            changedAt: Date(),
+            color: todoItem.color,
+            category: todoItem.category
+        )
+        todoItem = item
+        fileCache.addNewOrUpdateItem(todoItem)
+        delegate?.didUpdateTodoList()
     }
     
+    func didCompleted() {
+        let item = TodoItem(
+            id: todoItem.id,
+            text: todoItem.text,
+            importance: todoItem.importance,
+            deadline: todoItem.deadline,
+            isCompleted: true,
+            createdAt: todoItem.createdAt,
+            changedAt: Date(),
+            color: todoItem.color,
+            category: todoItem.category
+        )
+        todoItem = item
+        fileCache.addNewOrUpdateItem(todoItem)
+    }
+    
+    func didUnCompleted() {
+        let item = TodoItem(
+            id: todoItem.id,
+            text: todoItem.text,
+            importance: todoItem.importance,
+            deadline: todoItem.deadline,
+            isCompleted: false,
+            createdAt: todoItem.createdAt,
+            changedAt: Date(),
+            color: todoItem.color,
+            category: todoItem.category
+        )
+        todoItem = item
+        fileCache.addNewOrUpdateItem(todoItem)
+    }
 }
+
 
 extension TodoItemViewModel: Identifiable {}
