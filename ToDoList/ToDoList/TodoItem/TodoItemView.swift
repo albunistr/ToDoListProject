@@ -23,6 +23,7 @@ struct ToDoItemView: View {
     
     // MARK: - State properties
 
+    weak var delegate: TodoListViewControllerDelegate?
     @State private var deadlineDate: Date = TodoItemViewConstants.defaultDeadline
     @State private var selectedOption = 1
     @State private var selectedcategory = 1
@@ -224,6 +225,7 @@ struct ToDoItemView: View {
                                 if todoItemViewModel.isNew {
                                     todoItemViewModel.didTapDeleteButton()
                                 }
+                                delegate?.didUpdateTodoList()
                                 dismiss()
                             }
                         }
@@ -238,6 +240,7 @@ struct ToDoItemView: View {
                                         color: selectedColor.hexString,
                                         category: TodoItem.Category(rawValue: selectedcategory)
                                     )
+                                    delegate?.didUpdateTodoList()
                                     dismiss()
                                 }
                             } label: {

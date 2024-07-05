@@ -117,9 +117,9 @@ extension TodoCalendarViewController: UITableViewDataSource {
 
 
 extension TodoCalendarViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+    @objc func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let deleteAction = UIContextualAction(style: .normal, title: nil) { (action, view, completionHandler) in
-            self.todoListViewModel.items[indexPath.row].didSwitchToggle()
+            self.sections[indexPath.section].todos[indexPath.row].didCompleted()
             completionHandler(true)
         }
         deleteAction.image = UIImage(named: Images.completed)
@@ -128,9 +128,9 @@ extension TodoCalendarViewController: UITableViewDelegate {
         tableView.reloadData()
         return configuration
     }
-    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+    @objc func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let deleteAction = UIContextualAction(style: .normal, title: "Отменить") { (action, view, completionHandler) in
-            self.sections[indexPath.section].todos[indexPath.row].didSwitchToggle()
+            self.sections[indexPath.section].todos[indexPath.row].didUnCompleted()
             completionHandler(true)
         }
         let configuration = UISwipeActionsConfiguration(actions: [deleteAction])
@@ -152,7 +152,7 @@ extension TodoCalendarViewController: UITableViewDelegate {
 }
 
 extension TodoCalendarViewController {
-    @objc func openSwiftUIView() {
+    @objc func openTodoItemEditView() {
         todoListViewModel.addNew()
         guard let last = todoListViewModel.items.last else {
             return
@@ -166,5 +166,6 @@ extension TodoCalendarViewController {
 extension TodoCalendarViewController: TodoListViewControllerDelegate {
     func didUpdateTodoList() {
         tableView.reloadData()
+        collectionViewWithDates.reloadData()
     }
 }

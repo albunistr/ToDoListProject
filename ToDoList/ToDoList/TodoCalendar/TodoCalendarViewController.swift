@@ -20,7 +20,7 @@ class TodoCalendarViewController: UIViewController {
         return label
     }()
     
-    let collectionViewWithDates: UICollectionView = {
+    var collectionViewWithDates: UICollectionView = {
        let collectionView =  UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
         collectionView.backgroundColor = ColorsUIKit.backPrimary
         collectionView.layer.borderWidth = 1.0
@@ -36,7 +36,7 @@ class TodoCalendarViewController: UIViewController {
         return tableView
     }()
     
-    var button: UIButton = {
+    private var button: UIButton = {
         let button = UIButton(type: .system)
         button.setImage(UIImage(named: Images.plus), for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -148,6 +148,6 @@ private extension TodoCalendarViewController {
             button.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -10),
             button.centerXAnchor.constraint(equalTo: view.centerXAnchor)
         ])
-        button.addTarget(self, action: #selector(openSwiftUIView), for: .touchUpInside)
+        button.addTarget(self, action: #selector(openTodoItemEditView), for: .touchUpInside)
     }
 }

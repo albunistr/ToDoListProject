@@ -110,6 +110,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B104C2FC2C387638009E120D /* TodoCalendar */ = {
+			isa = PBXGroup;
+			children = (
+				E2F720C22C3149AF007980B8 /* TodoCalendarViewController.swift */,
+				E2A4E4942C32BFDB005620F8 /* TodoCalendarCell.swift */,
+				E2A4E4982C32DAE0005620F8 /* TodoCalendarController+Extensions.swift */,
+				E2A1632E2C37D26B002C4C69 /* CellConfigurable.swift */,
+				E2A163302C37D37D002C4C69 /* TodoCalendarTableViewCell.swift */,
+			);
+			path = TodoCalendar;
+			sourceTree = "<group>";
+		};
 		B1675AEB2C2DEAB100464AAA /* TodoList */ = {
 			isa = PBXGroup;
 			children = (
@@ -190,7 +202,7 @@
 		E2DCAE1B2C218FD300264A33 /* ToDoList */ = {
 			isa = PBXGroup;
 			children = (
-				E2F720C12C314982007980B8 /* TodoListUIKit */,
+				B104C2FC2C387638009E120D /* TodoCalendar */,
 				B1675AED2C2DFC7B00464AAA /* Extensions */,
 				E2DCAE1E2C218FD300264A33 /* ContentView.swift */,
 				B1675AEC2C2DEABE00464AAA /* TodoItem */,
@@ -228,18 +240,6 @@
 				E2DCAE3A2C218FD600264A33 /* ToDoListUITestsLaunchTests.swift */,
 			);
 			path = ToDoListUITests;
-			sourceTree = "<group>";
-		};
-		E2F720C12C314982007980B8 /* TodoListUIKit */ = {
-			isa = PBXGroup;
-			children = (
-				E2F720C22C3149AF007980B8 /* TodoCalendarViewController.swift */,
-				E2A4E4942C32BFDB005620F8 /* TodoCalendarCell.swift */,
-				E2A4E4982C32DAE0005620F8 /* TodoCalendarController+Extensions.swift */,
-				E2A1632E2C37D26B002C4C69 /* CellConfigurable.swift */,
-				E2A163302C37D37D002C4C69 /* TodoCalendarTableViewCell.swift */,
-			);
-			path = TodoListUIKit;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
