@@ -10,3 +10,6 @@ import Foundation
 protocol CellConfigurable {
     func configure(with todoItem: TodoItem)
 }
+protocol TodoListViewControllerDelegate: AnyObject {
+    func didUpdateTodoList()
+}

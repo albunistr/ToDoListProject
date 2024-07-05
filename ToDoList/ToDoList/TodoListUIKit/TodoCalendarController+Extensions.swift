@@ -96,21 +96,18 @@ extension TodoCalendarViewController: UITableViewDataSource {
         else {
             return UITableViewCell()
         }
-        let isFirstCell = indexPath.row == 0
-               let isLastCell = indexPath.row == tableView.numberOfRows(inSection: indexPath.section) - 1
-
-               // Скругление углов только для первой и последней ячеек
-               if isFirstCell || isLastCell {
-                   cell.layer.cornerRadius = 10
-                   cell.clipsToBounds = true
-
-                   // Дополнительная настройка для более красивого вида скругленных углов
-                   cell.layer.maskedCorners = isFirstCell ? [.layerMinXMinYCorner, .layerMaxXMinYCorner] : [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
-               } else {
-                   // Убираем скругление углов для остальных ячеек (если оно было применено ранее)
-                   cell.layer.cornerRadius = 0
-                   cell.layer.maskedCorners = []
-               }
+        if tableView.numberOfRows(inSection: indexPath.section) == 1 {
+            cell.layer.cornerRadius = 10
+        } else {
+            let isFirstCell = indexPath.row == 0
+                   let isLastCell = indexPath.row == tableView.numberOfRows(inSection: indexPath.section) - 1
+                   if isFirstCell || isLastCell {
+                       cell.layer.cornerRadius = 10
+                       cell.clipsToBounds = true
+                       cell.layer.maskedCorners = isFirstCell ? [.layerMinXMinYCorner, .layerMaxXMinYCorner] : [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
+                   }
+        }
+        
         
         let task = sections[indexPath.section].todos[indexPath.item]
         cell.configure(with: task.todoItem)
@@ -128,14 +125,16 @@ extension TodoCalendarViewController: UITableViewDelegate {
         deleteAction.image = UIImage(named: Images.completed)
         deleteAction.backgroundColor = ColorsUIKit.green
         let configuration = UISwipeActionsConfiguration(actions: [deleteAction])
+        tableView.reloadData()
         return configuration
     }
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let deleteAction = UIContextualAction(style: .normal, title: "Отменить") { (action, view, completionHandler) in
-            self.todoListViewModel.items[indexPath.row].didSwitchToggle()
+            self.sections[indexPath.section].todos[indexPath.row].didSwitchToggle()
             completionHandler(true)
         }
         let configuration = UISwipeActionsConfiguration(actions: [deleteAction])
+        tableView.reloadData()
         return configuration
     }
     func strikeThroughLabel(label: UILabel) {
@@ -155,15 +154,17 @@ extension TodoCalendarViewController: UITableViewDelegate {
 extension TodoCalendarViewController {
     @objc func openSwiftUIView() {
         todoListViewModel.addNew()
-        guard let lastIndex = todoListViewModel.items.indices.last else {
-                return
-            }
-            let itemBinding = Binding<TodoItemViewModel>(
-                get: { self.todoListViewModel.items[lastIndex] },
-                set: { self.todoListViewModel.items[lastIndex] = $0 }
-            )
-        let swiftUIHostingController = UIHostingController(rootView: ToDoItemView(todoItemViewModel: itemBinding))
+        guard let last = todoListViewModel.items.last else {
+            return
+        }
+    
+        let swiftUIHostingController = UIHostingController(rootView: ToDoItemView(todoItemViewModel: last))
         present(swiftUIHostingController, animated: true)
-                                                                
+    }
+}
+
+extension TodoCalendarViewController: TodoListViewControllerDelegate {
+    func didUpdateTodoList() {
+        tableView.reloadData()
     }
 }

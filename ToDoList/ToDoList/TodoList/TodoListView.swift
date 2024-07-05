@@ -51,7 +51,7 @@ struct TodoListView: View {
                 todoListViewModel.loadTodos()
             }) { selectedItem in
                 if let index = todoListViewModel.items.firstIndex(where: { $0.todoItem.id == selectedItem.id}) {
-                    ToDoItemView(todoItemViewModel: $todoListViewModel.items[index])
+                    ToDoItemView(todoItemViewModel: todoListViewModel.items[index])
                 }
             }
             .fullScreenCover(isPresented: $showCalendar) {

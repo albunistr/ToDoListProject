@@ -18,6 +18,7 @@ class TodoItemViewModel: ObservableObject {
     
     @Published private(set) var todoItem: TodoItem
     private(set) var isNew: Bool
+    weak var delegate: TodoListViewControllerDelegate?
     
     // MARK: - LifeCycle
     
@@ -52,6 +53,7 @@ class TodoItemViewModel: ObservableObject {
             category: category
         )
         todoItem = item
+        delegate?.didUpdateTodoList()
         fileCache.addNewOrUpdateItem(todoItem)
     }
     
@@ -72,6 +74,7 @@ class TodoItemViewModel: ObservableObject {
             category: todoItem.category
         )
         todoItem = item
+        delegate?.didUpdateTodoList()
         fileCache.addNewOrUpdateItem(todoItem)
     }
     

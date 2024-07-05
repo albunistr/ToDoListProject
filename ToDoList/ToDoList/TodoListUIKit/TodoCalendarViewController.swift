@@ -7,8 +7,8 @@
 
 import UIKit
 
+
 class TodoCalendarViewController: UIViewController {
-    
 // MARK: - Views
     private let mainLabel: UILabel = {
         let label = UILabel()
@@ -87,12 +87,15 @@ class TodoCalendarViewController: UIViewController {
         }
         setUpLayout()
     }
+    
 }
 
 // MARK: - Extensions
 private extension TodoCalendarViewController {
     
     private func setUpLayout() {
+        view.backgroundColor = ColorsUIKit.backPrimary
+        
         configureMainLabel()
         configureCollectionView()
         configureTableView()

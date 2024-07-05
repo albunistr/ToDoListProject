@@ -64,6 +64,7 @@ extension TodoCalendarTableViewCell: CellConfigurable {
             label.attributedText = NSAttributedString(string: todoItem.text, attributes: [NSAttributedString.Key.strikethroughStyle: NSUnderlineStyle.single.rawValue])
             label.textColor = ColorsUIKit.labelTertiary
         } else {
+            label.attributedText = NSAttributedString(string: "", attributes: [NSAttributedString.Key.strikethroughStyle: NSUnderlineStyle.single.rawValue])
             label.text = todoItem.text
             label.textColor = ColorsUIKit.labelPrimary
         }

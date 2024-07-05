@@ -14,7 +14,7 @@ class SwiftUIHostingController: UIHostingController<ToDoItemView> {
 
 struct ToDoItemView: View {
     
-    @Binding var todoItemViewModel: TodoItemViewModel
+    @ObservedObject var todoItemViewModel: TodoItemViewModel
     
     // MARK: - Environment properties
     
@@ -22,7 +22,7 @@ struct ToDoItemView: View {
     @Environment(\.horizontalSizeClass) var horizontalSizeClass
     
     // MARK: - State properties
-    
+
     @State private var deadlineDate: Date = TodoItemViewConstants.defaultDeadline
     @State private var selectedOption = 1
     @State private var selectedcategory = 1
@@ -279,6 +279,6 @@ struct TodoItemModelPreview: PreviewProvider {
     )
 
     static var previews: some View {
-        ToDoItemView(todoItemViewModel: $todoItemViewModel)
+        ToDoItemView(todoItemViewModel: todoItemViewModel)
     }
 }
