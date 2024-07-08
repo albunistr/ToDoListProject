@@ -6,20 +6,26 @@
 //
 
 import UIKit
-
+import SwiftUI
 
 class TodoCalendarViewController: UIViewController {
-// MARK: - Views
-    private let mainLabel: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.textAlignment = .center
-        label.textColor = .black
-        label.font = UIFont.systemFont(ofSize: 20, weight: .bold)
-        label.text = "Мои дела"
-        return label
-    }()
     
+    // MARK: - Class properties
+    var todocalendarViewModel: TodoCalendarViewModel
+    var isShowTodoItemView = false {
+        didSet {
+            if isShowTodoItemView {
+                openTodoItemView()
+            } else {
+                closeTodoItemView()
+                todocalendarViewModel.loadTodos()
+                didUpdateTodoList()
+            }
+        }
+    }
+    var swiftUIHostingController: UIHostingController<TodoItemViewWrapper>?
+    
+    // MARK: - Views
     var collectionViewWithDates: UICollectionView = {
        let collectionView =  UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
         collectionView.backgroundColor = ColorsUIKit.backPrimary
@@ -30,7 +36,7 @@ class TodoCalendarViewController: UIViewController {
     }()
     
     var tableView: UITableView = {
-        var tableView = UITableView()
+        var tableView = UITableView(frame: .zero, style: .insetGrouped)
         tableView.backgroundColor = ColorsUIKit.backPrimary
         tableView.translatesAutoresizingMaskIntoConstraints = false
         return tableView
@@ -43,34 +49,15 @@ class TodoCalendarViewController: UIViewController {
         return button
     }()
     
-// MARK: - Class properties
-    var todoListViewModel: TodoListViewModel
-    lazy var dates: [String] = {
-        var sortedDates = dict.keys.filter { $0 != "Другое" }.sorted()
-        sortedDates.append("Другое")
-        return sortedDates
-    }()
-    lazy var dict: [String: [TodoItemViewModel]] = {
-        var grouped: [String: [TodoItemViewModel]] = [:]
-        
-        for item in todoListViewModel.items {
-            let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "YYYY-MM-dd"
-            
-            let dateKey = item.todoItem.deadline != nil ? dateFormatter.string(from: item.todoItem.deadline!) : "Другое"
-            grouped[dateKey, default: []].append(item)
-        }
-        return grouped
-    }()
-    
-    var sections: [Section] = []
+
     
 // MARK: - Lifecycle
     init
     (
-        todoListviewModel: TodoListViewModel
-    ) {
-        self.todoListViewModel = todoListviewModel
+        todoCalendarViewModel: TodoCalendarViewModel
+    )
+    {
+        self.todocalendarViewModel = todoCalendarViewModel
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -80,31 +67,19 @@ class TodoCalendarViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let sortedDates = dict.keys.sorted()
-        sections = sortedDates.map { dateString in
-            let tasksForDate = dict[dateString] ?? []
-            return Section(date: dateString, todos: tasksForDate)
-        }
+        self.navigationItem.hidesBackButton = false
         setUpLayout()
     }
     
 }
 
-// MARK: - Extensions
+// MARK: - UI extension
 private extension TodoCalendarViewController {
     
-    private func setUpLayout() {        
-        configureMainLabel()
+    private func setUpLayout() {
         configureCollectionView()
         configureTableView()
         configureButton()
-    }
-    
-    func configureMainLabel() {
-        view.addSubview(mainLabel)
-        
-        mainLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 20).isActive = true
-        mainLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
     }
     func configureTableView() {
         tableView.register(TodoCalendarTableViewCell.self, forCellReuseIdentifier: "TodoCalendarTableViewCell")
@@ -115,7 +90,7 @@ private extension TodoCalendarViewController {
         view.addSubview(tableView)
         
         NSLayoutConstraint.activate([
-            tableView.topAnchor.constraint(equalTo: view.topAnchor, constant: 155),
+            tableView.topAnchor.constraint(equalTo: collectionViewWithDates.bottomAnchor),
             tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
@@ -130,7 +105,7 @@ private extension TodoCalendarViewController {
         view.addSubview(collectionViewWithDates)
         
         NSLayoutConstraint.activate([
-            collectionViewWithDates.topAnchor.constraint(equalTo: mainLabel.bottomAnchor, constant: 10),
+            collectionViewWithDates.topAnchor.constraint(equalTo: view.topAnchor, constant: 10),
             collectionViewWithDates.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             collectionViewWithDates.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             collectionViewWithDates.heightAnchor.constraint(equalToConstant: 100)
@@ -146,6 +121,26 @@ private extension TodoCalendarViewController {
             button.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -10),
             button.centerXAnchor.constraint(equalTo: view.centerXAnchor)
         ])
-        button.addTarget(self, action: #selector(openTodoItemEditView), for: .touchUpInside)
+        button.addTarget(self, action: #selector(didAddNewButtonTapped), for: .touchUpInside)
+    }
+}
+
+// MARK: - Add new button extension
+private extension TodoCalendarViewController {
+    @objc func didAddNewButtonTapped() {
+        isShowTodoItemView = true
+    }
+    func openTodoItemView() {
+        let todoItemViewModel = TodoItemViewModel(todoItem: nil, listViewModel: TodoListViewModel(fileCache: todocalendarViewModel.fileCache))
+        let todoItemView = TodoItemViewWrapper(isShowed: Binding(get: { self.isShowTodoItemView }, set: { self.isShowTodoItemView = $0 }), todoItemViewModel: todoItemViewModel)
+        swiftUIHostingController = UIHostingController(rootView: todoItemView)
+        if let controller = swiftUIHostingController {
+            present(controller, animated: true)
+        }
+    }
+    
+    func closeTodoItemView() {
+        swiftUIHostingController?.dismiss(animated: true)
+        swiftUIHostingController = nil
     }
 }

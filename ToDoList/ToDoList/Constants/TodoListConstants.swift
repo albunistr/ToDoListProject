@@ -7,7 +7,6 @@
 
 import Foundation
 
-
 enum TodoListConstants {
     static let myTodos = "Мои дела"
     static let new = "Новое"

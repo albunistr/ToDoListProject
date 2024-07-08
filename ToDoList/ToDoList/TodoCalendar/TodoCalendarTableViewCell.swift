@@ -57,14 +57,22 @@ class TodoCalendarTableViewCell: UITableViewCell {
     }
 }
 
+
 // MARK: - Extensions
 extension TodoCalendarTableViewCell: CellConfigurable {
+    override func prepareForReuse() {
+         super.prepareForReuse()
+        label.text = nil
+        label.attributedText = nil
+    }
+    
     func configure(with todoItem: TodoItem) {
         if todoItem.isCompleted {
-            label.attributedText = NSAttributedString(string: todoItem.text, attributes: [NSAttributedString.Key.strikethroughStyle: NSUnderlineStyle.single.rawValue])
+            let attributedString: NSMutableAttributedString = NSMutableAttributedString(string: todoItem.text)
+            attributedString.addAttribute(NSAttributedString.Key.strikethroughStyle, value: 2, range: NSRange(location: 0, length: attributedString.length))
+            label.attributedText = attributedString
             label.textColor = ColorsUIKit.labelTertiary
         } else {
-            label.attributedText = NSAttributedString(string: "", attributes: [NSAttributedString.Key.strikethroughStyle: NSUnderlineStyle.single.rawValue])
             label.text = todoItem.text
             label.textColor = ColorsUIKit.labelPrimary
         }

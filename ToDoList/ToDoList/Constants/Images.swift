@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import SwiftUI
 
 enum Images {
     static let calendar = "Calendar"
@@ -20,4 +19,6 @@ enum Images {
     static let propOff = "propOff"
     static let cell = "cell"
     static let trash = "trash"
+    static let calendarButton = "CalendarButton"
+    static let info = "info.circle"
 }

@@ -44,10 +44,10 @@ extension TodoItem {
 // MARK: - Constants for TodoItem
 extension TodoItem {
     enum Category: String {
-        case work = "red"
-        case studying = "blue"
-        case hobby = "green"
-        case other = "white"
+        case work
+        case studying
+        case hobby
+        case other
         
         init(rawValue: Int) {
             switch rawValue {

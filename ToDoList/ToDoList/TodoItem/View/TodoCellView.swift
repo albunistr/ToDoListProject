@@ -5,16 +5,14 @@
 //  Created by Albina Akhmadieva on 25.06.2024.
 //
 
-import Foundation
 import SwiftUI
 
 struct TodoCellView: View {
-    @Binding var todoItemViewModel: TodoItemViewModel
-    @State var isCompleted: Bool
     
-    var todoItem: TodoItem {
-        todoItemViewModel.todoItem
-    }
+    let todoItem: TodoItem
+    let completedToggle: () -> Void
+    let infoTap: () -> Void
+    let deleteTap: () -> Void
 
     // MARK: - Body
     
@@ -23,20 +21,45 @@ struct TodoCellView: View {
             completedButton
             Spacer(minLength: 8)
             textOfItem
+            Spacer()
+            info
         }
-        .padding(.horizontal, 15)
-        .padding(.vertical, 20)
-        .onAppear() {
-            isCompleted = todoItemViewModel.todoItem.isCompleted
-        }
+        .padding(.vertical, 4)
+        .frame(height: 50)
         
+        .swipeActions(edge: .leading) {
+            Button {
+                completedToggle()
+            } label: {
+                Image(Images.completed)
+            }
+            .tint(.green)
+        }
+        .swipeActions(edge: .trailing) {
+            
+            Button(role: .destructive) {
+                deleteTap()
+            } label: {
+                Image(systemName: Images.trash)
+            }
+            .tint(.red)
+            
+            Button {
+                infoTap()
+            } label: {
+                Image(systemName: Images.info)
+            }
+            .tint(Colors.grayLight)
+            
+            
+        }
     }
     
     // MARK: - Is completed button
     
     var completedButton: some View {
         VStack{
-            if isCompleted {
+            if todoItem.isCompleted {
                 Image(Images.completed)
             } else if todoItem.importance == .important {
                 Image(Images.highPriority)
@@ -45,8 +68,7 @@ struct TodoCellView: View {
             }
         }
         .onTapGesture {
-            isCompleted.toggle()
-            todoItemViewModel.didSwitchToggle()
+            completedToggle()
         }
     }
     
@@ -77,36 +99,24 @@ struct TodoCellView: View {
             VStack(alignment: .leading, spacing: 4) {
                 Text(todoItem.text)
                     .lineLimit(3)
-                    .strikethrough(isCompleted)
-                    .foregroundColor(isCompleted ? Colors.labelTertiary : Colors.labelPrimary)
+                    .strikethrough(todoItem.isCompleted)
+                    .foregroundColor(todoItem.isCompleted ? Colors.labelTertiary : Colors.labelPrimary)
                 deadline
             }
             
             Spacer()
             
             Rectangle()
-                .fill(Colors.red.colorStringToColor(todoItemViewModel.todoItem.color))
+                .fill(Colors.red.colorStringToColor(todoItem.color))
                 .frame(width: 5)
         }
     }
-    
-    
-}
-
-
-// MARK: PreView
-
-struct TodoCellPreview: PreviewProvider {
-    
-    @State static var todoItemViewModel = TodoItemViewModel(
-        fileCache: FileCache(),
-        todoItem: .defaultItem(),
-        isNew: false
-    )
-    
-    static var previews: some View {
-        TodoCellView(todoItemViewModel: $todoItemViewModel, isCompleted: todoItemViewModel.todoItem.isCompleted)
+    var info: some View {
+        Image(Images.modeLight)
+            .onTapGesture {
+                infoTap()
+            }
     }
+    
+    
 }
-
-
