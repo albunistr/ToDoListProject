@@ -36,32 +36,47 @@ extension TodoCalendarViewController: UITableViewDataSource {
             return UITableViewCell()
         }
         
-        let task = todocalendarViewModel.sections[indexPath.section].todos[indexPath.item]
-        cell.configure(with: task)
+        let item = todocalendarViewModel.sections[indexPath.section].todos[indexPath.item]
+        cell.configure(with: item)
         return cell
     }
 }
 
 // MARK: - UITableViewdelegate
 extension TodoCalendarViewController: UITableViewDelegate {
-     func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        let completedAction = UIContextualAction(style: .normal, title: nil) { (action, view, completionHandler) in
-            self.todocalendarViewModel.didCompleted(todoItem: self.todocalendarViewModel.sections[indexPath.section].todos[indexPath.row])
-            completionHandler(true)
+    func tableView(_ tableView: UITableView,
+                   leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let item = self.todocalendarViewModel.sections[indexPath.section].todos[indexPath.item]
+        if !item.isCompleted {
+            let completedAction = UIContextualAction(style: .normal, title: nil) { _, _, completionHandler in
+                self.todocalendarViewModel.didCompleted(todoItem: item)
+                completionHandler(true)
+            }
+            completedAction.image = UIImage(named: Images.completed)
+            completedAction.backgroundColor = ColorsUIKit.green
+            let configuration = UISwipeActionsConfiguration(actions: [completedAction])
+            return configuration
+        } else {
+            return nil
         }
-        completedAction.image = UIImage(named: Images.completed)
-        completedAction.backgroundColor = ColorsUIKit.green
-        let configuration = UISwipeActionsConfiguration(actions: [completedAction])
-        return configuration
+        
     }
-    
-    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        let unCompletedAction = UIContextualAction(style: .normal, title: "Отменить") { (action, view, completionHandler) in
-            self.todocalendarViewModel.didUnCompleted(todoItem: self.todocalendarViewModel.sections[indexPath.section].todos[indexPath.row])
-            completionHandler(true)
+
+    func tableView(_ tableView: UITableView,
+                   trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let item = self.todocalendarViewModel.sections[indexPath.section].todos[indexPath.item]
+        if item.isCompleted {
+            let completedAction = UIContextualAction(style: .normal, title: nil) { _, _, completionHandler in
+                self.todocalendarViewModel.didUnCompleted(todoItem: item)
+                completionHandler(true)
+            }
+            completedAction.image = UIImage(named: Images.completed)
+            completedAction.backgroundColor = ColorsUIKit.green
+            let configuration = UISwipeActionsConfiguration(actions: [completedAction])
+            return configuration
+        } else {
+            return nil
         }
-        let configuration = UISwipeActionsConfiguration(actions: [unCompletedAction])
-        return configuration
     }
     
     func scrollToTableCell(at indexPath: IndexPath, animated: Bool = true) {

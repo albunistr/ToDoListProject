@@ -9,7 +9,6 @@ import UIKit
 
 final class TodoCalendarViewModel {
     // MARK: - Private properties
-    private var items: [TodoItem] = []
     private(set)var fileCache: FileCacheProtocol
     
     // MARK: - Class properties
@@ -26,22 +25,31 @@ final class TodoCalendarViewModel {
     }
     
     func loadTodos() {
-        var dict: [String: [TodoItem]] = [:]
-        items = fileCache.toDoItems
+        let items = fileCache.toDoItems
+        sections.removeAll()
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.locale = Locale(identifier: "ru_RU")
+        dateFormatter.dateFormat = "YYYY-MM-dd"
         
         for item in items {
-            let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "YYYY-MM-dd"
+            if let deadline = item.deadline {
+                let date = dateFormatter.string(from: deadline)
+                if let index = sections.firstIndex(where: { $0.date == date }) {
+                    sections[index].todos.append(item)
+                } else {
+                    sections.append(Section(date: date, todos: [item]))
+                }
+            } else {
+                if let index = sections.firstIndex(where: { $0.date == "Другое" }) {
+                    sections[index].todos.append(item)
+                } else {
+                    sections.append(Section(date: "Другое", todos: [item]))
+                }
+            }
             
-            let dateKey = item.deadline != nil ? dateFormatter.string(from: item.deadline!) : "Другое"
-            dict[dateKey, default: []].append(item)
         }
-        
-        sections.removeAll()
-        sections = dict.keys.sorted().map { dateString in
-            let tasksForDate = dict[dateString] ?? []
-            return Section(date: dateString, todos: tasksForDate)
-        }
+        sections = sections.sorted { $0.date < $1.date }
         delegate?.didUpdateTodoList()
     }
 
@@ -86,8 +94,8 @@ final class TodoCalendarViewModel {
 }
 
 struct Section {
-    let date: String
-    let todos: [TodoItem]
+    var date: String
+    var todos: [TodoItem]
 }
 
 

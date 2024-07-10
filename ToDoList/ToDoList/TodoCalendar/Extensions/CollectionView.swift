@@ -35,6 +35,9 @@ extension TodoCalendarViewController: UICollectionViewDataSource {
     }
     
     func dateParser(_ dateString: String) -> (day: Int, month: String) {
+        guard dateString != "Другое" else {
+            return (day: 0, month: "0")
+        }
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"
         let date = dateFormatter.date(from: dateString)!
