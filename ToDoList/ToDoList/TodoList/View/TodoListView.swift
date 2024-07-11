@@ -13,15 +13,16 @@ struct TodoListView: View {
     @State private var showCreateTodoItemView = false
     @State private var showEditTodoItemView = false
     @State private var showCompleted: Bool = false
-    
+
     // MARK: - Body
+
     var body: some View {
         NavigationStack {
             ZStack(alignment: .bottom) {
                 Colors.backPrimary
                     .ignoresSafeArea()
-                
-                VStack(spacing: 0){
+
+                VStack(spacing: 0) {
                     topBar
                     list
                         .toolbar {
@@ -31,11 +32,11 @@ struct TodoListView: View {
                                     .bold()
                             }
                             ToolbarItem(placement: .topBarTrailing) {
-                                NavigationLink() {
+                                NavigationLink {
                                     UIKitControllerWrapper(todoListViewModel: todoListViewModel)
                                         .navigationTitle("Мои дела")
                                         .toolbarRole(.editor)
-                                        .onDisappear() {
+                                        .onDisappear {
                                             todoListViewModel.loadTodos()
                                         }
                                 } label: {
@@ -43,10 +44,10 @@ struct TodoListView: View {
                                 }
                             }
                         }
-                    
+
                     addNewButton
                 }
-                .onAppear() {
+                .onAppear {
                     todoListViewModel.loadTodos()
                 }
                 .sheet(isPresented: $showEditTodoItemView) {
@@ -55,13 +56,12 @@ struct TodoListView: View {
                 .sheet(isPresented: $showCreateTodoItemView) {
                     TodoItemView(todoItemViewModel: TodoItemViewModel(todoItem: nil, listViewModel: todoListViewModel), isShowed: $showCreateTodoItemView)
                 }
-                
             }
         }
     }
-    
+
     // MARK: - Top bar
-    
+
     var topBar: some View {
         HStack {
             Text("\(TodoListConstants.done) - \(todoListViewModel.items.filter { $0.isCompleted }.count)")
@@ -75,12 +75,11 @@ struct TodoListView: View {
                 .onTapGesture {
                     showCompleted.toggle()
                 }
-            
         }
     }
-    
+
     // MARK: - Add new item button
-    
+
     var addNewButton: some View {
         Button(action: {
             showCreateTodoItemView = true
@@ -90,9 +89,9 @@ struct TodoListView: View {
         }
         .padding(.bottom, 32)
     }
-    
+
     // MARK: - Items list
-    
+
     var list: some View {
         List {
             ForEach(todoListViewModel.items.filter { !showCompleted ? !$0.isCompleted : true }, id: \.id) { item in
@@ -134,14 +133,14 @@ struct TodoListView: View {
 
 struct NewTodoCell: View {
     let onCreate: () -> Void
-    
+
     var body: some View {
         HStack {
             Text(TodoListConstants.new)
                 .font(.system(size: 16))
                 .foregroundColor(.secondary)
                 .padding(.leading, 60)
-            
+
             Spacer()
         }
         .padding(.vertical, 4)
@@ -153,6 +152,7 @@ struct NewTodoCell: View {
 }
 
 // MARK: PreView
+
 struct TodoListViewPreview: PreviewProvider {
     static var previews: some View {
         TodoListView(todoListViewModel: TodoListViewModel(fileCache: testingFileCache))

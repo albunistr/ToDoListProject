@@ -9,8 +9,8 @@ import SwiftUI
 
 struct ContentView: View {
     private let fileCache = FileCache()
-    //for testing I put testingFileCache^ for opening clear app put fileCache
-    
+    // for testing I put testingFileCache^ for opening clear app put fileCache
+
     var body: some View {
         TodoListView(todoListViewModel: TodoListViewModel(fileCache: testingFileCache))
     }

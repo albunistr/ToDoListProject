@@ -7,14 +7,12 @@
 
 import Foundation
 
-
 final class TodoListViewModel: ObservableObject {
-
     // MARK: - Class properties
-    @Published var items: [TodoItem] = []
-    private(set)var fileCache: FileCacheProtocol
 
-    
+    @Published var items: [TodoItem] = []
+    private(set) var fileCache: FileCacheProtocol
+
     // MARK: - LifeCycle
 
     init(fileCache: FileCacheProtocol) {
@@ -25,9 +23,9 @@ final class TodoListViewModel: ObservableObject {
     // MARK: - Internal
 
     func loadTodos() {
-        self.items = fileCache.toDoItems
+        items = fileCache.toDoItems
     }
-    
+
     func removeItem(by id: String) {
         fileCache.removeItem(withId: id)
         loadTodos()

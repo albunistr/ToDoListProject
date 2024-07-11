@@ -8,7 +8,7 @@
 import UIKit
 
 class TodoCalendarTableViewCell: UITableViewCell {
-    
+
     // MARK: - Views
     private lazy var stackView: UIStackView = {
         let stackView = UIStackView()
@@ -17,7 +17,7 @@ class TodoCalendarTableViewCell: UITableViewCell {
         stackView.translatesAutoresizingMaskIntoConstraints = false
         return stackView
     }()
-    
+
     private lazy var circleView: UIImageView = {
         let circle = UIImage(named: "workColor")
         let circleImage = UIImageView(image: circle)
@@ -41,7 +41,7 @@ class TodoCalendarTableViewCell: UITableViewCell {
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
-    
+
     // MARK: - LifeCycle
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -57,7 +57,6 @@ class TodoCalendarTableViewCell: UITableViewCell {
     }
 }
 
-
 // MARK: - Extensions
 extension TodoCalendarTableViewCell: CellConfigurable {
     override func prepareForReuse() {
@@ -65,7 +64,7 @@ extension TodoCalendarTableViewCell: CellConfigurable {
         label.text = nil
         label.attributedText = nil
     }
-    
+
     func configure(with todoItem: TodoItem) {
         if todoItem.isCompleted {
             let attributedString: NSMutableAttributedString = NSMutableAttributedString(string: todoItem.text)

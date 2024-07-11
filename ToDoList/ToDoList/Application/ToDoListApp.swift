@@ -9,6 +9,9 @@ import SwiftUI
 
 @main
 struct ToDoListApp: App {
+//    init() {
+//        Logger.configureLogger()
+//    }
     var body: some Scene {
         WindowGroup {
             ContentView()

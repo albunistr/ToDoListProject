@@ -8,15 +8,16 @@
 import UIKit
 
 // MARK: - UITableViewDataSource
+
 extension TodoCalendarViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         return todocalendarViewModel.sections.count
     }
-    
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return todocalendarViewModel.sections[section].todos.count
     }
-    
+
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         if todocalendarViewModel.sections[section].date == "Другое" {
             return todocalendarViewModel.sections[section].date
@@ -25,7 +26,7 @@ extension TodoCalendarViewController: UITableViewDataSource {
             return "\(date.day) \(date.month)"
         }
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard
             let cell = tableView.dequeueReusableCell(
@@ -35,7 +36,7 @@ extension TodoCalendarViewController: UITableViewDataSource {
         else {
             return UITableViewCell()
         }
-        
+
         let item = todocalendarViewModel.sections[indexPath.section].todos[indexPath.item]
         cell.configure(with: item)
         return cell
@@ -43,6 +44,7 @@ extension TodoCalendarViewController: UITableViewDataSource {
 }
 
 // MARK: - UITableViewdelegate
+
 extension TodoCalendarViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView,
                    leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
@@ -59,7 +61,6 @@ extension TodoCalendarViewController: UITableViewDelegate {
         } else {
             return nil
         }
-        
     }
 
     func tableView(_ tableView: UITableView,
@@ -78,9 +79,8 @@ extension TodoCalendarViewController: UITableViewDelegate {
             return nil
         }
     }
-    
+
     func scrollToTableCell(at indexPath: IndexPath, animated: Bool = true) {
-        tableView.scrollToRow(at: indexPath, at: .top, animated: animated)
+        self.tableView.scrollToRow(at: indexPath, at: .top, animated: animated)
     }
 }
-

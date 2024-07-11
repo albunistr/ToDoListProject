@@ -7,9 +7,6 @@
 
 import UIKit
 
-
-
-
 class TodoCell: UICollectionViewCell {
     let label: UILabel = {
         let label = UILabel()
@@ -25,10 +22,10 @@ class TodoCell: UICollectionViewCell {
         setupViews()
     }
 
+    @available(*, unavailable)
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
 
     private func setupViews() {
         let stackView = UIStackView(arrangedSubviews: [label])

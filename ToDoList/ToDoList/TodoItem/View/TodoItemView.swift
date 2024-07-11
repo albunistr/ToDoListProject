@@ -10,15 +10,13 @@ import SwiftUI
 import UIKit
 
 struct TodoItemView: View {
-    
     // MARK: - Class Properties
-    
+
     @ObservedObject var todoItemViewModel: TodoItemViewModel
     @Binding var isShowed: Bool
-    
 
     // MARK: - Delete button
-    
+
     var deleteButton: some View {
         Button {
             todoItemViewModel.didTapDeleteButton()
@@ -32,9 +30,9 @@ struct TodoItemView: View {
         }
         .disabled(todoItemViewModel.todoItem?.id == nil)
     }
-    
+
     // MARK: - Controls
-    
+
     var controls: some View {
         VStack(spacing: 17) {
             TextField(text: $todoItemViewModel.text)
@@ -49,9 +47,9 @@ struct TodoItemView: View {
             }
             .padding()
             .background(RoundedRectangle(cornerRadius: 17).fill(Colors.backSecondary))
-            
+
             deleteButton
-            
+
             Spacer()
         }
         .padding(.horizontal)
@@ -59,37 +57,37 @@ struct TodoItemView: View {
         .navigationBarBackButtonHidden(true)
         .navigationBarTitleDisplayMode(.inline)
     }
-    
+
     // MARK: - Body
-    
+
     var body: some View {
         NavigationStack {
             ZStack {
                 Colors.backPrimary
                     .ignoresSafeArea()
-                
+
                 ScrollView(.vertical, showsIndicators: false) {
                     controls
-                    .toolbar {
-                        ToolbarItem(placement: .navigationBarLeading) {
-                            Button(TodoItemViewConstants.cancel) {
-                               isShowed = false
-                            }
-                        }
-                        
-                        ToolbarItem(placement: .navigationBarTrailing) {
-                            Button {
-                                if todoItemViewModel.text != TodoItemViewConstants.defaultTextEditor && !todoItemViewModel.text.isEmpty {
-                                    todoItemViewModel.didTapSaveButton()
+                        .toolbar {
+                            ToolbarItem(placement: .navigationBarLeading) {
+                                Button(TodoItemViewConstants.cancel) {
                                     isShowed = false
                                 }
-                                
-                            } label: {
-                                Text(TodoItemViewConstants.save)
                             }
-                            .disabled(todoItemViewModel.text.isEmpty || todoItemViewModel.text == TodoItemViewConstants.defaultTextEditor)
+
+                            ToolbarItem(placement: .navigationBarTrailing) {
+                                Button {
+                                    if todoItemViewModel.text != TodoItemViewConstants.defaultTextEditor && !todoItemViewModel.text.isEmpty {
+                                        todoItemViewModel.didTapSaveButton()
+                                        isShowed = false
+                                    }
+
+                                } label: {
+                                    Text(TodoItemViewConstants.save)
+                                }
+                                .disabled(todoItemViewModel.text.isEmpty || todoItemViewModel.text == TodoItemViewConstants.defaultTextEditor)
+                            }
                         }
-                    }
                 }
                 .scrollContentBackground(.hidden)
                 .background(Colors.backPrimary)

@@ -9,29 +9,32 @@ import UIKit
 
 final class TodoCalendarViewModel {
     // MARK: - Private properties
-    private(set)var fileCache: FileCacheProtocol
-    
+
+    private(set) var fileCache: FileCacheProtocol
+
     // MARK: - Class properties
+
     weak var delegate: TodoListViewControllerDelegate?
     var sections: [Section] = []
-    
+
     // MARK: - Lifecycle
+
     init
-    (
-        fileCache: FileCacheProtocol
-    ) {
+        (
+            fileCache: FileCacheProtocol
+        ) {
         self.fileCache = fileCache
         loadTodos()
     }
-    
+
     func loadTodos() {
         let items = fileCache.toDoItems
         sections.removeAll()
-        
+
         let dateFormatter = DateFormatter()
         dateFormatter.locale = Locale(identifier: "ru_RU")
         dateFormatter.dateFormat = "YYYY-MM-dd"
-        
+
         for item in items {
             if let deadline = item.deadline {
                 let date = dateFormatter.string(from: deadline)
@@ -47,7 +50,6 @@ final class TodoCalendarViewModel {
                     sections.append(Section(date: "Другое", todos: [item]))
                 }
             }
-            
         }
         sections = sections.sorted { $0.date < $1.date }
         delegate?.didUpdateTodoList()
@@ -62,6 +64,7 @@ final class TodoCalendarViewModel {
         }
         loadTodos()
     }
+
     func didCompleted(todoItem: TodoItem) {
         let updatedItem = TodoItem(
             id: todoItem.id,
@@ -76,6 +79,7 @@ final class TodoCalendarViewModel {
         )
         addNewOrUpdateItem(updatedItem)
     }
+
     func didUnCompleted(todoItem: TodoItem) {
         let updatedItem = TodoItem(
             id: todoItem.id,
@@ -90,12 +94,9 @@ final class TodoCalendarViewModel {
         )
         addNewOrUpdateItem(updatedItem)
     }
-        
 }
 
 struct Section {
     var date: String
     var todos: [TodoItem]
 }
-
-

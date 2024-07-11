@@ -5,12 +5,13 @@
 //  Created by Albina Akhmadieva on 23.06.2024.
 //
 
-import SwiftUI
 import Combine
+import SwiftUI
+import CocoaLumberjack
 
 final class TodoItemViewModel: ObservableObject {
-    
     // MARK: - Class properties
+
     @Published var text: String
     @Published var importance: TodoItem.Importance
     @Published var deadline: Date?
@@ -47,6 +48,7 @@ final class TodoItemViewModel: ObservableObject {
             category: category
         )
         todoListViewModel.addNewOrUpdateItem(item)
+//        DDLogInfo("Save button tapped")
     }
 
     func didTapDeleteButton() {

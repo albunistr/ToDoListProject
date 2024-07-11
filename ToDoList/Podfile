@@ -1,0 +1,14 @@
+# Uncomment the next line to define a global platform for your project
+ platform :ios, '17.4'
+
+def local_pod(name, **kwargs)
+    kwargs[:path] = "./Modules/#{name}"
+    pod name, kwargs
+end
+
+target 'ToDoList' do
+  
+  use_frameworks!
+  pod 'SwiftLint'
+
+end

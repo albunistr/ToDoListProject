@@ -8,7 +8,7 @@
 import UIKit
 
 class TodoCalendarCell: UICollectionViewCell {
-    
+
     // MARK: - Views
     let label: UILabel = {
         let label = UILabel()
@@ -18,20 +18,20 @@ class TodoCalendarCell: UICollectionViewCell {
         label.textColor = ColorsUIKit.labelTertiary
         return label
     }()
-    
+
     // MARK: - LifeCycle
     override var isSelected: Bool {
         didSet {
             updateAppearance()
         }
     }
-    
+
     override var isHighlighted: Bool {
         didSet {
             updateAppearance()
         }
     }
-    
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupViews()
