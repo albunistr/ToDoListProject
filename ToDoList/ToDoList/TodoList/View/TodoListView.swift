@@ -64,7 +64,7 @@ struct TodoListView: View {
                     }
                 }
                 .sheet(isPresented: $showCreateTodoItemView) {
-                    VStack{
+                    VStack {
                         TodoItemView(todoItemViewModel: TodoItemViewModel(todoItem: nil,
                                                                           listViewModel: todoListViewModel),
                                      isShowed: $showCreateTodoItemView)

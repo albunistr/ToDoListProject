@@ -13,6 +13,9 @@
 		B11CC6702C3F093C00F2D02D /* CocoaLumberjackSwiftLogBackend in Frameworks */ = {isa = PBXBuildFile; productRef = B11CC66F2C3F093C00F2D02D /* CocoaLumberjackSwiftLogBackend */; };
 		B1675AEF2C2DFC9300464AAA /* TodoItem+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1675AEE2C2DFC9300464AAA /* TodoItem+Extensions.swift */; };
 		B18771702C410941003973CE /* TodoCalendarWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B187716F2C410941003973CE /* TodoCalendarWrapper.swift */; };
+		B18771732C411FBC003973CE /* URL+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18771722C411FBC003973CE /* URL+extension.swift */; };
+		B187717A2C41B6DE003973CE /* TestsForUrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18771792C41B6DE003973CE /* TestsForUrl.swift */; };
+		B187717C2C41B703003973CE /* TestsForURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = B187717B2C41B703003973CE /* TestsForURL.swift */; };
 		B18BB03C2C2AFC470008F540 /* TodoCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B18BB03B2C2AFC470008F540 /* TodoCellView.swift */; };
 		B19757442C27FEA9000948AC /* TodoItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19757432C27FEA9000948AC /* TodoItemViewModel.swift */; };
 		B1C8BAA42C3C11A200A04250 /* TodoItemViewWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C8BAA32C3C11A200A04250 /* TodoItemViewWrapper.swift */; };
@@ -70,6 +73,9 @@
 		89ADC821C7C64E7EF8B7E04E /* Pods-ToDoList.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ToDoList.release.xcconfig"; path = "Target Support Files/Pods-ToDoList/Pods-ToDoList.release.xcconfig"; sourceTree = "<group>"; };
 		B1675AEE2C2DFC9300464AAA /* TodoItem+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TodoItem+Extensions.swift"; sourceTree = "<group>"; };
 		B187716F2C410941003973CE /* TodoCalendarWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoCalendarWrapper.swift; sourceTree = "<group>"; };
+		B18771722C411FBC003973CE /* URL+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+extension.swift"; sourceTree = "<group>"; };
+		B18771792C41B6DE003973CE /* TestsForUrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestsForUrl.swift; sourceTree = "<group>"; };
+		B187717B2C41B703003973CE /* TestsForURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestsForURL.swift; sourceTree = "<group>"; };
 		B18BB03B2C2AFC470008F540 /* TodoCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoCellView.swift; sourceTree = "<group>"; };
 		B19757432C27FEA9000948AC /* TodoItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoItemViewModel.swift; sourceTree = "<group>"; };
 		B1C8BAA32C3C11A200A04250 /* TodoItemViewWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoItemViewWrapper.swift; sourceTree = "<group>"; };
@@ -214,6 +220,15 @@
 			path = Wrappers;
 			sourceTree = "<group>";
 		};
+		B18771712C411FA8003973CE /* URL */ = {
+			isa = PBXGroup;
+			children = (
+				B18771722C411FBC003973CE /* URL+extension.swift */,
+				B187717B2C41B703003973CE /* TestsForURL.swift */,
+			);
+			path = URL;
+			sourceTree = "<group>";
+		};
 		B18BB0012C2973BD0008F540 /* Application */ = {
 			isa = PBXGroup;
 			children = (
@@ -332,6 +347,7 @@
 		E2DCAE1B2C218FD300264A33 /* ToDoList */ = {
 			isa = PBXGroup;
 			children = (
+				B18771712C411FA8003973CE /* URL */,
 				B187716C2C410161003973CE /* Resourses */,
 				B104C2FC2C387638009E120D /* TodoCalendar */,
 				B1675AEC2C2DEABE00464AAA /* TodoItem */,
@@ -357,6 +373,7 @@
 			isa = PBXGroup;
 			children = (
 				E2DCAE2E2C218FD600264A33 /* ToDoListTests.swift */,
+				B18771792C41B6DE003973CE /* TestsForUrl.swift */,
 			);
 			path = ToDoListTests;
 			sourceTree = "<group>";
@@ -572,6 +589,7 @@
 				E24CE2612C2D69E900C28985 /* TestingData.swift in Sources */,
 				E24CE2542C2D4AE800C28985 /* TodoListView.swift in Sources */,
 				E24CE25F2C2D66EE00C28985 /* TodoListViewModel.swift in Sources */,
+				B18771732C411FBC003973CE /* URL+extension.swift in Sources */,
 				B1C8BAB72C3C138100A04250 /* ColorPicker.swift in Sources */,
 				E2DCAE1F2C218FD300264A33 /* ContentView.swift in Sources */,
 				E2DCAE482C2194ED00264A33 /* FileCache.swift in Sources */,
@@ -586,6 +604,7 @@
 				E2F720C32C3149AF007980B8 /* TodoCalendarViewController.swift in Sources */,
 				E2A163312C37D37D002C4C69 /* TodoCalendarTableViewCell.swift in Sources */,
 				E2DCAE1D2C218FD300264A33 /* ToDoListApp.swift in Sources */,
+				B187717C2C41B703003973CE /* TestsForURL.swift in Sources */,
 				B1C8BAB32C3C136900A04250 /* ImportanceField.swift in Sources */,
 				B18771702C410941003973CE /* TodoCalendarWrapper.swift in Sources */,
 				B1675AEF2C2DFC9300464AAA /* TodoItem+Extensions.swift in Sources */,
@@ -600,6 +619,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E2DCAE2F2C218FD600264A33 /* ToDoListTests.swift in Sources */,
+				B187717A2C41B6DE003973CE /* TestsForUrl.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

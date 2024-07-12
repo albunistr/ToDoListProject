@@ -1,7 +1,7 @@
 version: "Apple Swift version 5.10 (swiftlang-5.10.0.13 clang-1500.3.9.4)"
 options: "48b761b76810ed26f04b6c77da675dead9342b7e2cf4dc861f19fcd7b4d484d3"
-build_start_time: [1720769621, 370675000]
-build_end_time: [1720769622, 758461000]
+build_start_time: [1720810454, 679764000]
+build_end_time: [1720810456, 846979000]
 inputs:
   ? "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Index.noindex/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/DerivedSources/GeneratedAssetSymbols.swift"
   : [1720699063, 234061918]
@@ -19,7 +19,7 @@ inputs:
   "/Users/albina/ToDoListProject/ToDoList/ToDoList/TodoCalendar/View/TodoCalendarCell.swift": [1720763968, 147243880]
   "/Users/albina/ToDoListProject/ToDoList/ToDoList/TodoCalendar/View/TodoCalendarTableViewCell.swift": [1720768301, 202428076]
   "/Users/albina/ToDoListProject/ToDoList/ToDoList/TodoCalendar/View/TodoCalendarViewController.swift": [1720768667, 477449726]
-  "/Users/albina/ToDoListProject/ToDoList/ToDoList/TodoCalendar/ViewModel/TodoCalendarViewModel.swift": [1720769419, 521948856]
+  "/Users/albina/ToDoListProject/ToDoList/ToDoList/TodoCalendar/ViewModel/TodoCalendarViewModel.swift": [1720774240, 476099574]
   "/Users/albina/ToDoListProject/ToDoList/ToDoList/TodoCalendar/Wrappers/TodoCalendarWrapper.swift": [1720768301, 86735605]
   "/Users/albina/ToDoListProject/ToDoList/ToDoList/TodoCalendar/Wrappers/TodoItemViewWrapper.swift": [1720768301, 345388122]
   "/Users/albina/ToDoListProject/ToDoList/ToDoList/TodoItem/Extensions/Color+Extensions.swift": [1720768301, 218352199]
@@ -32,6 +32,7 @@ inputs:
   "/Users/albina/ToDoListProject/ToDoList/ToDoList/TodoItem/View/TextField.swift": [1720768652, 645504705]
   "/Users/albina/ToDoListProject/ToDoList/ToDoList/TodoItem/View/TodoCellView.swift": [1720768301, 314757212]
   "/Users/albina/ToDoListProject/ToDoList/ToDoList/TodoItem/View/TodoItemView.swift": [1720763968, 52658987]
-  "/Users/albina/ToDoListProject/ToDoList/ToDoList/TodoItem/ViewModel/TodoItemViewModel.swift": [1720768301, 386348504]
-  "/Users/albina/ToDoListProject/ToDoList/ToDoList/TodoList/View/TodoListView.swift": [1720768301, 329857987]
-  "/Users/albina/ToDoListProject/ToDoList/ToDoList/TodoList/ViewModel/TodoListViewModel.swift": [1720769419, 487727318]
+  "/Users/albina/ToDoListProject/ToDoList/ToDoList/TodoItem/ViewModel/TodoItemViewModel.swift": [1720770708, 762569950]
+  "/Users/albina/ToDoListProject/ToDoList/ToDoList/TodoList/View/TodoListView.swift": [1720778041, 911402850]
+  "/Users/albina/ToDoListProject/ToDoList/ToDoList/TodoList/ViewModel/TodoListViewModel.swift": [1720774240, 424026189]
+  "/Users/albina/ToDoListProject/ToDoList/ToDoList/URL/URL+extension.swift": [1720810405, 757268956]

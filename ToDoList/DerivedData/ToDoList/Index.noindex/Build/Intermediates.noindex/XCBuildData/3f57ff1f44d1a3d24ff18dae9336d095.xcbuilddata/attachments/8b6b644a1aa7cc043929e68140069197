@@ -1,4 +1,0 @@
-module CocoaLumberjack {
-umbrella "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/SourcePackages/checkouts/CocoaLumberjack/Sources/CocoaLumberjack/include"
-export *
-}

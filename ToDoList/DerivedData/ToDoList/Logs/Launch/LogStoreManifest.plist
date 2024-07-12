@@ -6,6 +6,67 @@
 	<integer>11</integer>
 	<key>logs</key>
 	<dict>
+		<key>0A60A637-CB12-4B0A-AF58-553FC354FFB4</key>
+		<dict>
+			<key>auxiliaryLogUniqueIdentifier</key>
+			<string>F03CD279-2F04-48F9-BB86-601A1413C79D</string>
+			<key>auxiliaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+				<key>totalNumberOfAnalyzerIssues</key>
+				<integer>0</integer>
+				<key>totalNumberOfErrors</key>
+				<integer>0</integer>
+				<key>totalNumberOfTestFailures</key>
+				<integer>0</integer>
+				<key>totalNumberOfWarnings</key>
+				<integer>0</integer>
+			</dict>
+			<key>className</key>
+			<string>IDESchemeActionsInvocationRecord</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>com.apple.dt.IDE.LaunchSchemeAction</string>
+			<key>fileName</key>
+			<string>Run-ToDoList-2024.07.12_12-59-22-+0300.xcresult</string>
+			<key>hasAuxiliaryLog</key>
+			<true/>
+			<key>hasConsoleLog</key>
+			<true/>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+				<key>totalNumberOfAnalyzerIssues</key>
+				<integer>0</integer>
+				<key>totalNumberOfErrors</key>
+				<integer>0</integer>
+				<key>totalNumberOfTestFailures</key>
+				<integer>0</integer>
+				<key>totalNumberOfWarnings</key>
+				<integer>0</integer>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>ToDoList project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>ToDoList</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run ToDoList</string>
+			<key>timeStartedRecording</key>
+			<real>742471162.27329099</real>
+			<key>timeStoppedRecording</key>
+			<real>0.0</real>
+			<key>title</key>
+			<string>Run ToDoList</string>
+			<key>uniqueIdentifier</key>
+			<string>0A60A637-CB12-4B0A-AF58-553FC354FFB4</string>
+		</dict>
 		<key>1CF91DE4-6452-4249-BDF7-691B4EC92B43</key>
 		<dict>
 			<key>auxiliaryLogUniqueIdentifier</key>
@@ -799,6 +860,67 @@
 			<key>uniqueIdentifier</key>
 			<string>8BD1BD14-98EB-4C28-8E68-C4C5065E1A7B</string>
 		</dict>
+		<key>908657DE-5C76-4C1C-ABF9-F8FA3A8E09DF</key>
+		<dict>
+			<key>auxiliaryLogUniqueIdentifier</key>
+			<string>4A348619-CFDF-4168-B9AD-95ECA44E9F6C</string>
+			<key>auxiliaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>W</string>
+				<key>totalNumberOfAnalyzerIssues</key>
+				<integer>0</integer>
+				<key>totalNumberOfErrors</key>
+				<integer>0</integer>
+				<key>totalNumberOfTestFailures</key>
+				<integer>0</integer>
+				<key>totalNumberOfWarnings</key>
+				<integer>4</integer>
+			</dict>
+			<key>className</key>
+			<string>IDESchemeActionsInvocationRecord</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>com.apple.dt.IDE.LaunchSchemeAction</string>
+			<key>fileName</key>
+			<string>Run-ToDoList-2024.07.12_10-52-00-+0300.xcresult</string>
+			<key>hasAuxiliaryLog</key>
+			<true/>
+			<key>hasConsoleLog</key>
+			<true/>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>W</string>
+				<key>totalNumberOfAnalyzerIssues</key>
+				<integer>0</integer>
+				<key>totalNumberOfErrors</key>
+				<integer>0</integer>
+				<key>totalNumberOfTestFailures</key>
+				<integer>0</integer>
+				<key>totalNumberOfWarnings</key>
+				<integer>4</integer>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>ToDoList project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>ToDoList</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run ToDoList</string>
+			<key>timeStartedRecording</key>
+			<real>742463520.10420096</real>
+			<key>timeStoppedRecording</key>
+			<real>0.0</real>
+			<key>title</key>
+			<string>Run ToDoList</string>
+			<key>uniqueIdentifier</key>
+			<string>908657DE-5C76-4C1C-ABF9-F8FA3A8E09DF</string>
+		</dict>
 		<key>B28147E4-E3D4-4BC8-9878-F3A39E2AD398</key>
 		<dict>
 			<key>auxiliaryLogUniqueIdentifier</key>
@@ -859,6 +981,128 @@
 			<string>Run ToDoList</string>
 			<key>uniqueIdentifier</key>
 			<string>B28147E4-E3D4-4BC8-9878-F3A39E2AD398</string>
+		</dict>
+		<key>C6A0CB57-A1E7-41D5-AA39-CF203927EBD0</key>
+		<dict>
+			<key>auxiliaryLogUniqueIdentifier</key>
+			<string>5A92AFE6-07EB-436B-BC4E-9279AC33E772</string>
+			<key>auxiliaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>W</string>
+				<key>totalNumberOfAnalyzerIssues</key>
+				<integer>0</integer>
+				<key>totalNumberOfErrors</key>
+				<integer>0</integer>
+				<key>totalNumberOfTestFailures</key>
+				<integer>0</integer>
+				<key>totalNumberOfWarnings</key>
+				<integer>8</integer>
+			</dict>
+			<key>className</key>
+			<string>IDESchemeActionsInvocationRecord</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>com.apple.dt.IDE.LaunchSchemeAction</string>
+			<key>fileName</key>
+			<string>Run-ToDoList-2024.07.12_18-03-22-+0300.xcresult</string>
+			<key>hasAuxiliaryLog</key>
+			<true/>
+			<key>hasConsoleLog</key>
+			<true/>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>W</string>
+				<key>totalNumberOfAnalyzerIssues</key>
+				<integer>0</integer>
+				<key>totalNumberOfErrors</key>
+				<integer>0</integer>
+				<key>totalNumberOfTestFailures</key>
+				<integer>0</integer>
+				<key>totalNumberOfWarnings</key>
+				<integer>8</integer>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>ToDoList project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>ToDoList</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run ToDoList</string>
+			<key>timeStartedRecording</key>
+			<real>742489402.76942599</real>
+			<key>timeStoppedRecording</key>
+			<real>0.0</real>
+			<key>title</key>
+			<string>Run ToDoList</string>
+			<key>uniqueIdentifier</key>
+			<string>C6A0CB57-A1E7-41D5-AA39-CF203927EBD0</string>
+		</dict>
+		<key>E0F65FA3-3AE0-48AB-9EA9-490DC219588F</key>
+		<dict>
+			<key>auxiliaryLogUniqueIdentifier</key>
+			<string>859BA32F-B7E9-4D85-AE6D-4782F57F8BDF</string>
+			<key>auxiliaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+				<key>totalNumberOfAnalyzerIssues</key>
+				<integer>0</integer>
+				<key>totalNumberOfErrors</key>
+				<integer>0</integer>
+				<key>totalNumberOfTestFailures</key>
+				<integer>0</integer>
+				<key>totalNumberOfWarnings</key>
+				<integer>0</integer>
+			</dict>
+			<key>className</key>
+			<string>IDESchemeActionsInvocationRecord</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>com.apple.dt.IDE.LaunchSchemeAction</string>
+			<key>fileName</key>
+			<string>Run-ToDoList-2024.07.12_13-32-39-+0300.xcresult</string>
+			<key>hasAuxiliaryLog</key>
+			<true/>
+			<key>hasConsoleLog</key>
+			<true/>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+				<key>totalNumberOfAnalyzerIssues</key>
+				<integer>0</integer>
+				<key>totalNumberOfErrors</key>
+				<integer>0</integer>
+				<key>totalNumberOfTestFailures</key>
+				<integer>0</integer>
+				<key>totalNumberOfWarnings</key>
+				<integer>0</integer>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>ToDoList project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>ToDoList</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Run ToDoList</string>
+			<key>timeStartedRecording</key>
+			<real>742473159.42566597</real>
+			<key>timeStoppedRecording</key>
+			<real>0.0</real>
+			<key>title</key>
+			<string>Run ToDoList</string>
+			<key>uniqueIdentifier</key>
+			<string>E0F65FA3-3AE0-48AB-9EA9-490DC219588F</string>
 		</dict>
 	</dict>
 </dict>

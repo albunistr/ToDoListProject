@@ -52,6 +52,46 @@
 		<data>
 		n57qDP4tZfLD1rCS43W0B4LQjzE=
 		</data>
+		<key>PlugIns/ToDoListTests.xctest/CocoaLumberjack_CocoaLumberjack.bundle/Info.plist</key>
+		<data>
+		YICDq/8FNTA9E6t2Ow1snPGPELM=
+		</data>
+		<key>PlugIns/ToDoListTests.xctest/CocoaLumberjack_CocoaLumberjack.bundle/PrivacyInfo.xcprivacy</key>
+		<data>
+		4MLe/JNfAmWnKv0SN0uFkANew0w=
+		</data>
+		<key>PlugIns/ToDoListTests.xctest/CocoaLumberjack_CocoaLumberjack.bundle/_CodeSignature/CodeDirectory</key>
+		<data>
+		7FlxWqBOmfFMhAuNHoo7ZZPq9JM=
+		</data>
+		<key>PlugIns/ToDoListTests.xctest/CocoaLumberjack_CocoaLumberjack.bundle/_CodeSignature/CodeRequirements</key>
+		<data>
+		OnX22wWFKRSOFN1+obRynMCeyXM=
+		</data>
+		<key>PlugIns/ToDoListTests.xctest/CocoaLumberjack_CocoaLumberjack.bundle/_CodeSignature/CodeRequirements-1</key>
+		<data>
+		4AU9E9w8s3MF2MEMBW2xBlrXBho=
+		</data>
+		<key>PlugIns/ToDoListTests.xctest/CocoaLumberjack_CocoaLumberjack.bundle/_CodeSignature/CodeResources</key>
+		<data>
+		9yP3dHdFnSv8zdYpJNY6zK1c8Qk=
+		</data>
+		<key>PlugIns/ToDoListTests.xctest/CocoaLumberjack_CocoaLumberjack.bundle/_CodeSignature/CodeSignature</key>
+		<data>
+		2jmj7l5rSw0yVb/vlWAYkK/YBwk=
+		</data>
+		<key>PlugIns/ToDoListTests.xctest/Info.plist</key>
+		<data>
+		+p+/HdFnsvzccCuM2AYIsbIkdAY=
+		</data>
+		<key>PlugIns/ToDoListTests.xctest/ToDoListTests</key>
+		<data>
+		Cx2rf5e+7SjsnbZW87kO/S4UX2o=
+		</data>
+		<key>PlugIns/ToDoListTests.xctest/_CodeSignature/CodeResources</key>
+		<data>
+		6oFWMNl2OqV11qmnzwGxQLvbQto=
+		</data>
 	</dict>
 	<key>files2</key>
 	<dict>
@@ -123,6 +163,76 @@
 			<key>hash2</key>
 			<data>
 			47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=
+			</data>
+		</dict>
+		<key>PlugIns/ToDoListTests.xctest/CocoaLumberjack_CocoaLumberjack.bundle/Info.plist</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			lyw2FVT5kTGAqiYgYzsxoRy3YDzKmiUyCFiUB+GA7rQ=
+			</data>
+		</dict>
+		<key>PlugIns/ToDoListTests.xctest/CocoaLumberjack_CocoaLumberjack.bundle/PrivacyInfo.xcprivacy</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			EyzsACYN4YTYVoWqydU6QpR6qYctp0ZHxFdxTmtf57Y=
+			</data>
+		</dict>
+		<key>PlugIns/ToDoListTests.xctest/CocoaLumberjack_CocoaLumberjack.bundle/_CodeSignature/CodeDirectory</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			B9rsdKBOVQ4yyS45kWNU7qLc/LFRhVszaMYu1TddCfk=
+			</data>
+		</dict>
+		<key>PlugIns/ToDoListTests.xctest/CocoaLumberjack_CocoaLumberjack.bundle/_CodeSignature/CodeRequirements</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			mHkgkE6rZQ51eIwFSqCwUk5qgL/HGqMt+NI3phdD+YY=
+			</data>
+		</dict>
+		<key>PlugIns/ToDoListTests.xctest/CocoaLumberjack_CocoaLumberjack.bundle/_CodeSignature/CodeRequirements-1</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			idiGqN/DVDy54V+Q48d45ZEvlMt2XynVg0GBp6rbq0U=
+			</data>
+		</dict>
+		<key>PlugIns/ToDoListTests.xctest/CocoaLumberjack_CocoaLumberjack.bundle/_CodeSignature/CodeResources</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			XUvPhHjnLLnK7lUbHVq/mW6tLbDoJiDlVWHsyExSu8c=
+			</data>
+		</dict>
+		<key>PlugIns/ToDoListTests.xctest/CocoaLumberjack_CocoaLumberjack.bundle/_CodeSignature/CodeSignature</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=
+			</data>
+		</dict>
+		<key>PlugIns/ToDoListTests.xctest/Info.plist</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			KHsGlogvKOUfETPA1O7qr2UI/kHiv3nsShlV4QgIr3s=
+			</data>
+		</dict>
+		<key>PlugIns/ToDoListTests.xctest/ToDoListTests</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			XsVACOgBm9zydn2TSFoOX6N1IJ5GVBjdKYY7NN+FsgA=
+			</data>
+		</dict>
+		<key>PlugIns/ToDoListTests.xctest/_CodeSignature/CodeResources</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			06b4M5kGWbPzRWfP5NnGn3ZxFj74yZwsMUragka1fCY=
 			</data>
 		</dict>
 	</dict>

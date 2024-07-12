@@ -340,6 +340,7 @@ SWIFT_CLASS("_TtC8ToDoList26TodoCalendarViewController")
 - (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil SWIFT_UNAVAILABLE;
 @end
 
+
 @class UICollectionView;
 @class UICollectionViewLayout;
 @class NSIndexPath;
@@ -347,7 +348,6 @@ SWIFT_CLASS("_TtC8ToDoList26TodoCalendarViewController")
 @interface TodoCalendarViewController (SWIFT_EXTENSION(ToDoList)) <UICollectionViewDelegateFlowLayout>
 - (CGSize)collectionView:(UICollectionView * _Nonnull)collectionView layout:(UICollectionViewLayout * _Nonnull)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
 @end
-
 
 @class UIScrollView;
 
@@ -379,6 +379,8 @@ SWIFT_CLASS("_TtC8ToDoList26TodoCalendarViewController")
 - (NSString * _Nullable)tableView:(UITableView * _Nonnull)tableView titleForHeaderInSection:(NSInteger)section SWIFT_WARN_UNUSED_RESULT;
 - (UITableViewCell * _Nonnull)tableView:(UITableView * _Nonnull)tableView cellForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
 @end
+
+
 
 
 
