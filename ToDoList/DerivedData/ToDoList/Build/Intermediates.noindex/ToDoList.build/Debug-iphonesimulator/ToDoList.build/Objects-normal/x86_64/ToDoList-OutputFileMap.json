@@ -1,0 +1,338 @@
+{
+  "" : {
+    "diagnostics" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/ToDoList-master.dia",
+    "emit-module-dependencies" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/ToDoList-master-emit-module.d",
+    "emit-module-diagnostics" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/ToDoList-master-emit-module.dia",
+    "swift-dependencies" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/ToDoList-master.swiftdeps"
+  },
+  "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/DerivedSources/GeneratedAssetSymbols.swift" : {
+    "const-values" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/GeneratedAssetSymbols.swiftconstvalues",
+    "dependencies" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/GeneratedAssetSymbols.d",
+    "diagnostics" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/GeneratedAssetSymbols.dia",
+    "index-unit-output-path" : "/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/GeneratedAssetSymbols.o",
+    "llvm-bc" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/GeneratedAssetSymbols.bc",
+    "object" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/GeneratedAssetSymbols.o",
+    "swift-dependencies" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/GeneratedAssetSymbols.swiftdeps",
+    "swiftmodule" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/GeneratedAssetSymbols~partial.swiftmodule"
+  },
+  "/Users/albina/ToDoListProject/ToDoList/ToDoList/Application/ContentView.swift" : {
+    "const-values" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/ContentView.swiftconstvalues",
+    "dependencies" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/ContentView.d",
+    "diagnostics" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/ContentView.dia",
+    "index-unit-output-path" : "/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/ContentView.o",
+    "llvm-bc" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/ContentView.bc",
+    "object" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/ContentView.o",
+    "swift-dependencies" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/ContentView.swiftdeps",
+    "swiftmodule" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/ContentView~partial.swiftmodule"
+  },
+  "/Users/albina/ToDoListProject/ToDoList/ToDoList/Application/ToDoListApp.swift" : {
+    "const-values" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/ToDoListApp.swiftconstvalues",
+    "dependencies" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/ToDoListApp.d",
+    "diagnostics" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/ToDoListApp.dia",
+    "index-unit-output-path" : "/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/ToDoListApp.o",
+    "llvm-bc" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/ToDoListApp.bc",
+    "object" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/ToDoListApp.o",
+    "swift-dependencies" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/ToDoListApp.swiftdeps",
+    "swiftmodule" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/ToDoListApp~partial.swiftmodule"
+  },
+  "/Users/albina/ToDoListProject/ToDoList/ToDoList/Constants/Colors.swift" : {
+    "const-values" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/Colors.swiftconstvalues",
+    "dependencies" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/Colors.d",
+    "diagnostics" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/Colors.dia",
+    "index-unit-output-path" : "/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/Colors.o",
+    "llvm-bc" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/Colors.bc",
+    "object" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/Colors.o",
+    "swift-dependencies" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/Colors.swiftdeps",
+    "swiftmodule" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/Colors~partial.swiftmodule"
+  },
+  "/Users/albina/ToDoListProject/ToDoList/ToDoList/Constants/Images.swift" : {
+    "const-values" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/Images.swiftconstvalues",
+    "dependencies" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/Images.d",
+    "diagnostics" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/Images.dia",
+    "index-unit-output-path" : "/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/Images.o",
+    "llvm-bc" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/Images.bc",
+    "object" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/Images.o",
+    "swift-dependencies" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/Images.swiftdeps",
+    "swiftmodule" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/Images~partial.swiftmodule"
+  },
+  "/Users/albina/ToDoListProject/ToDoList/ToDoList/Constants/TestingData.swift" : {
+    "const-values" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/TestingData.swiftconstvalues",
+    "dependencies" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/TestingData.d",
+    "diagnostics" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/TestingData.dia",
+    "index-unit-output-path" : "/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/TestingData.o",
+    "llvm-bc" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/TestingData.bc",
+    "object" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/TestingData.o",
+    "swift-dependencies" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/TestingData.swiftdeps",
+    "swiftmodule" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/TestingData~partial.swiftmodule"
+  },
+  "/Users/albina/ToDoListProject/ToDoList/ToDoList/Constants/TodoItemViewConstants.swift" : {
+    "const-values" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/TodoItemViewConstants.swiftconstvalues",
+    "dependencies" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/TodoItemViewConstants.d",
+    "diagnostics" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/TodoItemViewConstants.dia",
+    "index-unit-output-path" : "/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/TodoItemViewConstants.o",
+    "llvm-bc" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/TodoItemViewConstants.bc",
+    "object" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/TodoItemViewConstants.o",
+    "swift-dependencies" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/TodoItemViewConstants.swiftdeps",
+    "swiftmodule" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/TodoItemViewConstants~partial.swiftmodule"
+  },
+  "/Users/albina/ToDoListProject/ToDoList/ToDoList/Resourses/FileCache.swift" : {
+    "const-values" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/FileCache.swiftconstvalues",
+    "dependencies" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/FileCache.d",
+    "diagnostics" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/FileCache.dia",
+    "index-unit-output-path" : "/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/FileCache.o",
+    "llvm-bc" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/FileCache.bc",
+    "object" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/FileCache.o",
+    "swift-dependencies" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/FileCache.swiftdeps",
+    "swiftmodule" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/FileCache~partial.swiftmodule"
+  },
+  "/Users/albina/ToDoListProject/ToDoList/ToDoList/Services/Logger.swift" : {
+    "const-values" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/Logger.swiftconstvalues",
+    "dependencies" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/Logger.d",
+    "diagnostics" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/Logger.dia",
+    "index-unit-output-path" : "/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/Logger.o",
+    "llvm-bc" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/Logger.bc",
+    "object" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/Logger.o",
+    "swift-dependencies" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/Logger.swiftdeps",
+    "swiftmodule" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/Logger~partial.swiftmodule"
+  },
+  "/Users/albina/ToDoListProject/ToDoList/ToDoList/TodoCalendar/Extensions/CollectionView.swift" : {
+    "const-values" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/CollectionView.swiftconstvalues",
+    "dependencies" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/CollectionView.d",
+    "diagnostics" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/CollectionView.dia",
+    "index-unit-output-path" : "/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/CollectionView.o",
+    "llvm-bc" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/CollectionView.bc",
+    "object" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/CollectionView.o",
+    "swift-dependencies" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/CollectionView.swiftdeps",
+    "swiftmodule" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/CollectionView~partial.swiftmodule"
+  },
+  "/Users/albina/ToDoListProject/ToDoList/ToDoList/TodoCalendar/Extensions/TableView.swift" : {
+    "const-values" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/TableView.swiftconstvalues",
+    "dependencies" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/TableView.d",
+    "diagnostics" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/TableView.dia",
+    "index-unit-output-path" : "/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/TableView.o",
+    "llvm-bc" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/TableView.bc",
+    "object" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/TableView.o",
+    "swift-dependencies" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/TableView.swiftdeps",
+    "swiftmodule" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/TableView~partial.swiftmodule"
+  },
+  "/Users/albina/ToDoListProject/ToDoList/ToDoList/TodoCalendar/Extensions/TodoCalendar+Extension.swift" : {
+    "const-values" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/TodoCalendar+Extension.swiftconstvalues",
+    "dependencies" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/TodoCalendar+Extension.d",
+    "diagnostics" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/TodoCalendar+Extension.dia",
+    "index-unit-output-path" : "/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/TodoCalendar+Extension.o",
+    "llvm-bc" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/TodoCalendar+Extension.bc",
+    "object" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/TodoCalendar+Extension.o",
+    "swift-dependencies" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/TodoCalendar+Extension.swiftdeps",
+    "swiftmodule" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/TodoCalendar+Extension~partial.swiftmodule"
+  },
+  "/Users/albina/ToDoListProject/ToDoList/ToDoList/TodoCalendar/View/TodoCalendarCell.swift" : {
+    "const-values" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/TodoCalendarCell.swiftconstvalues",
+    "dependencies" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/TodoCalendarCell.d",
+    "diagnostics" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/TodoCalendarCell.dia",
+    "index-unit-output-path" : "/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/TodoCalendarCell.o",
+    "llvm-bc" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/TodoCalendarCell.bc",
+    "object" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/TodoCalendarCell.o",
+    "swift-dependencies" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/TodoCalendarCell.swiftdeps",
+    "swiftmodule" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/TodoCalendarCell~partial.swiftmodule"
+  },
+  "/Users/albina/ToDoListProject/ToDoList/ToDoList/TodoCalendar/View/TodoCalendarTableViewCell.swift" : {
+    "const-values" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/TodoCalendarTableViewCell.swiftconstvalues",
+    "dependencies" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/TodoCalendarTableViewCell.d",
+    "diagnostics" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/TodoCalendarTableViewCell.dia",
+    "index-unit-output-path" : "/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/TodoCalendarTableViewCell.o",
+    "llvm-bc" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/TodoCalendarTableViewCell.bc",
+    "object" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/TodoCalendarTableViewCell.o",
+    "swift-dependencies" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/TodoCalendarTableViewCell.swiftdeps",
+    "swiftmodule" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/TodoCalendarTableViewCell~partial.swiftmodule"
+  },
+  "/Users/albina/ToDoListProject/ToDoList/ToDoList/TodoCalendar/View/TodoCalendarViewController.swift" : {
+    "const-values" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/TodoCalendarViewController.swiftconstvalues",
+    "dependencies" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/TodoCalendarViewController.d",
+    "diagnostics" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/TodoCalendarViewController.dia",
+    "index-unit-output-path" : "/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/TodoCalendarViewController.o",
+    "llvm-bc" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/TodoCalendarViewController.bc",
+    "object" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/TodoCalendarViewController.o",
+    "swift-dependencies" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/TodoCalendarViewController.swiftdeps",
+    "swiftmodule" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/TodoCalendarViewController~partial.swiftmodule"
+  },
+  "/Users/albina/ToDoListProject/ToDoList/ToDoList/TodoCalendar/ViewModel/TodoCalendarViewModel.swift" : {
+    "const-values" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/TodoCalendarViewModel.swiftconstvalues",
+    "dependencies" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/TodoCalendarViewModel.d",
+    "diagnostics" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/TodoCalendarViewModel.dia",
+    "index-unit-output-path" : "/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/TodoCalendarViewModel.o",
+    "llvm-bc" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/TodoCalendarViewModel.bc",
+    "object" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/TodoCalendarViewModel.o",
+    "swift-dependencies" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/TodoCalendarViewModel.swiftdeps",
+    "swiftmodule" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/TodoCalendarViewModel~partial.swiftmodule"
+  },
+  "/Users/albina/ToDoListProject/ToDoList/ToDoList/TodoCalendar/Wrappers/TodoCalendarWrapper.swift" : {
+    "const-values" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/TodoCalendarWrapper.swiftconstvalues",
+    "dependencies" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/TodoCalendarWrapper.d",
+    "diagnostics" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/TodoCalendarWrapper.dia",
+    "index-unit-output-path" : "/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/TodoCalendarWrapper.o",
+    "llvm-bc" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/TodoCalendarWrapper.bc",
+    "object" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/TodoCalendarWrapper.o",
+    "swift-dependencies" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/TodoCalendarWrapper.swiftdeps",
+    "swiftmodule" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/TodoCalendarWrapper~partial.swiftmodule"
+  },
+  "/Users/albina/ToDoListProject/ToDoList/ToDoList/TodoCalendar/Wrappers/TodoItemViewWrapper.swift" : {
+    "const-values" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/TodoItemViewWrapper.swiftconstvalues",
+    "dependencies" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/TodoItemViewWrapper.d",
+    "diagnostics" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/TodoItemViewWrapper.dia",
+    "index-unit-output-path" : "/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/TodoItemViewWrapper.o",
+    "llvm-bc" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/TodoItemViewWrapper.bc",
+    "object" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/TodoItemViewWrapper.o",
+    "swift-dependencies" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/TodoItemViewWrapper.swiftdeps",
+    "swiftmodule" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/TodoItemViewWrapper~partial.swiftmodule"
+  },
+  "/Users/albina/ToDoListProject/ToDoList/ToDoList/TodoItem/Extensions/Color+Extensions.swift" : {
+    "const-values" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/Color+Extensions.swiftconstvalues",
+    "dependencies" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/Color+Extensions.d",
+    "diagnostics" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/Color+Extensions.dia",
+    "index-unit-output-path" : "/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/Color+Extensions.o",
+    "llvm-bc" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/Color+Extensions.bc",
+    "object" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/Color+Extensions.o",
+    "swift-dependencies" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/Color+Extensions.swiftdeps",
+    "swiftmodule" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/Color+Extensions~partial.swiftmodule"
+  },
+  "/Users/albina/ToDoListProject/ToDoList/ToDoList/TodoItem/Extensions/TodoItem+Extensions.swift" : {
+    "const-values" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/TodoItem+Extensions.swiftconstvalues",
+    "dependencies" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/TodoItem+Extensions.d",
+    "diagnostics" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/TodoItem+Extensions.dia",
+    "index-unit-output-path" : "/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/TodoItem+Extensions.o",
+    "llvm-bc" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/TodoItem+Extensions.bc",
+    "object" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/TodoItem+Extensions.o",
+    "swift-dependencies" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/TodoItem+Extensions.swiftdeps",
+    "swiftmodule" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/TodoItem+Extensions~partial.swiftmodule"
+  },
+  "/Users/albina/ToDoListProject/ToDoList/ToDoList/TodoItem/Model/TodoItem.swift" : {
+    "const-values" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/TodoItem.swiftconstvalues",
+    "dependencies" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/TodoItem.d",
+    "diagnostics" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/TodoItem.dia",
+    "index-unit-output-path" : "/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/TodoItem.o",
+    "llvm-bc" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/TodoItem.bc",
+    "object" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/TodoItem.o",
+    "swift-dependencies" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/TodoItem.swiftdeps",
+    "swiftmodule" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/TodoItem~partial.swiftmodule"
+  },
+  "/Users/albina/ToDoListProject/ToDoList/ToDoList/TodoItem/View/CategoryField.swift" : {
+    "const-values" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/CategoryField.swiftconstvalues",
+    "dependencies" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/CategoryField.d",
+    "diagnostics" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/CategoryField.dia",
+    "index-unit-output-path" : "/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/CategoryField.o",
+    "llvm-bc" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/CategoryField.bc",
+    "object" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/CategoryField.o",
+    "swift-dependencies" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/CategoryField.swiftdeps",
+    "swiftmodule" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/CategoryField~partial.swiftmodule"
+  },
+  "/Users/albina/ToDoListProject/ToDoList/ToDoList/TodoItem/View/ColorPicker.swift" : {
+    "const-values" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/ColorPicker.swiftconstvalues",
+    "dependencies" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/ColorPicker.d",
+    "diagnostics" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/ColorPicker.dia",
+    "index-unit-output-path" : "/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/ColorPicker.o",
+    "llvm-bc" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/ColorPicker.bc",
+    "object" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/ColorPicker.o",
+    "swift-dependencies" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/ColorPicker.swiftdeps",
+    "swiftmodule" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/ColorPicker~partial.swiftmodule"
+  },
+  "/Users/albina/ToDoListProject/ToDoList/ToDoList/TodoItem/View/DeadlineField.swift" : {
+    "const-values" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/DeadlineField.swiftconstvalues",
+    "dependencies" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/DeadlineField.d",
+    "diagnostics" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/DeadlineField.dia",
+    "index-unit-output-path" : "/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/DeadlineField.o",
+    "llvm-bc" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/DeadlineField.bc",
+    "object" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/DeadlineField.o",
+    "swift-dependencies" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/DeadlineField.swiftdeps",
+    "swiftmodule" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/DeadlineField~partial.swiftmodule"
+  },
+  "/Users/albina/ToDoListProject/ToDoList/ToDoList/TodoItem/View/ImportanceField.swift" : {
+    "const-values" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/ImportanceField.swiftconstvalues",
+    "dependencies" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/ImportanceField.d",
+    "diagnostics" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/ImportanceField.dia",
+    "index-unit-output-path" : "/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/ImportanceField.o",
+    "llvm-bc" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/ImportanceField.bc",
+    "object" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/ImportanceField.o",
+    "swift-dependencies" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/ImportanceField.swiftdeps",
+    "swiftmodule" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/ImportanceField~partial.swiftmodule"
+  },
+  "/Users/albina/ToDoListProject/ToDoList/ToDoList/TodoItem/View/TextField.swift" : {
+    "const-values" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/TextField.swiftconstvalues",
+    "dependencies" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/TextField.d",
+    "diagnostics" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/TextField.dia",
+    "index-unit-output-path" : "/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/TextField.o",
+    "llvm-bc" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/TextField.bc",
+    "object" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/TextField.o",
+    "swift-dependencies" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/TextField.swiftdeps",
+    "swiftmodule" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/TextField~partial.swiftmodule"
+  },
+  "/Users/albina/ToDoListProject/ToDoList/ToDoList/TodoItem/View/TodoCellView.swift" : {
+    "const-values" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/TodoCellView.swiftconstvalues",
+    "dependencies" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/TodoCellView.d",
+    "diagnostics" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/TodoCellView.dia",
+    "index-unit-output-path" : "/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/TodoCellView.o",
+    "llvm-bc" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/TodoCellView.bc",
+    "object" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/TodoCellView.o",
+    "swift-dependencies" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/TodoCellView.swiftdeps",
+    "swiftmodule" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/TodoCellView~partial.swiftmodule"
+  },
+  "/Users/albina/ToDoListProject/ToDoList/ToDoList/TodoItem/View/TodoItemView.swift" : {
+    "const-values" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/TodoItemView.swiftconstvalues",
+    "dependencies" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/TodoItemView.d",
+    "diagnostics" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/TodoItemView.dia",
+    "index-unit-output-path" : "/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/TodoItemView.o",
+    "llvm-bc" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/TodoItemView.bc",
+    "object" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/TodoItemView.o",
+    "swift-dependencies" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/TodoItemView.swiftdeps",
+    "swiftmodule" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/TodoItemView~partial.swiftmodule"
+  },
+  "/Users/albina/ToDoListProject/ToDoList/ToDoList/TodoItem/ViewModel/TodoItemViewModel.swift" : {
+    "const-values" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/TodoItemViewModel.swiftconstvalues",
+    "dependencies" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/TodoItemViewModel.d",
+    "diagnostics" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/TodoItemViewModel.dia",
+    "index-unit-output-path" : "/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/TodoItemViewModel.o",
+    "llvm-bc" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/TodoItemViewModel.bc",
+    "object" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/TodoItemViewModel.o",
+    "swift-dependencies" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/TodoItemViewModel.swiftdeps",
+    "swiftmodule" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/TodoItemViewModel~partial.swiftmodule"
+  },
+  "/Users/albina/ToDoListProject/ToDoList/ToDoList/TodoList/View/TodoListView.swift" : {
+    "const-values" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/TodoListView.swiftconstvalues",
+    "dependencies" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/TodoListView.d",
+    "diagnostics" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/TodoListView.dia",
+    "index-unit-output-path" : "/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/TodoListView.o",
+    "llvm-bc" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/TodoListView.bc",
+    "object" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/TodoListView.o",
+    "swift-dependencies" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/TodoListView.swiftdeps",
+    "swiftmodule" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/TodoListView~partial.swiftmodule"
+  },
+  "/Users/albina/ToDoListProject/ToDoList/ToDoList/TodoList/ViewModel/TodoListViewModel.swift" : {
+    "const-values" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/TodoListViewModel.swiftconstvalues",
+    "dependencies" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/TodoListViewModel.d",
+    "diagnostics" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/TodoListViewModel.dia",
+    "index-unit-output-path" : "/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/TodoListViewModel.o",
+    "llvm-bc" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/TodoListViewModel.bc",
+    "object" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/TodoListViewModel.o",
+    "swift-dependencies" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/TodoListViewModel.swiftdeps",
+    "swiftmodule" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/TodoListViewModel~partial.swiftmodule"
+  },
+  "/Users/albina/ToDoListProject/ToDoList/ToDoList/URL/TestsForURL.swift" : {
+    "const-values" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/TestsForURL.swiftconstvalues",
+    "dependencies" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/TestsForURL.d",
+    "diagnostics" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/TestsForURL.dia",
+    "index-unit-output-path" : "/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/TestsForURL.o",
+    "llvm-bc" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/TestsForURL.bc",
+    "object" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/TestsForURL.o",
+    "swift-dependencies" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/TestsForURL.swiftdeps",
+    "swiftmodule" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/TestsForURL~partial.swiftmodule"
+  },
+  "/Users/albina/ToDoListProject/ToDoList/ToDoList/URL/URL+extension.swift" : {
+    "const-values" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/URL+extension.swiftconstvalues",
+    "dependencies" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/URL+extension.d",
+    "diagnostics" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/URL+extension.dia",
+    "index-unit-output-path" : "/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/URL+extension.o",
+    "llvm-bc" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/URL+extension.bc",
+    "object" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/URL+extension.o",
+    "swift-dependencies" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/URL+extension.swiftdeps",
+    "swiftmodule" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/URL+extension~partial.swiftmodule"
+  }
+}

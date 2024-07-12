@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import CocoaLumberjackSwift
 
 struct TodoListView: View {
     @StateObject var todoListViewModel: TodoListViewModel
@@ -13,15 +14,16 @@ struct TodoListView: View {
     @State private var showCreateTodoItemView = false
     @State private var showEditTodoItemView = false
     @State private var showCompleted: Bool = false
-    
+
     // MARK: - Body
+
     var body: some View {
         NavigationStack {
             ZStack(alignment: .bottom) {
                 Colors.backPrimary
                     .ignoresSafeArea()
-                
-                VStack(spacing: 0){
+
+                VStack(spacing: 0) {
                     topBar
                     list
                         .toolbar {
@@ -31,68 +33,82 @@ struct TodoListView: View {
                                     .bold()
                             }
                             ToolbarItem(placement: .topBarTrailing) {
-                                NavigationLink() {
-                                    UIKitControllerWrapper(todoListViewModel: todoListViewModel)
+                                NavigationLink {
+                                    TodoCalendarWrapper(todoListViewModel: todoListViewModel)
                                         .navigationTitle("Мои дела")
                                         .toolbarRole(.editor)
-                                        .onDisappear() {
+                                        .onDisappear {
                                             todoListViewModel.loadTodos()
+                                            DDLogVerbose("Closed TodoCalendar")
                                         }
                                 } label: {
                                     Image(systemName: "calendar")
                                 }
                             }
                         }
-                    
+
                     addNewButton
                 }
-                .onAppear() {
+                .onAppear {
                     todoListViewModel.loadTodos()
                 }
                 .sheet(isPresented: $showEditTodoItemView) {
-                    TodoItemView(todoItemViewModel: TodoItemViewModel(todoItem: selectedItem, listViewModel: todoListViewModel), isShowed: $showEditTodoItemView)
+                    VStack {
+                        TodoItemView(todoItemViewModel:
+                                        TodoItemViewModel(todoItem: selectedItem,
+                                                          listViewModel: todoListViewModel),
+                                     isShowed: $showEditTodoItemView)
+                    }
+                    .onAppear {
+                        DDLogInfo("Edit opened")
+                    }
                 }
                 .sheet(isPresented: $showCreateTodoItemView) {
-                    TodoItemView(todoItemViewModel: TodoItemViewModel(todoItem: nil, listViewModel: todoListViewModel), isShowed: $showCreateTodoItemView)
+                    VStack {
+                        TodoItemView(todoItemViewModel: TodoItemViewModel(todoItem: nil,
+                                                                          listViewModel: todoListViewModel),
+                                     isShowed: $showCreateTodoItemView)
+                    }
+                    .onAppear {
+                        DDLogInfo("Create opened")
+                    }
                 }
-                
             }
         }
     }
-    
+
     // MARK: - Top bar
-    
+
     var topBar: some View {
         HStack {
-            Text("\(TodoListConstants.done) - \(todoListViewModel.items.filter { $0.isCompleted }.count)")
+            Text("Выполнено - \(todoListViewModel.items.filter { $0.isCompleted }.count)")
                 .padding()
                 .foregroundColor(Colors.labelDisable)
             Spacer()
-            Text(showCompleted ? TodoListConstants.hide : TodoListConstants.show)
+            Text(showCompleted ? "Скрыть" : "Показать")
                 .padding()
                 .font(.headline).bold()
                 .foregroundColor(Colors.blue)
                 .onTapGesture {
                     showCompleted.toggle()
                 }
-            
         }
     }
-    
+
     // MARK: - Add new item button
-    
+
     var addNewButton: some View {
         Button(action: {
             showCreateTodoItemView = true
         }) {
-            Image(Images.plus)
+            Images.plus
                 .frame(width: 44, height: 44, alignment: .center)
         }
         .padding(.bottom, 32)
     }
-    
+
     // MARK: - Items list
-    
+
     var list: some View {
         List {
             ForEach(todoListViewModel.items.filter { !showCompleted ? !$0.isCompleted : true }, id: \.id) { item in
@@ -114,6 +130,7 @@ struct TodoListView: View {
                     },
                     infoTap: {
                         selectedItem = item
+                        showCreateTodoItemView = false
                         showEditTodoItemView = true
                     },
                     deleteTap: {
@@ -122,6 +139,7 @@ struct TodoListView: View {
                 )
             }
             NewTodoCell {
+                showEditTodoItemView = false
                 showCreateTodoItemView = true
             }
             .listRowInsets(EdgeInsets())
@@ -134,14 +152,14 @@ struct TodoListView: View {
 
 struct NewTodoCell: View {
     let onCreate: () -> Void
-    
+
     var body: some View {
         HStack {
-            Text(TodoListConstants.new)
+            Text("Новое")
                 .font(.system(size: 16))
                 .foregroundColor(.secondary)
                 .padding(.leading, 60)
-            
+
             Spacer()
         }
         .padding(.vertical, 4)
@@ -153,6 +171,7 @@ struct NewTodoCell: View {
 }
 
 // MARK: PreView
+
 struct TodoListViewPreview: PreviewProvider {
     static var previews: some View {
         TodoListView(todoListViewModel: TodoListViewModel(fileCache: testingFileCache))

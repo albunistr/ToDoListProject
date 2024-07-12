@@ -1,0 +1,16 @@
+{
+  "source": "/Users/albina/ToDoListProject/ToDoList/ToDoList/TodoItem/View/TodoItemView.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": "Отменить"
+      },
+      {
+        "comment": "",
+        "key": "Сохранить"
+      }
+    ]
+  },
+  "version": 1
+}

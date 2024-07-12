@@ -1,0 +1,24 @@
+"/Users/albina/ToDoListProject/ToDoList/ToDoList/Constants/Images.swift":
+  dependencies: "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/Images.d"
+  swift-dependencies: "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/Images.swiftdeps"
+  diagnostics: "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/Images.dia"
+  const-values: "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/Images.swiftconstvalues"
+  object: "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/Images.o"
+"/Users/albina/ToDoListProject/ToDoList/ToDoList/Constants/TodoListConstants.swift":
+  object: "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/TodoListConstants.o"
+  dependencies: "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/TodoListConstants.d"
+  swift-dependencies: "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/TodoListConstants.swiftdeps"
+  diagnostics: "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/TodoListConstants.dia"
+  const-values: "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/TodoListConstants.swiftconstvalues"
+"/Users/albina/ToDoListProject/ToDoList/ToDoList/Services/Logger.swift":
+  const-values: "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/Logger.swiftconstvalues"
+  diagnostics: "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/Logger.dia"
+  dependencies: "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/Logger.d"
+  object: "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/Logger.o"
+  swift-dependencies: "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/Logger.swiftdeps"
+"/Users/albina/ToDoListProject/ToDoList/ToDoList/TodoItem/View/TodoCellView.swift":
+  swift-dependencies: "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/TodoCellView.swiftdeps"
+  diagnostics: "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/TodoCellView.dia"
+  const-values: "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/TodoCellView.swiftconstvalues"
+  object: "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/TodoCellView.o"
+  dependencies: "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/TodoCellView.d"

@@ -9,27 +9,25 @@ import SwiftUI
 
 struct ImportanceFieldView: View {
     @Binding var importance: TodoItem.Importance
-    
+
     var body: some View {
         HStack {
             Text(TodoItemViewConstants.importance)
-            
+
             Spacer()
-            
+
             Picker("", selection: $importance) {
-                Image(Images.iconPickerLowPriority)
+                Images.iconPickerLowPriority
                     .tag(TodoItem.Importance.unimportant)
-                    
+
                 Text("нет").tag(TodoItem.Importance.usual)
-                Image(Images.iconPickerHighPriority)
+                Images.iconPickerHighPriority
                     .tag(TodoItem.Importance.important)
             }
-            
+
             .frame(width: 170, height: 32)
             .pickerStyle(SegmentedPickerStyle())
             .background(RoundedRectangle(cornerRadius: 12).fill(Colors.overlay))
-            
         }
     }
 }
-

@@ -6,11 +6,11 @@
 //
 
 import Foundation
+import CocoaLumberjackSwift
 
 // MARK: - Common methods
 
 extension TodoItem {
-
     static func defaultItem(id: String = UUID().uuidString) -> TodoItem {
         TodoItem(id: id, text: "Что надо сделать?", importance: .usual)
     }
@@ -26,7 +26,6 @@ extension TodoItem {
         color: String? = nil,
         category: Category? = nil
     ) -> Self {
-
         .init(
             id: id ?? self.id,
             text: text ?? self.text,
@@ -42,13 +41,14 @@ extension TodoItem {
 }
 
 // MARK: - Constants for TodoItem
+
 extension TodoItem {
     enum Category: String {
         case work
         case studying
         case hobby
         case other
-        
+
         init(rawValue: Int) {
             switch rawValue {
             case 0:
@@ -61,7 +61,7 @@ extension TodoItem {
                 self = .other
             }
         }
-        
+
         func getOption(category: Category) -> Int {
             switch category {
             case .work:
@@ -77,19 +77,18 @@ extension TodoItem {
     }
 }
 
-
 extension TodoItem {
     enum Constants {
         static let maxCount = 7
         static let minCount = 4
         static let defaultValueForImportance = Importance.usual
     }
-    
+
     enum Importance: String {
         case unimportant
         case usual
         case important
-        
+
         init(rawValue: Int) {
             switch rawValue {
             case 0:
@@ -102,7 +101,7 @@ extension TodoItem {
                 self = .usual
             }
         }
-        
+
         func getOption(importance: Importance) -> Int {
             switch importance {
             case .unimportant:
@@ -113,9 +112,8 @@ extension TodoItem {
                 return 2
             }
         }
-        
     }
-    
+
     enum CodingKeys {
         static let idKey: String = "id"
         static let textKey: String = "text"
@@ -137,13 +135,14 @@ extension TodoItem {
               let createdAt = dict[CodingKeys.createdAtKey] as? Date,
               let id = dict[CodingKeys.idKey] as? String
         else {
+            DDLogError("Invalid json")
             return nil
         }
-        
+
         let importance: Importance
         let deadline: Date?
         let changedAt: Date?
-        
+
         if let stringForImportance = dict[CodingKeys.importanceKey] as? String {
             if let unwrappedImportance = Importance(rawValue: stringForImportance) {
                 importance = unwrappedImportance
@@ -153,7 +152,7 @@ extension TodoItem {
         } else {
             importance = .usual
         }
-        
+
         deadline = (dict[CodingKeys.deadlineKey] as? Double).flatMap {
             Date(timeIntervalSince1970: TimeInterval($0))
         }
@@ -161,7 +160,7 @@ extension TodoItem {
         changedAt = (dict[CodingKeys.changedAtKey] as? Double).flatMap {
             Date(timeIntervalSince1970: TimeInterval($0))
         }
-        
+        DDLogVerbose("JSON parsed success")
         return TodoItem(
             id: id,
             text: text,
@@ -172,7 +171,7 @@ extension TodoItem {
             changedAt: changedAt
         )
     }
-    
+
     var json: Any {
         var dict: [String: Any] = [
             CodingKeys.idKey: id,
@@ -180,19 +179,19 @@ extension TodoItem {
             CodingKeys.isCompletedKey: isCompleted,
             CodingKeys.createdAtKey: createdAt.timeIntervalSince1970
         ]
-        
+
         if importance != .usual {
             dict[CodingKeys.importanceKey] = importance.rawValue
         }
-        
+
         if let deadline = deadline {
             dict[CodingKeys.deadlineKey] = deadline.timeIntervalSince1970
         }
-        
+
         if let changedAt = changedAt {
             dict[CodingKeys.changedAtKey] = changedAt.timeIntervalSince1970
         }
-        
+        DDLogVerbose("JSON made success")
         return dict
     }
 }
@@ -204,7 +203,7 @@ extension TodoItem {
         var components = [String]()
         var currentComponent = ""
         var insideQuotos = false
-        
+
         for char in csv {
             if char == "\"" {
                 insideQuotos.toggle()
@@ -215,16 +214,18 @@ extension TodoItem {
                 currentComponent.append(char)
             }
         }
-        
+
         components.append(currentComponent)
-        
+
         guard components.count >= Constants.minCount,
               components.count <= Constants.maxCount,
               components[1] != "",
               let isCompleted = Bool(components[2]),
               let createdAtDouble = Double(components[3])
-        else { return nil }
-        
+        else { 
+            DDLogError("Invalid csv")
+            return nil }
+
         var importance: Importance
         let importanceString = components[4]
         switch importanceString {
@@ -233,9 +234,10 @@ extension TodoItem {
         case Importance.unimportant.rawValue, Importance.important.rawValue:
             importance = Importance(rawValue: importanceString)!
         default:
+            DDLogError("Invalid importance")
             return nil
         }
-        
+
         let id = components[0] == "" ? UUID().uuidString : components[0]
         let text = components[1]
         let createdAt = Date(timeIntervalSince1970: TimeInterval(createdAtDouble))
@@ -244,6 +246,7 @@ extension TodoItem {
         let changedAtDouble = Double(components[6]) ?? nil
         let changedAt = changedAtDouble != nil ? Date(timeIntervalSince1970: TimeInterval(changedAtDouble!)) : nil
         
+        DDLogVerbose("CSV parsed success")
         return TodoItem(
             id: id,
             text: text,
@@ -254,7 +257,7 @@ extension TodoItem {
             changedAt: changedAt
         )
     }
-    
+
     var csv: String {
         var importanceString: String
         switch importance {
@@ -263,12 +266,12 @@ extension TodoItem {
         case .important, .unimportant:
             importanceString = "\(importance.rawValue)"
         }
-        
+
         let deadlineString = deadline.flatMap { String($0.timeIntervalSince1970) } ?? ""
         let changedAtString = changedAt.flatMap { String($0.timeIntervalSince1970) } ?? ""
-        
+
         let textWithQuotos = "\"\(text)\""
-        
+
         let elements = [
             id,
             textWithQuotos,
@@ -278,7 +281,7 @@ extension TodoItem {
             deadlineString,
             changedAtString
         ]
-        
+        DDLogVerbose("CSV made success")
         return elements.joined(separator: ",")
     }
 }

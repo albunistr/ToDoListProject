@@ -6,15 +6,14 @@
 //
 
 import Foundation
-
+import CocoaLumberjackSwift
 
 final class TodoListViewModel: ObservableObject {
-
     // MARK: - Class properties
-    @Published var items: [TodoItem] = []
-    private(set)var fileCache: FileCacheProtocol
 
-    
+    @Published var items: [TodoItem] = []
+    private(set) var fileCache: FileCacheProtocol
+
     // MARK: - LifeCycle
 
     init(fileCache: FileCacheProtocol) {
@@ -25,21 +24,18 @@ final class TodoListViewModel: ObservableObject {
     // MARK: - Internal
 
     func loadTodos() {
-        self.items = fileCache.toDoItems
+        items = fileCache.toDoItems
     }
-    
+
     func removeItem(by id: String) {
         fileCache.removeItem(withId: id)
         loadTodos()
+        DDLogVerbose("TodoListViewModel removed item")
     }
 
-    func addNewOrUpdateItem(_ todoItem: TodoItem? = nil) {
-        if let item = todoItem {
-            fileCache.addNewOrUpdateItem(item)
-        } else {
-            let id = UUID().uuidString
-            fileCache.addNewOrUpdateItem(.defaultItem(id: id))
-        }
+    func addNewOrUpdateItem(_ todoItem: TodoItem) {
+            fileCache.addNewOrUpdateItem(todoItem)
+            DDLogVerbose("TodoListViewModel updated item")
         loadTodos()
     }
 }

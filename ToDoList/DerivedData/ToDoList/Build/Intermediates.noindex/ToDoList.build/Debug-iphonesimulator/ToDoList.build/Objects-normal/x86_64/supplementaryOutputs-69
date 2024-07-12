@@ -1,0 +1,24 @@
+"/Users/albina/ToDoListProject/ToDoList/ToDoList/TodoCalendar/Extensions/TableView.swift":
+  const-values: "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/TableView.swiftconstvalues"
+  object: "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/TableView.o"
+  swift-dependencies: "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/TableView.swiftdeps"
+  dependencies: "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/TableView.d"
+  diagnostics: "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/TableView.dia"
+"/Users/albina/ToDoListProject/ToDoList/ToDoList/TodoCalendar/CellConfigurable.swift":
+  dependencies: "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/CellConfigurable.d"
+  swift-dependencies: "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/CellConfigurable.swiftdeps"
+  object: "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/CellConfigurable.o"
+  const-values: "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/CellConfigurable.swiftconstvalues"
+  diagnostics: "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/CellConfigurable.dia"
+"/Users/albina/ToDoListProject/ToDoList/ToDoList/TodoItem/Model/TodoItem.swift":
+  const-values: "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/TodoItem.swiftconstvalues"
+  dependencies: "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/TodoItem.d"
+  object: "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/TodoItem.o"
+  swift-dependencies: "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/TodoItem.swiftdeps"
+  diagnostics: "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/TodoItem.dia"
+"/Users/albina/ToDoListProject/ToDoList/ToDoList/TodoItem/View/CategoryField.swift":
+  diagnostics: "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/CategoryField.dia"
+  dependencies: "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/CategoryField.d"
+  object: "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/CategoryField.o"
+  const-values: "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/CategoryField.swiftconstvalues"
+  swift-dependencies: "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/CategoryField.swiftdeps"

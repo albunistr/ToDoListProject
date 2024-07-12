@@ -1,0 +1,16 @@
+{
+  "source": "/Users/albina/ToDoListProject/ToDoList/ToDoList/TodoItem/View/ImportanceField.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": ""
+      },
+      {
+        "comment": "",
+        "key": "нет"
+      }
+    ]
+  },
+  "version": 1
+}

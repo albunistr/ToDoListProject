@@ -1,0 +1,24 @@
+"/Users/albina/ToDoListProject/ToDoList/ToDoList/TodoCalendar/Extensions/TodoCalendar+Extension.swift":
+  swift-dependencies: "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/TodoCalendar+Extension.swiftdeps"
+  diagnostics: "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/TodoCalendar+Extension.dia"
+  const-values: "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/TodoCalendar+Extension.swiftconstvalues"
+  object: "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/TodoCalendar+Extension.o"
+  dependencies: "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/TodoCalendar+Extension.d"
+"/Users/albina/ToDoListProject/ToDoList/ToDoList/TodoCalendar/Extensions/CollectionView.swift":
+  diagnostics: "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/CollectionView.dia"
+  object: "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/CollectionView.o"
+  dependencies: "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/CollectionView.d"
+  swift-dependencies: "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/CollectionView.swiftdeps"
+  const-values: "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/CollectionView.swiftconstvalues"
+"/Users/albina/ToDoListProject/ToDoList/ToDoList/Constants/Colors.swift":
+  swift-dependencies: "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/Colors.swiftdeps"
+  const-values: "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/Colors.swiftconstvalues"
+  object: "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/Colors.o"
+  diagnostics: "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/Colors.dia"
+  dependencies: "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/Colors.d"
+"/Users/albina/ToDoListProject/ToDoList/ToDoList/Constants/TestingData.swift":
+  swift-dependencies: "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/TestingData.swiftdeps"
+  object: "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/TestingData.o"
+  dependencies: "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/TestingData.d"
+  diagnostics: "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/TestingData.dia"
+  const-values: "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex/ToDoList.build/Debug-iphonesimulator/ToDoList.build/Objects-normal/x86_64/TestingData.swiftconstvalues"

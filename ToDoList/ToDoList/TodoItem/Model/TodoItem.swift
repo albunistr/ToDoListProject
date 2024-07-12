@@ -1,9 +1,8 @@
 import Foundation
 
 struct TodoItem: Hashable {
-    
     // MARK: - Properties
-    
+
     let id: String
     let text: String
     let importance: Importance
@@ -13,8 +12,9 @@ struct TodoItem: Hashable {
     let changedAt: Date?
     let color: String
     let category: Category
+
     // MARK: - Init
-    
+
     init(
         id: String = UUID().uuidString,
         text: String,

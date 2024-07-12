@@ -13,3 +13,9 @@ extension TodoCalendarViewController: TodoListViewControllerDelegate {
         collectionViewWithDates.reloadData()
     }
 }
+protocol CellConfigurable {
+    func configure(with todoItem: TodoItem)
+}
+protocol TodoListViewControllerDelegate: AnyObject {
+    func didUpdateTodoList()
+}

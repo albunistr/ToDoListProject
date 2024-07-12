@@ -11,7 +11,7 @@ struct ColorPickerView: View {
     @Binding var selectedColor: Color
     @State var opacityValue: Double = 0.5
     @State var brightness: Double = 1.0
-    
+
     var body: some View {
         VStack {
             HStack {
@@ -20,16 +20,15 @@ struct ColorPickerView: View {
                     .frame(width: 50, height: 50)
                     .padding(.leading, 8)
                 Spacer(minLength: 1)
-                Text("#" + String(format: "%06X", (selectedColor.rgbColor)))
+                Text("#" + String(format: "%06X", selectedColor.rgbColor))
                     .padding()
                 Spacer()
                 ColorPicker("", selection: $selectedColor)
                     .padding()
             }
-            
-            Slider(value: $brightness, in: 0.0...1.0)
+
+            Slider(value: $brightness, in: 0.0 ... 1.0)
                 .padding()
         }
     }
 }
-
