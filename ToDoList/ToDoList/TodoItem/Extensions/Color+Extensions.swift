@@ -62,6 +62,9 @@ extension UIColor {
                brightness: &brightness,
                alpha: &alpha)
 
-        return UIColor(hue: hue, saturation: saturation, brightness: brightness * factor, alpha: alpha)
+        return UIColor(hue: hue, 
+                       saturation: saturation,
+                       brightness: brightness * factor,
+                       alpha: alpha)
     }
 }

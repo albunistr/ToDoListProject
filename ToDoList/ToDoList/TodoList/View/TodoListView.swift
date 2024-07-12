@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import CocoaLumberjackSwift
 
 struct TodoListView: View {
     @StateObject var todoListViewModel: TodoListViewModel
@@ -33,11 +34,12 @@ struct TodoListView: View {
                             }
                             ToolbarItem(placement: .topBarTrailing) {
                                 NavigationLink {
-                                    UIKitControllerWrapper(todoListViewModel: todoListViewModel)
+                                    TodoCalendarWrapper(todoListViewModel: todoListViewModel)
                                         .navigationTitle("Мои дела")
                                         .toolbarRole(.editor)
                                         .onDisappear {
                                             todoListViewModel.loadTodos()
+                                            DDLogVerbose("Closed TodoCalendar")
                                         }
                                 } label: {
                                     Image(systemName: "calendar")
@@ -51,10 +53,25 @@ struct TodoListView: View {
                     todoListViewModel.loadTodos()
                 }
                 .sheet(isPresented: $showEditTodoItemView) {
-                    TodoItemView(todoItemViewModel: TodoItemViewModel(todoItem: selectedItem, listViewModel: todoListViewModel), isShowed: $showEditTodoItemView)
+                    VStack {
+                        TodoItemView(todoItemViewModel:
+                                        TodoItemViewModel(todoItem: selectedItem,
+                                                          listViewModel: todoListViewModel),
+                                     isShowed: $showEditTodoItemView)
+                    }
+                    .onAppear {
+                        DDLogInfo("Edit opened")
+                    }
                 }
                 .sheet(isPresented: $showCreateTodoItemView) {
-                    TodoItemView(todoItemViewModel: TodoItemViewModel(todoItem: nil, listViewModel: todoListViewModel), isShowed: $showCreateTodoItemView)
+                    VStack{
+                        TodoItemView(todoItemViewModel: TodoItemViewModel(todoItem: nil,
+                                                                          listViewModel: todoListViewModel),
+                                     isShowed: $showCreateTodoItemView)
+                    }
+                    .onAppear {
+                        DDLogInfo("Create opened")
+                    }
                 }
             }
         }
@@ -64,11 +81,11 @@ struct TodoListView: View {
 
     var topBar: some View {
         HStack {
-            Text("\(TodoListConstants.done) - \(todoListViewModel.items.filter { $0.isCompleted }.count)")
+            Text("Выполнено - \(todoListViewModel.items.filter { $0.isCompleted }.count)")
                 .padding()
                 .foregroundColor(Colors.labelDisable)
             Spacer()
-            Text(showCompleted ? TodoListConstants.hide : TodoListConstants.show)
+            Text(showCompleted ? "Скрыть" : "Показать")
                 .padding()
                 .font(.headline).bold()
                 .foregroundColor(Colors.blue)
@@ -84,7 +101,7 @@ struct TodoListView: View {
         Button(action: {
             showCreateTodoItemView = true
         }) {
-            Image(Images.plus)
+            Images.plus
                 .frame(width: 44, height: 44, alignment: .center)
         }
         .padding(.bottom, 32)
@@ -113,6 +130,7 @@ struct TodoListView: View {
                     },
                     infoTap: {
                         selectedItem = item
+                        showCreateTodoItemView = false
                         showEditTodoItemView = true
                     },
                     deleteTap: {
@@ -121,6 +139,7 @@ struct TodoListView: View {
                 )
             }
             NewTodoCell {
+                showEditTodoItemView = false
                 showCreateTodoItemView = true
             }
             .listRowInsets(EdgeInsets())
@@ -136,7 +155,7 @@ struct NewTodoCell: View {
 
     var body: some View {
         HStack {
-            Text(TodoListConstants.new)
+            Text("Новое")
                 .font(.system(size: 16))
                 .foregroundColor(.secondary)
                 .padding(.leading, 60)

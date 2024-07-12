@@ -1,0 +1,59 @@
+{
+  "buildCommand" : {
+    "command" : "prepareForIndexing",
+    "enableIndexBuildArena" : true,
+    "targets" : null
+  },
+  "configuredTargets" : [
+    {
+      "guid" : "100eb5ec4a015235b37f586d66c0a17ae4469f8c8f80a9d8a109163871213d5c"
+    }
+  ],
+  "containerPath" : "/Users/albina/ToDoListProject/ToDoList/ToDoList.xcworkspace",
+  "continueBuildingAfterErrors" : true,
+  "dependencyScope" : "workspace",
+  "enableIndexBuildArena" : false,
+  "hideShellScriptEnvironment" : false,
+  "parameters" : {
+    "action" : "indexbuild",
+    "activeArchitecture" : "x86_64",
+    "activeRunDestination" : {
+      "disableOnlyActiveArch" : false,
+      "platform" : "iphonesimulator",
+      "sdk" : "iphonesimulator17.4",
+      "sdkVariant" : "iphonesimulator",
+      "supportedArchitectures" : [
+        "x86_64"
+      ],
+      "targetArchitecture" : "x86_64"
+    },
+    "arenaInfo" : {
+      "buildIntermediatesPath" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Index.noindex/Build/Intermediates.noindex",
+      "buildProductsPath" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Index.noindex/Build/Products",
+      "derivedDataPath" : "/Users/albina/ToDoListProject/ToDoList/DerivedData",
+      "indexDataStoreFolderPath" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Index.noindex/DataStore",
+      "indexEnableDataStore" : true,
+      "indexPCHPath" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Index.noindex/PrecompiledHeaders",
+      "indexRegularBuildIntermediatesPath" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Intermediates.noindex",
+      "indexRegularBuildProductsPath" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Build/Products",
+      "pchPath" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Index.noindex/Build/Intermediates.noindex/PrecompiledHeaders"
+    },
+    "configurationName" : "Debug",
+    "overrides" : {
+      "synthesized" : {
+        "table" : {
+          "ENABLE_PREVIEWS" : "NO",
+          "ENABLE_XOJIT_PREVIEWS" : "NO",
+          "ONLY_ACTIVE_ARCH" : "YES"
+        }
+      }
+    }
+  },
+  "qos" : "default",
+  "schemeCommand" : "launch",
+  "showNonLoggedProgress" : true,
+  "useDryRun" : false,
+  "useImplicitDependencies" : true,
+  "useLegacyBuildLocations" : false,
+  "useParallelTargets" : true
+}

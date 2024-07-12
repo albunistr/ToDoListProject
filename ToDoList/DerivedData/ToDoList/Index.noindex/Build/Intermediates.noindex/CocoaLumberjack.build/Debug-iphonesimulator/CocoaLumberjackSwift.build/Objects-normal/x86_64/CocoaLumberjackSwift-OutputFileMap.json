@@ -1,0 +1,18 @@
+{
+  "" : {
+    "dependencies" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Index.noindex/Build/Intermediates.noindex/CocoaLumberjack.build/Debug-iphonesimulator/CocoaLumberjackSwift.build/Objects-normal/x86_64/CocoaLumberjackSwift-master.d",
+    "diagnostics" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Index.noindex/Build/Intermediates.noindex/CocoaLumberjack.build/Debug-iphonesimulator/CocoaLumberjackSwift.build/Objects-normal/x86_64/CocoaLumberjackSwift-master.dia",
+    "emit-module-dependencies" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Index.noindex/Build/Intermediates.noindex/CocoaLumberjack.build/Debug-iphonesimulator/CocoaLumberjackSwift.build/Objects-normal/x86_64/CocoaLumberjackSwift-master-emit-module.d",
+    "emit-module-diagnostics" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Index.noindex/Build/Intermediates.noindex/CocoaLumberjack.build/Debug-iphonesimulator/CocoaLumberjackSwift.build/Objects-normal/x86_64/CocoaLumberjackSwift-master-emit-module.dia",
+    "swift-dependencies" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Index.noindex/Build/Intermediates.noindex/CocoaLumberjack.build/Debug-iphonesimulator/CocoaLumberjackSwift.build/Objects-normal/x86_64/CocoaLumberjackSwift-master.swiftdeps"
+  },
+  "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/SourcePackages/checkouts/CocoaLumberjack/Sources/CocoaLumberjackSwift/CocoaLumberjack.swift" : {
+
+  },
+  "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/SourcePackages/checkouts/CocoaLumberjack/Sources/CocoaLumberjackSwift/DDAssert.swift" : {
+
+  },
+  "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/SourcePackages/checkouts/CocoaLumberjack/Sources/CocoaLumberjackSwift/DDLog+Combine.swift" : {
+
+  }
+}

@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import CocoaLumberjackSwift
 
 // MARK: - Common methods
 
@@ -134,6 +135,7 @@ extension TodoItem {
               let createdAt = dict[CodingKeys.createdAtKey] as? Date,
               let id = dict[CodingKeys.idKey] as? String
         else {
+            DDLogError("Invalid json")
             return nil
         }
 
@@ -158,7 +160,7 @@ extension TodoItem {
         changedAt = (dict[CodingKeys.changedAtKey] as? Double).flatMap {
             Date(timeIntervalSince1970: TimeInterval($0))
         }
-
+        DDLogVerbose("JSON parsed success")
         return TodoItem(
             id: id,
             text: text,
@@ -189,7 +191,7 @@ extension TodoItem {
         if let changedAt = changedAt {
             dict[CodingKeys.changedAtKey] = changedAt.timeIntervalSince1970
         }
-
+        DDLogVerbose("JSON made success")
         return dict
     }
 }
@@ -220,7 +222,9 @@ extension TodoItem {
               components[1] != "",
               let isCompleted = Bool(components[2]),
               let createdAtDouble = Double(components[3])
-        else { return nil }
+        else { 
+            DDLogError("Invalid csv")
+            return nil }
 
         var importance: Importance
         let importanceString = components[4]
@@ -230,6 +234,7 @@ extension TodoItem {
         case Importance.unimportant.rawValue, Importance.important.rawValue:
             importance = Importance(rawValue: importanceString)!
         default:
+            DDLogError("Invalid importance")
             return nil
         }
 
@@ -240,7 +245,8 @@ extension TodoItem {
         let deadline = deadlineDouble != nil ? Date(timeIntervalSince1970: TimeInterval(deadlineDouble!)) : nil
         let changedAtDouble = Double(components[6]) ?? nil
         let changedAt = changedAtDouble != nil ? Date(timeIntervalSince1970: TimeInterval(changedAtDouble!)) : nil
-
+        
+        DDLogVerbose("CSV parsed success")
         return TodoItem(
             id: id,
             text: text,
@@ -275,7 +281,7 @@ extension TodoItem {
             deadlineString,
             changedAtString
         ]
-
+        DDLogVerbose("CSV made success")
         return elements.joined(separator: ",")
     }
 }

@@ -1,0 +1,102 @@
+{
+  "" : {
+    "dependencies" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Index.noindex/Build/Intermediates.noindex/ToDoList.build/Debug/ToDoList.build/Objects-normal/x86_64/ToDoList-master.d",
+    "diagnostics" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Index.noindex/Build/Intermediates.noindex/ToDoList.build/Debug/ToDoList.build/Objects-normal/x86_64/ToDoList-master.dia",
+    "emit-module-dependencies" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Index.noindex/Build/Intermediates.noindex/ToDoList.build/Debug/ToDoList.build/Objects-normal/x86_64/ToDoList-master-emit-module.d",
+    "emit-module-diagnostics" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Index.noindex/Build/Intermediates.noindex/ToDoList.build/Debug/ToDoList.build/Objects-normal/x86_64/ToDoList-master-emit-module.dia",
+    "swift-dependencies" : "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Index.noindex/Build/Intermediates.noindex/ToDoList.build/Debug/ToDoList.build/Objects-normal/x86_64/ToDoList-master.swiftdeps"
+  },
+  "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/Index.noindex/Build/Intermediates.noindex/ToDoList.build/Debug/ToDoList.build/DerivedSources/GeneratedAssetSymbols.swift" : {
+
+  },
+  "/Users/albina/ToDoListProject/ToDoList/ToDoList/Application/ContentView.swift" : {
+
+  },
+  "/Users/albina/ToDoListProject/ToDoList/ToDoList/Application/ToDoListApp.swift" : {
+
+  },
+  "/Users/albina/ToDoListProject/ToDoList/ToDoList/Constants/Colors.swift" : {
+
+  },
+  "/Users/albina/ToDoListProject/ToDoList/ToDoList/Constants/Images.swift" : {
+
+  },
+  "/Users/albina/ToDoListProject/ToDoList/ToDoList/Constants/TestingData.swift" : {
+
+  },
+  "/Users/albina/ToDoListProject/ToDoList/ToDoList/Constants/TodoItemViewConstants.swift" : {
+
+  },
+  "/Users/albina/ToDoListProject/ToDoList/ToDoList/Resourses/FileCache.swift" : {
+
+  },
+  "/Users/albina/ToDoListProject/ToDoList/ToDoList/Services/Logger.swift" : {
+
+  },
+  "/Users/albina/ToDoListProject/ToDoList/ToDoList/TodoCalendar/Extensions/CollectionView.swift" : {
+
+  },
+  "/Users/albina/ToDoListProject/ToDoList/ToDoList/TodoCalendar/Extensions/TableView.swift" : {
+
+  },
+  "/Users/albina/ToDoListProject/ToDoList/ToDoList/TodoCalendar/Extensions/TodoCalendar+Extension.swift" : {
+
+  },
+  "/Users/albina/ToDoListProject/ToDoList/ToDoList/TodoCalendar/View/TodoCalendarCell.swift" : {
+
+  },
+  "/Users/albina/ToDoListProject/ToDoList/ToDoList/TodoCalendar/View/TodoCalendarTableViewCell.swift" : {
+
+  },
+  "/Users/albina/ToDoListProject/ToDoList/ToDoList/TodoCalendar/View/TodoCalendarViewController.swift" : {
+
+  },
+  "/Users/albina/ToDoListProject/ToDoList/ToDoList/TodoCalendar/ViewModel/TodoCalendarViewModel.swift" : {
+
+  },
+  "/Users/albina/ToDoListProject/ToDoList/ToDoList/TodoCalendar/Wrappers/TodoCalendarWrapper.swift" : {
+
+  },
+  "/Users/albina/ToDoListProject/ToDoList/ToDoList/TodoCalendar/Wrappers/TodoItemViewWrapper.swift" : {
+
+  },
+  "/Users/albina/ToDoListProject/ToDoList/ToDoList/TodoItem/Extensions/Color+Extensions.swift" : {
+
+  },
+  "/Users/albina/ToDoListProject/ToDoList/ToDoList/TodoItem/Extensions/TodoItem+Extensions.swift" : {
+
+  },
+  "/Users/albina/ToDoListProject/ToDoList/ToDoList/TodoItem/Model/TodoItem.swift" : {
+
+  },
+  "/Users/albina/ToDoListProject/ToDoList/ToDoList/TodoItem/View/CategoryField.swift" : {
+
+  },
+  "/Users/albina/ToDoListProject/ToDoList/ToDoList/TodoItem/View/ColorPicker.swift" : {
+
+  },
+  "/Users/albina/ToDoListProject/ToDoList/ToDoList/TodoItem/View/DeadlineField.swift" : {
+
+  },
+  "/Users/albina/ToDoListProject/ToDoList/ToDoList/TodoItem/View/ImportanceField.swift" : {
+
+  },
+  "/Users/albina/ToDoListProject/ToDoList/ToDoList/TodoItem/View/TextField.swift" : {
+
+  },
+  "/Users/albina/ToDoListProject/ToDoList/ToDoList/TodoItem/View/TodoCellView.swift" : {
+
+  },
+  "/Users/albina/ToDoListProject/ToDoList/ToDoList/TodoItem/View/TodoItemView.swift" : {
+
+  },
+  "/Users/albina/ToDoListProject/ToDoList/ToDoList/TodoItem/ViewModel/TodoItemViewModel.swift" : {
+
+  },
+  "/Users/albina/ToDoListProject/ToDoList/ToDoList/TodoList/View/TodoListView.swift" : {
+
+  },
+  "/Users/albina/ToDoListProject/ToDoList/ToDoList/TodoList/ViewModel/TodoListViewModel.swift" : {
+
+  }
+}

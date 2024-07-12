@@ -1,0 +1,37 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "4A05087E4F7F238E65C633877659955F33BBCF57",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "35B5C9A93714EC9BEB56BAE809C5551E5C66E52D" : 0,
+    "D59CEFC12521F922C6538D541E0CC9EAB761EFFF" : 0,
+    "4A05087E4F7F238E65C633877659955F33BBCF57" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "2A483C9B-72C4-4300-8E08-BB69D6C6703B",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "35B5C9A93714EC9BEB56BAE809C5551E5C66E52D" : "ToDoListProject\/ToDoList\/DerivedData\/ToDoList\/SourcePackages\/checkouts\/CocoaLumberjack\/",
+    "D59CEFC12521F922C6538D541E0CC9EAB761EFFF" : "ToDoListProject\/ToDoList\/DerivedData\/ToDoList\/SourcePackages\/checkouts\/swift-log\/",
+    "4A05087E4F7F238E65C633877659955F33BBCF57" : "ToDoListProject\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "ToDoList",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "ToDoList\/ToDoList.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "\/Users\/albina\/ToDoListProject\/ToDoList\/DerivedData\/ToDoList\/SourcePackages\/repositories\/CocoaLumberjack-e116e071",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "35B5C9A93714EC9BEB56BAE809C5551E5C66E52D"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "git@github.com:albunistr\/ToDoListProject.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "4A05087E4F7F238E65C633877659955F33BBCF57"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "\/Users\/albina\/ToDoListProject\/ToDoList\/DerivedData\/ToDoList\/SourcePackages\/repositories\/swift-log-ba8887eb",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "D59CEFC12521F922C6538D541E0CC9EAB761EFFF"
+    }
+  ]
+}

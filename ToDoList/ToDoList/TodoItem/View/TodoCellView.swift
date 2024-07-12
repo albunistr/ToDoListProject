@@ -29,7 +29,7 @@ struct TodoCellView: View {
             Button {
                 completedToggle()
             } label: {
-                Image(Images.completed)
+                Images.completed
             }
             .tint(.green)
         }
@@ -37,14 +37,14 @@ struct TodoCellView: View {
             Button(role: .destructive) {
                 deleteTap()
             } label: {
-                Image(systemName: Images.trash)
+                Images.trash
             }
             .tint(.red)
 
             Button {
                 infoTap()
             } label: {
-                Image(systemName: Images.info)
+                Images.info
             }
             .tint(Colors.grayLight)
         }
@@ -55,11 +55,11 @@ struct TodoCellView: View {
     var completedButton: some View {
         VStack {
             if todoItem.isCompleted {
-                Image(Images.completed)
+                Images.completed
             } else if todoItem.importance == .important {
-                Image(Images.highPriority)
+                Images.highPriority
             } else {
-                Image(Images.propOff)
+                Images.propOff
             }
         }
         .onTapGesture {
@@ -72,7 +72,7 @@ struct TodoCellView: View {
     var deadline: some View {
         HStack(spacing: 2) {
             if let deadline = todoItem.deadline {
-                Image(Images.calendar)
+                Images.calendar
                 Text(deadline.formatted(.dateTime.day().month().year()))
                     .foregroundColor(Colors.labelTertiary)
                     .font(.subheadline)
@@ -85,17 +85,19 @@ struct TodoCellView: View {
     var textOfItem: some View {
         HStack(spacing: 2) {
             if todoItem.importance == .important {
-                Image(Images.iconPickerHighPriority)
+                Images.iconPickerHighPriority
             }
 
             if todoItem.importance == .unimportant {
-                Image(Images.iconPickerLowPriority)
+                Images.iconPickerLowPriority
             }
             VStack(alignment: .leading, spacing: 4) {
                 Text(todoItem.text)
                     .lineLimit(3)
                     .strikethrough(todoItem.isCompleted)
-                    .foregroundColor(todoItem.isCompleted ? Colors.labelTertiary : Colors.labelPrimary)
+                    .foregroundColor(todoItem.isCompleted ? 
+                                     Colors.labelTertiary :
+                                        Colors.labelPrimary)
                 deadline
             }
 
@@ -108,7 +110,7 @@ struct TodoCellView: View {
     }
 
     var info: some View {
-        Image(Images.modeLight)
+        Images.modeLight
             .onTapGesture {
                 infoTap()
             }

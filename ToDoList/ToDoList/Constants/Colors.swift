@@ -5,7 +5,6 @@
 //  Created by Powers Mikaela on 6/27/24.
 //
 
-import Foundation
 import SwiftUI
 
 struct Colors {

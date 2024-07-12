@@ -17,11 +17,11 @@ struct ImportanceFieldView: View {
             Spacer()
 
             Picker("", selection: $importance) {
-                Image(Images.iconPickerLowPriority)
+                Images.iconPickerLowPriority
                     .tag(TodoItem.Importance.unimportant)
 
                 Text("нет").tag(TodoItem.Importance.usual)
-                Image(Images.iconPickerHighPriority)
+                Images.iconPickerHighPriority
                     .tag(TodoItem.Importance.important)
             }
 

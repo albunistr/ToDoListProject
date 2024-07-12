@@ -7,7 +7,7 @@
 
 import Combine
 import SwiftUI
-import CocoaLumberjack
+import CocoaLumberjackSwift
 
 final class TodoItemViewModel: ObservableObject {
     // MARK: - Class properties
@@ -22,7 +22,8 @@ final class TodoItemViewModel: ObservableObject {
     @Published var todoItem: TodoItem?
 
     var todoListViewModel: TodoListViewModel
-
+    
+    // MARK: - Lifecycle
     init(todoItem: TodoItem?, listViewModel: TodoListViewModel) {
         self.todoItem = todoItem
         self.todoListViewModel = listViewModel
@@ -48,12 +49,13 @@ final class TodoItemViewModel: ObservableObject {
             category: category
         )
         todoListViewModel.addNewOrUpdateItem(item)
-//        DDLogInfo("Save button tapped")
+        DDLogVerbose("TodoItemViewModel saved item")
     }
 
     func didTapDeleteButton() {
         guard let id = todoItem?.id else { return }
         todoListViewModel.removeItem(by: id)
+        DDLogVerbose("TodoItemViewModel deleted item")
     }
 }
 

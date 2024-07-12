@@ -35,7 +35,8 @@ extension TodoCalendarViewController: UICollectionViewDataSource {
         return cell
     }
 
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(_ collectionView: UICollectionView, 
+                        numberOfItemsInSection section: Int) -> Int {
         return todocalendarViewModel.sections.count
     }
 
@@ -60,7 +61,8 @@ extension TodoCalendarViewController: UICollectionViewDataSource {
 // MARK: - UICollectionViewDelegate
 
 extension TodoCalendarViewController: UICollectionViewDelegate {
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    func collectionView(_ collectionView: UICollectionView, 
+                        didSelectItemAt indexPath: IndexPath) {
         let targetIndexPath = IndexPath(row: 0, section: indexPath.row)
         tableView.scrollToRow(at: targetIndexPath, at: .top, animated: true)
     }

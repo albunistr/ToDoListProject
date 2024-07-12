@@ -23,7 +23,10 @@ struct TodoItemView: View {
             isShowed = false
         } label: {
             Text(TodoItemViewConstants.delete)
-                .tint(todoItemViewModel.text.isEmpty && todoItemViewModel.text != TodoItemViewConstants.defaultTextEditor ? Colors.labelTertiary : Colors.red)
+                .tint(todoItemViewModel.text.isEmpty && 
+                      todoItemViewModel.text != TodoItemViewConstants.defaultTextEditor ?
+                      Colors.labelTertiary : 
+                        Colors.red)
                 .frame(maxWidth: .infinity)
                 .padding(.vertical, 17)
                 .background(RoundedRectangle(cornerRadius: 17).fill(Colors.backSecondary))
@@ -43,7 +46,8 @@ struct TodoItemView: View {
                 Divider()
                 ColorPickerView(selectedColor: $todoItemViewModel.color)
                 Divider()
-                DeadlineFieldView(isOnDeadline: $todoItemViewModel.isOnDeadline, deadline: $todoItemViewModel.deadline)
+                DeadlineFieldView(isOnDeadline: $todoItemViewModel.isOnDeadline, 
+                                  deadline: $todoItemViewModel.deadline)
             }
             .padding()
             .background(RoundedRectangle(cornerRadius: 17).fill(Colors.backSecondary))
@@ -70,22 +74,24 @@ struct TodoItemView: View {
                     controls
                         .toolbar {
                             ToolbarItem(placement: .navigationBarLeading) {
-                                Button(TodoItemViewConstants.cancel) {
+                                Button("Отменить") {
                                     isShowed = false
                                 }
                             }
 
                             ToolbarItem(placement: .navigationBarTrailing) {
                                 Button {
-                                    if todoItemViewModel.text != TodoItemViewConstants.defaultTextEditor && !todoItemViewModel.text.isEmpty {
+                                    if todoItemViewModel.text != TodoItemViewConstants.defaultTextEditor && 
+                                        !todoItemViewModel.text.isEmpty {
                                         todoItemViewModel.didTapSaveButton()
                                         isShowed = false
                                     }
 
                                 } label: {
-                                    Text(TodoItemViewConstants.save)
+                                    Text("Сохранить")
                                 }
-                                .disabled(todoItemViewModel.text.isEmpty || todoItemViewModel.text == TodoItemViewConstants.defaultTextEditor)
+                                .disabled(todoItemViewModel.text.isEmpty || 
+                                          todoItemViewModel.text == TodoItemViewConstants.defaultTextEditor)
                             }
                         }
                 }

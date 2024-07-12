@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CocoaLumberjackSwift
 
 final class TodoCalendarViewModel {
     // MARK: - Private properties
@@ -55,16 +56,12 @@ final class TodoCalendarViewModel {
         delegate?.didUpdateTodoList()
     }
 
-    func addNewOrUpdateItem(_ todoItem: TodoItem? = nil) {
-        if let item = todoItem {
-            fileCache.addNewOrUpdateItem(item)
-        } else {
-            let id = UUID().uuidString
-            fileCache.addNewOrUpdateItem(.defaultItem(id: id))
-        }
+    func addNewOrUpdateItem(_ todoItem: TodoItem) {
+            fileCache.addNewOrUpdateItem(todoItem)
+            DDLogVerbose("TodoCalendarViewModel updated item")
         loadTodos()
     }
-
+    
     func didCompleted(todoItem: TodoItem) {
         let updatedItem = TodoItem(
             id: todoItem.id,
@@ -78,6 +75,7 @@ final class TodoCalendarViewModel {
             category: todoItem.category
         )
         addNewOrUpdateItem(updatedItem)
+        DDLogVerbose("TodoCalendarViewModel changed to completed")
     }
 
     func didUnCompleted(todoItem: TodoItem) {
@@ -93,6 +91,7 @@ final class TodoCalendarViewModel {
             category: todoItem.category
         )
         addNewOrUpdateItem(updatedItem)
+        DDLogVerbose("TodoCalendarViewModel changed to uncompleted")
     }
 }
 

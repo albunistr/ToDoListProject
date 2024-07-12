@@ -1,0 +1,16 @@
+{
+  "source": "/Users/albina/ToDoListProject/ToDoList/ToDoList/TodoItem/View/DeadlineField.swift",
+  "tables": {
+    "Localizable": [
+      {
+        "comment": "",
+        "key": ""
+      },
+      {
+        "comment": "",
+        "key": "Выберите дату"
+      }
+    ]
+  },
+  "version": 1
+}

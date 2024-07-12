@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import CocoaLumberjackSwift
 
 final class TodoListViewModel: ObservableObject {
     // MARK: - Class properties
@@ -29,15 +30,12 @@ final class TodoListViewModel: ObservableObject {
     func removeItem(by id: String) {
         fileCache.removeItem(withId: id)
         loadTodos()
+        DDLogVerbose("TodoListViewModel removed item")
     }
 
-    func addNewOrUpdateItem(_ todoItem: TodoItem? = nil) {
-        if let item = todoItem {
-            fileCache.addNewOrUpdateItem(item)
-        } else {
-            let id = UUID().uuidString
-            fileCache.addNewOrUpdateItem(.defaultItem(id: id))
-        }
+    func addNewOrUpdateItem(_ todoItem: TodoItem) {
+            fileCache.addNewOrUpdateItem(todoItem)
+            DDLogVerbose("TodoListViewModel updated item")
         loadTodos()
     }
 }

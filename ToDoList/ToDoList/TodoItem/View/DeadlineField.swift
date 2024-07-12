@@ -46,7 +46,9 @@ struct DeadlineFieldView: View {
     }
 
     var datePicker: some View {
-        DatePicker("Выберите дату", selection: Binding($deadline, replacingNilWith: Date()), displayedComponents: .date)
+        DatePicker("Выберите дату", 
+                   selection: Binding($deadline, replacingNilWith: Date()), 
+                   displayedComponents: .date)
             .datePickerStyle(GraphicalDatePickerStyle())
             .padding()
             .transition(.move(edge: .top).combined(with: .opacity))
