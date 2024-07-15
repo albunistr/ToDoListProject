@@ -1,7 +1,0 @@
-version: "Apple Swift version 5.10 (swiftlang-5.10.0.13 clang-1500.3.9.4)"
-options: "c56b2ea50a7b152d122cace5b2b80b0675a0f9ad97124c9c2b45bb799ae6f494"
-build_start_time: [1720699062, 918945000]
-build_end_time: [1720699063, 172853000]
-inputs:
-  ? "/Users/albina/ToDoListProject/ToDoList/DerivedData/ToDoList/SourcePackages/checkouts/CocoaLumberjack/Sources/CocoaLumberjackSwiftLogBackend/DDLogHandler.swift"
-  : [1720699015, 686555545]
