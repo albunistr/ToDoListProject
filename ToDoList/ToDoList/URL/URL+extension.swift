@@ -8,28 +8,30 @@
 import Foundation
 
 extension URLSession {
-    @discardableResult
     func dataTask(with request: URLRequest,
                   completion: @escaping (Result<(Data, URLResponse), Error>) -> Void) -> URLSessionDataTask {
-        let task = self.dataTask(with: request) { data, response, error in
-            DispatchQueue.main.async {
+        return try await withCheckedContinuation  { continuation in
+            let task = dataTask(with: request) { (data, response, error) in
                 if let error = error {
-                    completion(.failure(error))
-                } else if let data = data, let response = response {
-                    completion(.success((data, response)))
+                    continuation.resume(throwing: "Error: \(error). Failed making URL.")
                 } else {
-                    let error = NSError(domain: "com.example.urlsession",
-                                        code: -1,
-                                        userInfo: [NSLocalizedDescriptionKey: "Unknown error"])
-                    completion(.failure(error))
+                    if let response = response {
+                        if let data = data {
+                            continuation.resume(returning: (data, response))
+                        } else {
+                            continuation.resume(throwing: "Error: \(error). Wrong format of data.")
+                        }
+                    } else {
+                        continuation.resume(throwing: "Error: \(error). Wrong format of response.")
+                    }
                 }
             }
+            
+            if Task.isCancelled {
+                task.cancel()
+            } else {
+                task.resume()
+            }
         }
-        
-        DispatchQueue.global().async {
-            task.resume()
-        }
-        
-        return task
     }
 }
