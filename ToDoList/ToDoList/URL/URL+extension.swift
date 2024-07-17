@@ -8,21 +8,20 @@
 import Foundation
 
 extension URLSession {
-    func dataTask(with request: URLRequest,
-                  completion: @escaping (Result<(Data, URLResponse), Error>) -> Void) -> URLSessionDataTask {
-        return try await withCheckedContinuation  { continuation in
+    func dataTask(with request: URLRequest) async throws -> (data: Data, urlResponse: URLResponse) {
+        return try await withCheckedThrowingContinuation  { continuation in
             let task = dataTask(with: request) { (data, response, error) in
                 if let error = error {
-                    continuation.resume(throwing: "Error: \(error). Failed making URL.")
+                    continuation.resume(throwing: Errors.failedMakingURL)
                 } else {
                     if let response = response {
                         if let data = data {
                             continuation.resume(returning: (data, response))
                         } else {
-                            continuation.resume(throwing: "Error: \(error). Wrong format of data.")
+                            continuation.resume(throwing: Errors.wrongFormatOfData)
                         }
                     } else {
-                        continuation.resume(throwing: "Error: \(error). Wrong format of response.")
+                        continuation.resume(throwing: Errors.wrongFormatOfResponse)
                     }
                 }
             }
@@ -33,5 +32,13 @@ extension URLSession {
                 task.resume()
             }
         }
+    }
+}
+
+extension URLSession {
+    enum Errors: LocalizedError {
+        case failedMakingURL
+        case wrongFormatOfData
+        case wrongFormatOfResponse
     }
 }
