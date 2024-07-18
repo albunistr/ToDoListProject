@@ -14,7 +14,13 @@ protocol FileCacheProtocol {
 }
 
 final class FileCache: FileCacheProtocol {
+    var revision = 4
+    private(set) var networkService: NetworkService = NetworkService(networkClient: NetworkClient())
     private(set) var toDoItems: [TodoItem] = []
+    
+    init() {
+        self.loadTodos()
+    }
 
     func addNewOrUpdateItem(_ toDoItem: TodoItem) {
         if let index = toDoItems.firstIndex(where: { $0.id == toDoItem.id }) {
@@ -97,5 +103,48 @@ final class FileCache: FileCacheProtocol {
                                                        in: .userDomainMask).first else { return nil }
         let filePath = directory.appending(path: "\(file).\(fileType)")
         return filePath
+    }
+    private func loadTodos() {
+        self.getAllItems { result in
+            switch result {
+            case .success(let data):
+                for(_, item) in data.enumerated() {
+                    print("add")
+                    self.addNewOrUpdateItem(item)
+                }
+            case .failure:
+                print("dont add")
+                return
+            }
+        }
+    }
+    
+    private func getAllItems
+    (
+        completion: @escaping (Result<[TodoItem], Error>) -> Void
+    ) {
+        networkService.getAllItems(revision: revision) { [weak self] result in
+            switch result {
+            case .success(let data):
+                let revision = data.revision
+                
+                var list: [TodoItem] = []
+                for item in data.list {
+                    do {
+                        let todoItem = try item.decodeToTodoitem()
+                        list.append(todoItem)
+                    } catch {
+                        completion(.failure(error))
+                        return
+                    }
+                }
+                print("list:", list)
+//                self?.toDoItems = list
+                self?.revision = revision
+                completion(.success(list))
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        }
     }
 }
