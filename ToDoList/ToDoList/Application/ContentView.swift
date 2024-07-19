@@ -12,7 +12,7 @@ struct ContentView: View {
     // for testing I put testingFileCache^ for opening clear app put fileCache
 
     var body: some View {
-        TodoListView(todoListViewModel: TodoListViewModel(fileCache: testingFileCache))
+        TodoListView(todoListViewModel: TodoListViewModel(fileCache: FileCache()))
     }
 }
 

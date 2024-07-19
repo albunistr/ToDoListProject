@@ -18,11 +18,9 @@ struct TodoItemDecoder: Codable {
     var color: String
     var lastUpdatedBy: String
     
-    init
-    (
+    init(
         todoItem: TodoItem
-    )
-    {
+    ) {
         self.id = todoItem.id
         self.text = todoItem.text
         self.importance = TodoItem.Importance.fromNetworkValueToImportance(importance: todoItem.importance)!
@@ -34,12 +32,9 @@ struct TodoItemDecoder: Codable {
         self.lastUpdatedBy = "default"
     }
     
-    init
-    (
+    init(
         from decoder: Decoder
-    )
-    throws
-    {
+    ) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         self.id  = try container.decode(String.self, forKey: .id)
         self.text = try container.decode(String.self, forKey: .text)
@@ -79,7 +74,6 @@ struct TodoItemDecoder: Codable {
         let deadline: Date? = deadline != nil ? Date(timeIntervalSince1970: TimeInterval(deadline!)) : nil
         
         let changedAt: Date? = Date(timeIntervalSince1970: TimeInterval(changedAt))
-        
         
         return TodoItem(
             id: self.id,

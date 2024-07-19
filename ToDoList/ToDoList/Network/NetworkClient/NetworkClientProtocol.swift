@@ -9,13 +9,12 @@ import Foundation
 
 protocol NetworkClientProtocol {
     @discardableResult
-    func makeRequest<T: Decodable>
-    (
+    func makeRequest<T: Decodable>(
         httpRequest: HTTPrequest,
         completion: @escaping (Result<T, Error>) -> Void
-    ) -> Cancellable?
+    ) -> Cancellable? 
 }
 
-protocol Cancellable{
+protocol Cancellable {
     func cancel()
 }

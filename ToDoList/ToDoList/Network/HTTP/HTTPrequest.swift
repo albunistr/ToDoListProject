@@ -14,8 +14,7 @@ struct HTTPrequest {
     let queryItems: [(key: String, value: String?)]
     let method: HTTPrequest.Methods
     
-    init
-    (
+    init(
         route: String,
         headers: [String : String] = [:],
         body: Data? = nil,
@@ -39,4 +38,3 @@ extension HTTPrequest {
         case delete = "DELETE"
     }
 }
-

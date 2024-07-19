@@ -24,18 +24,19 @@ final class TodoListViewModel: ObservableObject {
     // MARK: - Internal
 
     func loadTodos() {
+        fileCache.loadTodos()
         items = fileCache.toDoItems
     }
 
     func removeItem(by id: String) {
-        fileCache.removeItem(withId: id)
+        fileCache.deleteItem(at: id) { _ in }
         loadTodos()
         DDLogVerbose("TodoListViewModel removed item")
     }
 
     func addNewOrUpdateItem(_ todoItem: TodoItem) {
-            fileCache.addNewOrUpdateItem(todoItem)
-            DDLogVerbose("TodoListViewModel updated item")
+        fileCache.addOrUpdateItem(item: todoItem) { _ in }
+        DDLogVerbose("TodoListViewModel updated item")
         loadTodos()
     }
 }

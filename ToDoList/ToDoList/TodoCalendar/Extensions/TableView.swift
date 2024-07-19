@@ -54,6 +54,7 @@ extension TodoCalendarViewController: UITableViewDelegate {
         let item = self.todocalendarViewModel.sections[indexPath.section].todos[indexPath.item]
         if !item.isCompleted {
             let completedAction = UIContextualAction(style: .normal, title: nil) { _, _, completionHandler in
+                self.todocalendarViewModel.completeButtonPressed(indexPath: indexPath)
                 self.todocalendarViewModel.didCompleted(todoItem: item)
                 completionHandler(true)
             }

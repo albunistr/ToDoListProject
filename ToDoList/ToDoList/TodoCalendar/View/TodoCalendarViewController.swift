@@ -54,10 +54,9 @@ class TodoCalendarViewController: UIViewController {
 
     // MARK: - Lifecycle
 
-    init
-        (
-            todoCalendarViewModel: TodoCalendarViewModel
-        ) {
+    init(
+        todoCalendarViewModel: TodoCalendarViewModel
+    ) {
         self.todocalendarViewModel = todoCalendarViewModel
         super.init(nibName: nil, bundle: nil)
     }
@@ -71,6 +70,10 @@ class TodoCalendarViewController: UIViewController {
         super.viewDidLoad()
         navigationItem.hidesBackButton = false
         setUpLayout()
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        todocalendarViewModel.fileCache.loadTodos()
     }
 }
 

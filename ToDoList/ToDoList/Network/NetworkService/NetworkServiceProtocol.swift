@@ -8,39 +8,36 @@
 import Foundation
 
 protocol NetworkServiceProtocol {
-    func getAllItems
-    (
+    func getAllItems(
         revision: Int,
         completion: @escaping (Result<TodoListRequest, Error>) -> Void
     )
-    
-    func getItem
-    (
+    func getItem(
         id: String,
-        completion: @escaping (Result<(TodoItem, Int32), Error>) -> Void
+        completion: @escaping (Result<TodoItemRequest, Error>) -> Void
     )
     
-    func updateAllItems
-    (
+    func updateAllItems(
+        revision: Int,
         items: [TodoItem],
-        completion: @escaping (Result<([TodoItem], Int32), Error>) -> Void
+        completion: @escaping (Result<TodoListRequest, Error>) -> Void
     )
     
-    func updateItem
-    (
+    func updateItem(
+        revision: Int,
+        _ item: TodoItem,
+        completion: @escaping (Result<TodoItemRequest, Error>) -> Void
+    )
+    
+    func addItem(
+        revision: Int,
         item: TodoItem,
-        completion: @escaping (Result<(TodoItem, Int32), Error>) -> Void
+        completion: @escaping (Result<TodoItemRequest, Error>) -> Void
     )
     
-    func addItem
-    (
-        item: TodoItem,
-        completion: @escaping (Result<(TodoItem, Int32), Error>) -> Void
-    )
-    
-    func deleteItem
-    (
-        id: String,
-        completion: @escaping (Result<(TodoItem, Int32), Error>) -> Void
+    func deleteItem(
+        revision: Int,
+        at id: String,
+        completion: @escaping (Result<TodoListRequest, Error>) -> Void
     )
 }

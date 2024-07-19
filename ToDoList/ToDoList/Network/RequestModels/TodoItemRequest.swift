@@ -12,12 +12,11 @@ struct TodoItemRequest: Codable {
     let todoItem: TodoItemDecoder
     let revision: Int
     
-    init
-    (
+    init(
         status: String = "ok",
         todoItem: TodoItemDecoder,
         revision: Int
-    ){
+    ) {
         self.status = status
         self.todoItem = todoItem
         self.revision = revision

@@ -10,13 +10,13 @@ import Foundation
 struct HTTPresponse {
     static func unicodeData(_ response: URLResponse, for data: Data, encodind: String.Encoding = .utf8) throws -> Data {
         guard let dataStr = String(data: data, encoding: .utf8) else {
-            throw HTTPresponse.Errors.failedDecodingData
+            throw HTTPresponseErrors.failedDecodingData
         }
         
         return Data(dataStr.utf8)
     }
     
-    static func handleResponse(for response: URLResponse) -> Result<Void, HTTPresponse.Errors> {
+    static func handleResponse(for response: URLResponse) -> Result<Void, HTTPresponseErrors> {
         guard let response = response as? HTTPURLResponse else {
             return .failure(.failedUnwrappingHTTPURLResponse)
         }
@@ -32,14 +32,3 @@ struct HTTPresponse {
     }
 }
 
-extension HTTPresponse {
-    enum Errors: Error {
-        case failedDecodingData
-        case failedUnwrappingHTTPURLResponse
-        case badRequest
-        case authorizationError
-        case notFound
-        case internalServerError
-        case unhandledError
-    }
-}

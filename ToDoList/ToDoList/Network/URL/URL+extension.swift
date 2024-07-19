@@ -9,9 +9,9 @@ import Foundation
 
 extension URLSession {
     func dataTask(with request: URLRequest) async throws -> (data: Data, urlResponse: URLResponse) {
-        return try await withCheckedThrowingContinuation  { continuation in
+        return try await withCheckedThrowingContinuation { continuation in
             let task = dataTask(with: request) { (data, response, error) in
-                if let error = error {
+                if let _ = error {
                     continuation.resume(throwing: Errors.failedMakingURL)
                 } else {
                     if let response = response {
@@ -36,7 +36,7 @@ extension URLSession {
 }
 
 extension URLSession {
-    enum Errors: LocalizedError {
+    enum Errors: Error {
         case failedMakingURL
         case wrongFormatOfData
         case wrongFormatOfResponse

@@ -20,17 +20,18 @@ final class TodoCalendarViewModel {
 
     // MARK: - Lifecycle
 
-    init
-        (
-            fileCache: FileCacheProtocol
-        ) {
+    init (
+        fileCache: FileCacheProtocol
+    ) {
         self.fileCache = fileCache
         loadTodos()
     }
 
     func loadTodos() {
-        let items = fileCache.toDoItems
         sections.removeAll()
+        
+        fileCache.loadTodos()
+        let items = fileCache.toDoItems
 
         let dateFormatter = DateFormatter()
         dateFormatter.locale = Locale(identifier: "ru_RU")
@@ -57,8 +58,8 @@ final class TodoCalendarViewModel {
     }
 
     func addNewOrUpdateItem(_ todoItem: TodoItem) {
-            fileCache.addNewOrUpdateItem(todoItem)
-            DDLogVerbose("TodoCalendarViewModel updated item")
+        fileCache.addOrUpdateItem(item: todoItem) { _ in }
+        DDLogVerbose("TodoCalendarViewModel updated item")
         loadTodos()
     }
     
@@ -74,8 +75,9 @@ final class TodoCalendarViewModel {
             color: todoItem.color,
             category: todoItem.category
         )
-        addNewOrUpdateItem(updatedItem)
+        fileCache.addOrUpdateItem(item: updatedItem) { _ in }
         DDLogVerbose("TodoCalendarViewModel changed to completed")
+        loadTodos()
     }
 
     func didUnCompleted(todoItem: TodoItem) {
@@ -90,8 +92,26 @@ final class TodoCalendarViewModel {
             color: todoItem.color,
             category: todoItem.category
         )
-        addNewOrUpdateItem(updatedItem)
+        fileCache.addOrUpdateItem(item: updatedItem) { _ in }
         DDLogVerbose("TodoCalendarViewModel changed to uncompleted")
+        loadTodos()
+    }
+    
+    func completeButtonPressed(indexPath: IndexPath?) {
+        guard let indexPath = indexPath else {
+            return
+        }
+        let item = sections[indexPath.section].todos[indexPath.row]
+        fileCache.addOrUpdateItem(item: TodoItem(
+            id: item.id,
+            text: item.text,
+            importance: item.importance,
+            deadline: item.deadline,
+            isCompleted: true,
+            createdAt: item.createdAt,
+            changedAt: Date()
+        )) { _ in }
+        loadTodos()
     }
 }
 
