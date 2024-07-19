@@ -174,6 +174,6 @@ struct NewTodoCell: View {
 
 struct TodoListViewPreview: PreviewProvider {
     static var previews: some View {
-        TodoListView(todoListViewModel: TodoListViewModel(fileCache: testingFileCache))
+        TodoListView(todoListViewModel: TodoListViewModel(fileCache: FileCache()))
     }
 }

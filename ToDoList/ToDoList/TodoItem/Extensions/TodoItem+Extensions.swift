@@ -112,6 +112,30 @@ extension TodoItem {
                 return 2
             }
         }
+        
+        static func fromNetworkValueToImportance(importance: Importance) -> String? {
+            switch importance {
+            case .unimportant:
+                return "low"
+            case .usual:
+                return "basic"
+            case .important:
+                return "important"
+            }
+        }
+        
+        static func fromImportanceToNetworkValue(importance: String) -> Importance? {
+            switch importance {
+            case "low":
+                return .unimportant
+            case "basic":
+                return .usual
+            case "important":
+                return .important
+            default:
+                return nil
+            }
+        }
     }
 
     enum CodingKeys {
