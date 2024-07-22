@@ -18,6 +18,7 @@ final class TodoListViewModel: ObservableObject {
 
     init(fileCache: FileCacheProtocol) {
         self.fileCache = fileCache
+        sleep(1)
         loadTodos()
     }
 
