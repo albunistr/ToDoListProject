@@ -1,6 +1,7 @@
 import Combine
 import Foundation
 import CocoaLumberjackSwift
+import SwiftData
 
 protocol FileCacheProtocol {
 
@@ -31,9 +32,19 @@ final class FileCache: FileCacheProtocol {
                 }
             }
         }
+    private var container: ModelContainer
+    private var context: ModelContext
     
     // MARK: - LifeCycle
     init() {
+        do {
+            container = try ModelContainer(for: TodoItemPersistent.self)
+            context = ModelContext(container)
+        }
+        catch {
+            fatalError("Failed to initialize FileCache with error: \(error)")
+        }
+        
         self.loadTodos()
     }
     
@@ -47,7 +58,10 @@ final class FileCache: FileCacheProtocol {
     }
 
     func removeItem(withId id: String) {
-        toDoItems.removeAll(where: { $0.id == id })
+        if let index = toDoItems.firstIndex(where: { $0.id == id }) {
+            let item = toDoItems.remove(at: index)
+            self.delete(TodoItemPersistent(todoItem: item))
+        }
     }
 
     func getItems() -> [TodoItem] {
@@ -60,8 +74,9 @@ final class FileCache: FileCacheProtocol {
             switch result {
             case .success(let data):
                 for item in data {
-                    self.addNewOrUpdateItem(item)
+                    self.insert(item)
                 }
+                self.toDoItems = self.fetch()
             case .failure:
                 return
             }
@@ -72,6 +87,7 @@ final class FileCache: FileCacheProtocol {
         if self.toDoItems.contains(where: { $0.id == item.id }) {
             DDLogVerbose("Updated item in filecache")
             self.updateItem(item: item) { _ in }
+            saveContext()
         } else {
             DDLogVerbose("Added item in filecache")
             self.addItem(item: item) { _ in }
@@ -95,7 +111,8 @@ final class FileCache: FileCacheProtocol {
 }
 
 private extension FileCache {
-    func getAllItems ( completion: @escaping (Result<[TodoItem], Error>) -> Void) {
+    
+    func getAllItems (completion: @escaping (Result<[TodoItem], Error>) -> Void) {
         networkService.getAllItems(revision: revision) { [weak self] result in
             switch result {
             case .success(let data):
@@ -174,6 +191,48 @@ private extension FileCache {
                 self?.isDirty = true
                 completion(.failure(error))
             }
+        }
+    }
+}
+
+private extension FileCache {
+    func insert(_ todoItem: TodoItem) {
+        let itemPersistent = TodoItemPersistent(todoItem: todoItem)
+        context.insert(itemPersistent)
+        saveContext()
+    }
+    
+    func fetch() -> [TodoItem] {
+        let request = FetchDescriptor<TodoItemPersistent>()
+        do {
+            let items = try context.fetch(request)
+            return items.map { $0.doTodoItem() }
+            
+        } catch {
+            print("Failed to fetch TodoItems with error: \(error)")
+            return []
+        }
+    }
+    
+    func delete(_ itemPersistent: TodoItemPersistent) {
+        guard let existingItem = try? context.fetch(FetchDescriptor<TodoItemPersistent>(
+            predicate: #Predicate { $0.id == itemPersistent.id })).first else {
+            print("Item not found for deletion")
+            return
+        }
+        context.delete(existingItem)
+        saveContext()
+    }
+
+    func update(_ todoItem: TodoItem) {
+        saveContext()
+    }
+    
+    func saveContext() {
+        do {
+            try context.save()
+        } catch {
+            fatalError("Failed to save context with error: \(error)")
         }
     }
 }
